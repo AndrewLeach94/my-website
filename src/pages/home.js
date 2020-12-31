@@ -1,9 +1,13 @@
 import * as React from "react"
-import styled from "styled-components"
+import { NavBar } from "../components/navBar"
+import { Hero } from "../components/hero"
 
 
 export const HomePage = () => {
     return(
-        <h1>I'm the home page</h1>
+        <div id="homePage">
+            <NavBar />
+            <Hero />
+        </div>
     )
-}
+};
