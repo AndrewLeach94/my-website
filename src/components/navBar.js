@@ -3,10 +3,13 @@ import styled from "styled-components"
 import { ThemeToggler } from "./atoms/theme-toggler";
 
 const NavBody = styled.nav`
+    position: fixed;
     display: flex;
     background: #434343;
     color: var(--on_primary);
     justify-content: flex-end;
+    width: 100vw;
+    z-index: 1000;
 
     ul {
         display: flex;

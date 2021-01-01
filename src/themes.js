@@ -37,6 +37,7 @@ export const GlobalStyles = createGlobalStyle `
     }
 
     body {
+        margin: 0;
         color: ${props => props.theme.fontColor};
         background-color: ${props => props.theme.body};
     }
@@ -56,6 +57,9 @@ export const GlobalStyles = createGlobalStyle `
         color: var(--on_primary);
         background-color: ${props => props.theme.buttonBackground};
         border: ${props => props.theme.buttonBorder};
+    }
+
+    button:hover {
         box-shadow: ${props => props.theme.buttonShadow};
     }
 `
