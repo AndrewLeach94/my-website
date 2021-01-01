@@ -3,18 +3,34 @@ import { createGlobalStyle } from "styled-components"
 // Dynamic theme elements are defined here
 
 export const defaultTheme = {
+    themeName: "default",
+
     body: "var(--surface_base-default)",
     fontColor: "var(--on_surface-light)",
+    
+    // button styles
     buttonBackground: "var(--primary_base-default)",
     buttonBorder: "solid 1px var(--primary_base-default)",
+
+    //homepage hero background
+    heroDarkMode: "0%",
+
+    test: "pink",
 };
 
 export const darkTheme = {
+    themeName: "dark",
+
     body: "#000",
     fontColor: "#fff",
     buttonBackground: "var(--primary_base-darkTheme)",
     buttonBorder: "dotted 1px #4f90ff",
     buttonShadow: "0 0 5px 0px #4f90ffd1",
+    
+    heroDarkMode: "100%",
+
+    test: "white",
+
 };
 
 // The global styles are defined here 
