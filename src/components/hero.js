@@ -1,7 +1,5 @@
 import * as React from "react"
 import styled from "styled-components"
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components'
 
 
 const HeroContainer = styled.section`
@@ -56,7 +54,7 @@ const BackgroundNight = styled.img`
     return (
         <HeroContainer>
             <h1>Hey, I'm Andrew</h1>
-            <p>I'm a web developer and multimedia designer</p>
+            <p>I'm a front-end web developer and multimedia designer</p>
             <ButtonContainer>
                 <button>View Projects</button>
                 <button>Get in Touch</button>

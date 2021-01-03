@@ -9,7 +9,7 @@ import { useState } from "react"
 export const defaultTheme = {
     themeName: "default",
 
-    body: "var(--surface_base-default)",
+    body: "#F3F3F3",
     fontColor: "var(--on_surface-light)",
     
     // button styles
@@ -43,7 +43,7 @@ export const darkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
       :root {
-        --surface_base-default: #F3F3F3;
+        --surface_base: ${props => props.theme.body};
         --primary_base-default: #B63232;
         --primary_base-darkTheme: #001F54;
         
