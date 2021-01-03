@@ -1,13 +1,13 @@
 import * as React from "react"
-import { NavBar } from "../components/navBar"
 import { Hero } from "../components/hero"
+import { Skills } from "../components/section_skills"
 
 
 export const HomePage = () => {
     return(
         <div id="homePage">
-            <NavBar />
             <Hero />
+            <Skills />
         </div>
     )
 };
