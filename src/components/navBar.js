@@ -1,6 +1,5 @@
 import * as React from "react"
 import styled from "styled-components"
-import { ThemeToggler } from "./atoms/theme-toggler";
 
 const NavBody = styled.nav`
     position: fixed;
@@ -24,7 +23,10 @@ const NavBody = styled.nav`
 `;
 
 
-export const NavBar = (props) => {
+export const NavBar = (props) => {  
+
+    const { changeTheme } = props;
+
     return(
         <NavBody>
             <ul>
@@ -41,7 +43,7 @@ export const NavBar = (props) => {
                     <li>Contact</li>
                 </a>
             </ul>
-            <ThemeToggler />
+            <button onClick={() => changeTheme()}>Change Theme</button>
         </NavBody>
     )
 }

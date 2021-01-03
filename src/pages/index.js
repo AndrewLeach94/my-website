@@ -1,16 +1,19 @@
 import * as React from "react"
 import { HomePage } from "./home"
-import {defaultTheme, darkTheme, GlobalStyles } from "../themes"
-import { ThemeProvider } from "styled-components"
+import Layout from "../components/layout"
 
 
-const IndexPage = () => {
 
+
+
+const IndexPage = (props) => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <GlobalStyles />
-      <HomePage />
-    </ThemeProvider>
+    <div id="App">
+      {/* the layout component contains all the global CSS and theme functionality*/}
+      <Layout >
+        <HomePage />
+      </Layout>
+    </div>
   )
 }
 

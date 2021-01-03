@@ -10,7 +10,7 @@ const HeroContainer = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f5f5f580;
+    background-color: ${props => props.theme.heroBackgroundColor};
     background-image: ${props => props.theme.heroBackground};
 
     p {
@@ -43,7 +43,7 @@ const BackgroundVideo = styled.video`
 `
 
 const BackgroundNight = styled.img`
-    opacity: ${props => props.theme.heroDarkMode};
+    opacity: ${props => props.theme.heroNightImageOpacity};
     position: fixed;
     object-fit: cover;
     width: 100vw;
@@ -51,24 +51,12 @@ const BackgroundNight = styled.img`
     z-index: -50;
 `
 
-const Test = styled.h3`
-    color: ${props => props.theme.test};
-
-`
-
-
  export const Hero = (props) => {
-     const themeContext = useContext(ThemeContext);
-     console.log("Current theme: ", themeContext.themeName)
-
-     const theme = themeContext.themeName;
-
-
 
     return (
         <HeroContainer>
             <h1>Hey, I'm Andrew</h1>
-            <p>I'm a web developer, UI designer, and multimedia producer</p>
+            <p>I'm a web developer and multimedia designer</p>
             <ButtonContainer>
                 <button>View Projects</button>
                 <button>Get in Touch</button>
@@ -78,9 +66,6 @@ const Test = styled.h3`
                 <source src={require("./../videos/seattle-animated.webm")}
                         type="video/webm"></source>
             </BackgroundVideo>
-
-            <Test>{theme}</Test>
-
         </HeroContainer>
     )
 }
