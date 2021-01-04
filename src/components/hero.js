@@ -13,6 +13,11 @@ const HeroContainer = styled.section`
 
     p {
         font-size: 1.7rem;
+        text-align: center;
+
+        @media (max-width: 500px) {
+            font-size: 1.3rem;
+        }
     }
     
 
@@ -23,8 +28,16 @@ const ButtonContainer = styled.div`
     display: flex;
     justify-content: space-around;
 
+    @media (max-width: 500px) {
+        flex-flow: column;
+    }
+
     button {
         margin: 0 30px;
+
+        @media (max-width: 500px) {
+            margin: 30px 0;
+        }
     }
 
 `
