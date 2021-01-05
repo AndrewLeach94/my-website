@@ -56,6 +56,10 @@ const SkillContainer = styled.div`
 
     svg {
         font-size: 4.2rem;
+        /* background: var(--primary_base);
+        color: var(--on_primary);
+        padding: 20px;
+        border-radius: 20px; */
     }
 
     //this targets the lottie animation container
