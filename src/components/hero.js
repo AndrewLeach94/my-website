@@ -72,8 +72,8 @@ const BackgroundNight = styled.img`
                 <button>View Projects</button>
                 <button>Get in Touch</button>
             </ButtonContainer>
-            <BackgroundNight src={require("./../images/seattle-night.webp")}></BackgroundNight>
-            <BackgroundVideo autoPlay muted loop poster={require("./../images/seattle-day.webp")}>
+            <BackgroundNight src={require("./../images/placeholders/seattle-night.webp")}></BackgroundNight>
+            <BackgroundVideo autoPlay muted loop poster={require("./../images/placeholders/seattle-day.webp")}>
                 <source src={require("./../videos/seattle-animated.webm")}
                         type="video/webm"></source>
             </BackgroundVideo>

@@ -23,6 +23,9 @@ export const defaultTheme = {
     heroNightImageOpacity: "0%",
     heroBackgroundColor: "#f5f5f580",
 
+    //homepage case study background overlay
+    caseStudyVideoOverlay: "linear-gradient(144deg,rgba(182,50,50,0.3) 0%,rgba(243,243,243,0.85) 50%)",
+
 };
 
 export const darkTheme = {
@@ -41,6 +44,10 @@ export const darkTheme = {
     //home page hero background
     heroNightImageOpacity: "100%",
     heroBackgroundColor: "#0000009e",
+
+    //homepage case study background overlay
+    caseStudyVideoOverlay: "linear-gradient(144deg,rgba(64, 20, 199, 0.65) 0%,rgba(0, 0, 0, 0.90) 70%)",
+
 };
 
 
