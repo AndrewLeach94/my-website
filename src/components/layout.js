@@ -24,7 +24,7 @@ export const defaultTheme = {
     heroBackgroundColor: "#f5f5f580",
 
     //homepage case study background overlay
-    caseStudyVideoOverlay: "linear-gradient(144deg,rgba(182,50,50,0.3) 0%,rgba(243,243,243,0.85) 50%)",
+    caseStudyVideoOverlay: "linear-gradient(144deg,rgba(182,50,50,0.84) 0%,rgba(243,243,243,0.85) 50%)",
 
 };
 
@@ -99,7 +99,6 @@ export const GlobalStyles = createGlobalStyle`
     p {
       @media (max-width: 500px) {
           font-size: 1rem;
-          text-align: center;
         }
 
     }

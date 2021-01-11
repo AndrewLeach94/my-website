@@ -8,9 +8,10 @@ const CaseStudyContainer = styled.section`
     display: grid;
     grid-template-columns: 2fr 1fr;
     height: 100vh;
-    padding: 0 60px;
+    padding: 60px 60px;
 
     background: ${props => props.theme.caseStudyVideoOverlay}; //video overlay
+
 
 
     video {
@@ -24,11 +25,43 @@ const CaseStudyContainer = styled.section`
     }
 
     button {
+        margin-top: 20px;
         max-width: 40%;
     }
 
-    :hover {
+    h3 {
+        font-size: 1.7rem;
     }
+
+    p {
+        font-size: 1.3rem;
+    }
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr;
+        row-gap: 60px;
+        height: auto;
+    }
+
+    @media (max-width: 500px) {
+
+        padding: 60px 30px;
+
+        p {
+            font-size: 1rem;
+        }
+
+        h3 {
+            font-size: 1.3rem
+        }
+
+        button {
+            margin-top: 30px;
+        }
+
+    }
+
 
 `
 
@@ -37,6 +70,14 @@ const HeadingColumn = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     padding-bottom: 80px;
+
+    @media (max-width: 900px) {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        grid-row: 1;
+        padding: 0;
+    }
 `
 
 const FeatureColumn = styled.div`
@@ -52,18 +93,22 @@ const DetailWrapper = styled.div`
     margin: 25px 0;
 
     h3 {
-        font-size: 1.7rem;
         grid-row: 1;
         grid-column: 2;
     }
 
     p {
-        font-size: 1.3rem;
         max-width: 75%;
         grid-column: 2;
         grid-row: 2;
     }
 
+    @media (max-width: 900px) {
+        p {
+            max-width: none;
+        }
+        
+    }
 
 `
 
@@ -74,13 +119,6 @@ const Bullet = styled.div`
     margin-right: 20px;
     align-self: center;
 `
-
-const Background = styled.div`
-
-    background-color: black;
-
-`
-
 
 export const CaseStudyPromo = (props) => {
     return(
@@ -102,7 +140,32 @@ export const CaseStudyPromo = (props) => {
                     </DetailWrapper>
                 </FeatureColumn>
                 <video loop autoPlay muted poster={require("./../images/placeholders/torsh-design-system.webp")}>
-                    <source src={require("./../videos/TORSH-Design-System-Promo.webm")} type="video/webm"></source>
+                    <source src={props.source} type="video/webm"></source>
+                </video>
+            </CaseStudyContainer>
+    )
+}
+export const CaseStudyPromoAlt = (props) => {
+    return(
+            <CaseStudyContainer id={"case-study-" + props.caseStudyId}>
+                <FeatureColumn>
+                    <DetailWrapper>
+                        <Bullet></Bullet>
+                        <h3>{props.featureHeader1}</h3>
+                        <p>{props.featureDetails1}</p>
+                    </DetailWrapper>
+                    <DetailWrapper>
+                        <Bullet></Bullet>
+                        <h3>{props.featureHeader2}</h3>
+                        <p>{props.featureDetails2}</p> 
+                    </DetailWrapper>
+                </FeatureColumn>
+                <HeadingColumn>
+                    <h2>{props.title}</h2>
+                    <button>{props.ctaMessage}</button>
+                </HeadingColumn>
+                <video loop autoPlay muted poster={props.poster}>
+                    <source src={props.source} type="video/webm"></source>
                 </video>
             </CaseStudyContainer>
     )
