@@ -58,6 +58,7 @@ const CaseStudyContainer = styled.section`
 
         button {
             margin-top: 30px;
+            max-width: none;
         }
 
     }

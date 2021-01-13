@@ -8,7 +8,7 @@ import { AnimatedLogo } from "./animations/animated-logo";
 
 const SkillsParent = styled.section`
     background-color: var(--surface_base);
-    padding: 100px 10%;
+    padding: 160px 10%;
 
     h2 {
         margin: 0;
@@ -17,11 +17,15 @@ const SkillsParent = styled.section`
     p {
         margin: 0;
         font-size: 1.7rem;
-
-        @media (max-width: 500px) {
-            font-size: 1.3rem;
-        }
     }
+
+    @media (max-width: 500px) {
+        text-align: center;
+            p {
+                font-size: 1.3rem;
+            }
+        }
+
 `
 
 const SkillGrid = styled.div`

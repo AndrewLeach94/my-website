@@ -1,7 +1,10 @@
 import * as React from "react"
 import { Hero } from "../components/hero"
 import { Skills } from "../components/section_skills"
+import { Bio } from "../components/section_bio"
 import { CaseStudyPromo, CaseStudyPromoAlt } from "../components/section_case-study-preview"
+import { RecordCollection } from "../components/record-collection"
+
 import designSystemPromo from "./../videos/TORSH-Design-System-Promo.webm"
 import designSystemPromoPlaceholder from "./../images/placeholders/torsh-design-system.webp"
 import CVPromo from "./../videos/cv-builder.webm"
@@ -57,7 +60,8 @@ export const HomePage = () => {
                 source={weatherNowPromo}
                 poster={weatherNowPromoPlaceholder}
             />
-
+            <Bio />
+            <RecordCollection />
         </div>
     )
 };
