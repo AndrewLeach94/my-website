@@ -7,12 +7,18 @@ const HeroContainer = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     background-color: ${props => props.theme.heroBackgroundColor};
     background-image: ${props => props.theme.heroBackground};
 
     p {
         font-size: 1.7rem;
+        text-align: center;
+
+        @media (max-width: 500px) {
+            font-size: 1.3rem;
+        }
     }
     
 
@@ -23,8 +29,16 @@ const ButtonContainer = styled.div`
     display: flex;
     justify-content: space-around;
 
+    @media (max-width: 500px) {
+        flex-flow: column;
+    }
+
     button {
         margin: 0 30px;
+
+        @media (max-width: 500px) {
+            margin: 30px 0;
+        }
     }
 
 `
@@ -59,8 +73,8 @@ const BackgroundNight = styled.img`
                 <button>View Projects</button>
                 <button>Get in Touch</button>
             </ButtonContainer>
-            <BackgroundNight src={require("./../images/seattle-night.webp")}></BackgroundNight>
-            <BackgroundVideo autoPlay muted loop poster={require("./../images/seattle-day.webp")}>
+            <BackgroundNight src={require("./../images/placeholders/seattle-night.webp")}></BackgroundNight>
+            <BackgroundVideo autoPlay muted loop poster={require("./../images/placeholders/seattle-day.webp")}>
                 <source src={require("./../videos/seattle-animated.webm")}
                         type="video/webm"></source>
             </BackgroundVideo>
