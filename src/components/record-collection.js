@@ -1,68 +1,149 @@
 import * as React from "react"
-import { useState, useEffect } from 'react';
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 const CollectionParent = styled.section`
     position: relative;
-    height: 600px;
     background-color: var(--surface_base);
     margin-bottom: 600px;
     overflow: hidden;
+    padding: 0;
 
+    h3 {
+        padding-left: 60px;
+        position: absolute;
+        background-color: var(--surface_base);
+        z-index: 2;
+        padding: 8px 20px;
+        font-size: 1.7rem;
+        bottom: 0;
+        opacity: 85%;
+        backdrop-filter: blur(10px); //there is a bug in chrome desktop at time of writing where nested filters like this don't work
+        border-top-right-radius: 8px;
+
+        @media (max-width: 900px) {
+            font-size: 1.3rem;
+        }
+    }
+
+
+    ::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 10%;
+        background: linear-gradient(90deg, var(--surface_base) 0%, #0000 100%);
+        z-index: 1;
+    }
+
+    ::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 10%;
+        background: linear-gradient(-90deg, var(--surface_base) 0%, #0000 100%);
+        z-index: 1;
+    }
+
+    @media (max-width: 600px) {
+        display: none;
+    }
+`
+
+const scrollWideScreen = keyframes`
+    from {
+        transform: translateX(0)
+    }
+
+    to {
+        /* we're saying "scroll until the end of the image container hits the left of the screen"
+        First equation must match the image width...then multiplied by the number of images */
+        transform: translateX(calc((-100vw / 4) * 8)); 
+    }
 
 `
 
 const CollectionContainer = styled.div`
-    position: absolute;
-    left: 0;
     display: flex;
     flex-flow: row nowrap;
+    animation: ${scrollWideScreen} 25s linear infinite;
+    height: calc(100vw / 4); //height needs to be identical to the image width
 
     img {
-        height: 600px;
-    }
+        opacity: 70%;
+        width: calc(100vw / 4); // I want 4 images to evenly fill the whole screen
+        height: calc(100vw / 4); // height needs to be identical to the calculated width
+        transition: 0.4s;
 
+        :hover {
+            transform: scale(0.95) rotate(2deg);
+            opacity: 100%;
+            box-shadow: 4px 3px 10px 0px #000000a3;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+    }
 `
+
 
 export const RecordCollection = (props) => {
 
-    const collectionContainer = document.querySelector("#record-collection-container");
-
-    const [pressed, setPressed] = useState(false);
-    const [cursorStyle, setCursorStyle] = useState("none");
-    const [coordinates, setCoordinates] = useState("");
-
-    const handlePressedStatus = (e) => {
-        setPressed(!pressed);
-        setCoordinates(e.nativeEvent.offsetX - collectionContainer.offsetLeft)
-        console.log(coordinates);
-    }
-
-
-    const triggerGrabCursor = () => {
-        setCursorStyle("grab");
-    }
-
-    const triggerGrabbingCursor = (e) => {
-        setCursorStyle("grabbing");
-        e.preventDefault(); // prevents all the nastiness that comes with holding a mouse click
-    };
-
-
-
-    useEffect(() => {
-    })
-
-
     return(
-        <CollectionParent onMouseDown={handlePressedStatus} onMouseOver={triggerGrabCursor} style={{cursor: cursorStyle}}
-        >
-            <CollectionContainer id="record-collection-container" onMouseDown={triggerGrabbingCursor} onMouseUp={triggerGrabCursor}>
-                <img src={require("./../images/dookie.webp")} alt="dookie album cover"/>
-                <img src={require("./../images/ill-communication.webp")} alt="ill-communication album cover"/>
-                <img src={require("./../images/london-calling.webp")} alt="london-calling album cover"/>
-                <img src={require("./../images/war.webp")} alt="u2 album cover"/>
-                <img src={require("./../images/definitely-maybe.webp")} alt="oasis album cover"/>
+        <CollectionParent >
+            <h3>A peek at my record collection</h3>
+            <CollectionContainer >
+                {/* Remember to adjust the animation equation when adding or removing albums*/}
+                <a href="https://www.youtube.com/watch?v=OR7R9Kuw2fY" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/dookie.webp")} alt="dookie album cover"/>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=JhqyZeUlE8U" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/ill-communication.webp")} alt="ill-communication album cover"/>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=eNot47WRBFk" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/london-calling.webp")} alt="london-calling album cover"/>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=jeYCyCaK_5k" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/war.webp")} alt="u2 album cover"/>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=pbIRQR6FkhU" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/definitely-maybe.webp")} alt="oasis album cover"/>
+                </a>
+                
+                <a href="https://www.youtube.com/watch?v=8RFTB5vgV_4" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/blue-album.webp")} alt="weezer album cover"/>
+                </a>
+                
+                <a href="https://www.youtube.com/watch?v=HtUH9z_Oey8" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/sgt-pepper.webp")} alt="Sgt. Pepper album cover"/>
+                </a>
+                                
+                <a href="https://www.youtube.com/watch?v=wYYQpTbBSBM" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/1975.webp")} alt="the 1975 album cover"/>
+                </a>
+
+
+
+                {/* These are the "loop illusion" elements. Their purpose is only to fill the space between the end of the loop before it resets */}
+                <a href="https://www.youtube.com/watch?v=OR7R9Kuw2fY" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/dookie.webp")} alt="dookie album cover"/>
+                </a>
+                <a href="https://www.youtube.com/watch?v=JhqyZeUlE8U" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/ill-communication.webp")} alt="ill-communication album cover"/>
+                </a>
+                <a href="https://www.youtube.com/watch?v=eNot47WRBFk" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/london-calling.webp")} alt="london-calling album cover"/>
+                </a>
+                <a href="https://www.youtube.com/watch?v=jeYCyCaK_5k" target="_blank" rel="noreferrer noopener">
+                    <img src={require("./../images/albums/war.webp")} alt="u2 album cover"/>
+                </a>
+
             </CollectionContainer>
         </CollectionParent>
     )
