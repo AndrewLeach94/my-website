@@ -8,7 +8,7 @@ import { AnimatedLogo } from "./animations/animated-logo";
 
 const SkillsParent = styled.section`
     background-color: var(--surface_base);
-    padding: 160px 10%;
+    padding: 180px 10%;
 
     h2 {
         margin: 0;

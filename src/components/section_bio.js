@@ -8,10 +8,11 @@ const BioParent = styled.section`
     align-items: center;
     justify-content: center;
     background-color: var(--surface_base);
-    padding: 120px 60px;
+    padding: 180px 60px;
 
     p {
         width: 50%;
+        font-size: 1.3rem;
     }
 
     h2 {
@@ -24,7 +25,7 @@ const BioParent = styled.section`
         position: absolute;
         width: 300px;
         right: 10%;
-        bottom: 60px;
+        bottom: 120px;
         filter: saturate(0%);
         opacity: 70%;
 
@@ -59,6 +60,7 @@ const BioParent = styled.section`
 
         p {
             padding-top: 30px;
+            font-size: 1rem;
         }
     }
 `

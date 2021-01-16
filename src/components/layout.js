@@ -2,6 +2,8 @@ import React from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { NavBar } from "./navBar"
 import { useState } from "react"
+import "fontsource-barlow"
+import "fontsource-trocchi"
 
 
 // Dynamic theme elements are defined here
@@ -9,7 +11,9 @@ import { useState } from "react"
 export const defaultTheme = {
     themeName: "default",
 
-    body: "#F3F3F3",
+    surfaceLighter: "#FFF",
+    surfaceBase: "#F3F3F3",
+
     fontColor: "#121212",
 
     primaryColor: "#B63232",
@@ -31,7 +35,8 @@ export const defaultTheme = {
 export const darkTheme = {
     themeName: "dark",
 
-    body: "#121212", //recomended by Material Design
+    surfaceLighter: "#1c1b1bb8",
+    surfaceBase: "#121212", //recomended by Material Design
     fontColor: "#f3f3f3",
 
     primaryColor: "#3f00ff",
@@ -55,7 +60,9 @@ export const darkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
       :root {
-        --surface_base: ${props => props.theme.body};
+        --surface_lighter: ${props => props.theme.surfaceLighter};
+        --surface_base: ${props => props.theme.surfaceBase};
+        
         --primary_base: ${props => props.theme.primaryColor};
         
         --on_primary: #F3F3F3;
@@ -65,13 +72,13 @@ export const GlobalStyles = createGlobalStyle`
     html {
         font-size: 16px;
         line-height: 1.5;
-        font-family: 'Courier Prime', monospace;
+        font-family: 'Barlow', sans-serif;
     }
 
     body {
         margin: 0;
         color: ${props => props.theme.fontColor};
-        background-color: ${props => props.theme.body};
+        background-color: var(----surface_base);
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -79,7 +86,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     h1 {
-        font-size: 5.61rem;
+      font-family: 'Trocchi', sans-serif;
+      font-size: 5.61rem;
         
         @media (max-width: 500px) {
           font-size: 3.1rem;
@@ -89,6 +97,7 @@ export const GlobalStyles = createGlobalStyle`
 
     h2 {
         font-size: 4.21rem;
+        font-family: 'Trocchi', sans-serif;
 
         @media (max-width: 500px) {
           font-size: 3.1rem;
@@ -97,16 +106,12 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     p {
-      @media (max-width: 500px) {
-          font-size: 1rem;
-        }
-
+        font-size: 1rem;
     }
 
     button {
         min-width: 100px;
         font-size: 1rem;
-        font-family: 'Courier Prime', monospace;
         padding: 15px 20px;
         color: var(--on_primary);
         background-color: ${props => props.theme.buttonBackground};
