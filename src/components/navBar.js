@@ -51,31 +51,6 @@ const NavBar = styled.nav`
 
     `;
 
-    const visibleMenu = {
-        justifyContent: "center",
-        fontSize: "1rem",
-        flexFlow: "column nowrap",
-        backgroundColor: "var(--primary_base)",
-        width: "50vw",
-        height: "100vh",
-        position: "absolute",
-        left: "0",
-    
-        // ul {
-        //     flex-flow: column nowrap;
-        //     margin: 0;
-        // }
-    
-        // li {
-        //     margin: 20px 0;
-        // }    
-    }
-
-    const hiddenMenu = {
-        backgroundColor: "pink",
-    }
-
-
 export const Navigation = (props) => {  
 
     const { changeTheme } = props;
