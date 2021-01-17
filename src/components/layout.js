@@ -1,6 +1,6 @@
 import React from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
-import { NavBar } from "./navBar"
+import { Navigation } from "./navBar"
 import { useState } from "react"
 import "fontsource-barlow"
 import "fontsource-trocchi"
@@ -143,7 +143,7 @@ export default function Layout({ children }) {
     <React.Fragment>
       <ThemeProvider theme={theme === "default" ? defaultTheme : darkTheme}>
       <GlobalStyles />
-        <NavBar changeTheme={swapTheme}/>
+        <Navigation changeTheme={swapTheme}/>
         {children}
       </ThemeProvider>
     </React.Fragment>

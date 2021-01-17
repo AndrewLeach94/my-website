@@ -1,7 +1,9 @@
 import * as React from "react"
+import { useState } from "react"
 import styled from "styled-components"
+import { FaBars } from 'react-icons/fa' 
 
-const NavBody = styled.nav`
+const NavBar = styled.nav`
     position: fixed;
     display: flex;
     background: #434343;
@@ -20,30 +22,80 @@ const NavBody = styled.nav`
 
     }
 
-`;
+    @media (max-width: 1000px) {
+        justify-content: center;
+        font-size: 1rem;
+    }
+
+    @media (max-width: 720px) {
+        justify-content: center;
+        font-size: 1rem;
+        flex-flow: column nowrap;
+        background-color: var(--primary_base);
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        text-align: center;
+
+        ul {
+            flex-flow: column nowrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 20px 0;
+        }
+
+        }
+
+    `;
+
+    const visibleMenu = {
+        justifyContent: "center",
+        fontSize: "1rem",
+        flexFlow: "column nowrap",
+        backgroundColor: "var(--primary_base)",
+        width: "50vw",
+        height: "100vh",
+        position: "absolute",
+        left: "0",
+    
+        // ul {
+        //     flex-flow: column nowrap;
+        //     margin: 0;
+        // }
+    
+        // li {
+        //     margin: 20px 0;
+        // }    
+    }
+
+    const hiddenMenu = {
+        backgroundColor: "pink",
+    }
 
 
-export const NavBar = (props) => {  
+export const Navigation = (props) => {  
 
     const { changeTheme } = props;
 
+    const [displayMobileMenu, setDisplayMobileMenu] = useState(false);
+    
+
     return(
-        <NavBody>
-            <ul>
-                <a>
+        <header>
+            <FaBars onClick={() => setDisplayMobileMenu(!displayMobileMenu)} />
+            <NavBar >
+                <ul>
                     <li>Home</li>
-                </a>
-                <a>
                     <li>Projects</li>
-                </a>
-                <a>
                     <li>About</li>
-                </a>
-                <a>
                     <li>Contact</li>
-                </a>
-            </ul>
-            <button onClick={() => changeTheme()}>Change Theme</button>
-        </NavBody>
+                    <li>Blog</li>
+                </ul>
+                <button onClick={() => changeTheme()}>Change Theme</button>
+            </NavBar>
+        </header>
     )
 }
