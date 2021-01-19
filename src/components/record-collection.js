@@ -4,7 +4,6 @@ import styled, { keyframes } from "styled-components"
 const CollectionParent = styled.section`
     position: relative;
     background-color: var(--surface_base);
-    margin-bottom: 600px;
     overflow: hidden;
     padding: 0;
 
@@ -76,6 +75,7 @@ const CollectionContainer = styled.div`
         width: calc(100vw / 4); // I want 4 images to evenly fill the whole screen
         height: calc(100vw / 4); // height needs to be identical to the calculated width
         transition: 0.4s;
+        filter: saturate(0%);
 
         :hover {
             transform: scale(0.95) rotate(2deg);
@@ -83,6 +83,8 @@ const CollectionContainer = styled.div`
             box-shadow: 4px 3px 10px 0px #000000a3;
             cursor: pointer;
             transition: 0.4s;
+            filter: saturate(100%);
+
         }
 
     }

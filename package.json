@@ -23,6 +23,8 @@
     "@lottiefiles/lottie-player": "^0.5.1",
     "@react-icons/all-files": "^4.1.0",
     "babel-plugin-styled-components": "^1.12.0",
+    "fontsource-barlow": "^4.0.0",
+    "fontsource-trocchi": "^4.0.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-react-helmet": "^3.7.0",
@@ -31,11 +33,13 @@
     "gatsby-plugin-styled-components": "^3.7.0",
     "gatsby-source-filesystem": "^2.8.1",
     "gatsby-transformer-sharp": "^2.9.0",
+    "lodash.debounce": "^4.0.8",
     "lottie-web": "^5.7.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
+    "react-spring": "^8.0.27",
     "styled-components": "^5.2.1"
   }
 }
