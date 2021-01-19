@@ -67,11 +67,11 @@ const BioParent = styled.section`
 
 
 export const Bio = (props) => {
-    //fetch instagram feed
+    //fetch instagram feed will go here
 
     
     return(
-        <BioParent>
+        <BioParent id="about">
         <h2>
             Who Am I <br></br>Anyway?
         </h2>

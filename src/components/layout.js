@@ -77,7 +77,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         margin: 0;
-        color: ${props => props.theme.fontColor};
+        color: var(--on_surface);
         background-color: var(----surface_base);
     }
 
