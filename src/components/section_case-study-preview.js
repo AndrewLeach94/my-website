@@ -24,7 +24,7 @@ const CaseStudyContainer = styled.section`
         z-index: -1;
     }
 
-    button {
+    a {
         margin-top: 20px;
         max-width: 40%;
     }
@@ -56,7 +56,7 @@ const CaseStudyContainer = styled.section`
             font-size: 1.3rem
         }
 
-        button {
+        a {
             margin-top: 30px;
             max-width: none;
         }
@@ -126,7 +126,7 @@ export const CaseStudyPromo = (props) => {
             <CaseStudyContainer id={"case-study-" + props.caseStudyId}>
                 <HeadingColumn>
                     <h2>{props.title}</h2>
-                    <button>{props.ctaMessage}</button>
+                    <a href={props.URL} target="_blank" rel="noreferrer" className="button_primary">{props.ctaMessage}</a>
                 </HeadingColumn>
                 <FeatureColumn>
                     <DetailWrapper>
@@ -163,7 +163,7 @@ export const CaseStudyPromoAlt = (props) => {
                 </FeatureColumn>
                 <HeadingColumn>
                     <h2>{props.title}</h2>
-                    <button>{props.ctaMessage}</button>
+                    <a href={props.URL} className="button_primary" target="_blank" rel="noreferrer">{props.ctaMessage}</a>
                 </HeadingColumn>
                 <video loop autoPlay muted poster={props.poster}>
                     <source src={props.source} type="video/webm"></source>

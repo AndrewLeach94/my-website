@@ -78,7 +78,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         color: var(--on_surface);
-        background-color: var(----surface_base);
+        background-color: var(--surface_base);
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -122,6 +122,24 @@ export const GlobalStyles = createGlobalStyle`
     button:hover {
         box-shadow: ${props => props.theme.buttonShadow};
     }
+
+    .button_primary {
+        text-decoration: none;
+        text-align: center;
+        min-width: 100px;
+        font-size: 1rem;
+        padding: 15px 20px;
+        color: var(--on_primary);
+        background-color: ${props => props.theme.buttonBackground};
+        border: ${props => props.theme.buttonBorder};
+        border-radius: 3px;
+    }
+
+    .button_primary:hover {
+        box-shadow: ${props => props.theme.buttonShadow};
+    }
+
+
 
     section {
       padding: 0 20px;

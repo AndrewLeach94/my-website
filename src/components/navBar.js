@@ -4,6 +4,11 @@ import styled from "styled-components"
 import {useTransition, animated} from 'react-spring'
 import debounce from 'lodash.debounce';
 
+const Header = styled.header`
+    position: absolute;
+    top: 0;
+`
+
 
 const NavBar = styled.nav`
     position: fixed;
@@ -188,9 +193,9 @@ export const Navigation = (props) => {
     
 
     return(
-        <header>
+        <Header>
             <OpenMenuContainer >
-                <input id="open-menu" type="checkbox" onChange={handleCheckbox} checked={checkboxActive} ></input>
+                <input id="open-menu" type="checkbox" onChange={handleCheckbox} checked={checkboxActive} aria-label="Open/Close Navigation"></input>
                 <label htmlFor="open-menu"><div></div></label>
             </OpenMenuContainer>
 
@@ -212,6 +217,6 @@ export const Navigation = (props) => {
                     </animated.div>
             )
         }
-        </header>
+        </Header>
     )
 }
