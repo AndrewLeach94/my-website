@@ -15,23 +15,15 @@ const NavBar = styled.nav`
     z-index: 1000;
 
     ul {
-        display: table;
-        margin: 0;
+        display: flex;
+        justify-content: space-evenly;
     }
 
     li {
-        display: table-cell;
         padding: 0 30px;
         list-style: none;
         color: var(--on_primary);
-        height: 56px;
-        vertical-align: middle;
-        transition: 0.2s;
 
-        :hover {
-            background-color: #2b2b2b;
-            transition: 0.2s;
-        }
     }
 
     a {
@@ -142,6 +134,7 @@ export const Navigation = (props) => {
     const { changeTheme } = props;
 
     const [showMenu, setShowMenu] = useState(false);
+    const [checkboxActive, setCheckboxActive] = useState(false);
     
     const transitions = useTransition(showMenu, null, {
         from: { opacity: 0, transform: "translateY(-500px)"  },
@@ -169,9 +162,15 @@ export const Navigation = (props) => {
         }
     }
 
+    const handleCheckbox = () => {
+        setShowMenu(!showMenu);
+        setCheckboxActive(!checkboxActive);
+    }
+
     const handleMobileLinkClick = () => {
         if (window.innerWidth <= 720) {
             setShowMenu(false);
+            setCheckboxActive(false);
         }
     }
     
@@ -191,7 +190,7 @@ export const Navigation = (props) => {
     return(
         <header>
             <OpenMenuContainer >
-                <input id="open-menu" type="checkbox" onChange={() => setShowMenu(!showMenu)}></input>
+                <input id="open-menu" type="checkbox" onChange={handleCheckbox} checked={checkboxActive} ></input>
                 <label htmlFor="open-menu"><div></div></label>
             </OpenMenuContainer>
 
