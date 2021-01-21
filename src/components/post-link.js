@@ -3,41 +3,71 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const PostParent = styled.div`
-    margin-bottom: 30px;
+    position: relative;
     color: var(--on_surface);
+    padding-bottom: 2.75rem;
+    border-bottom: solid 1px #0000001a;
+    margin-bottom: 2.75rem;
 
-    :hover {
-      color: var(--primary_base);
+    h2 {
+      font-size: 2.3rem;
+      font-weight: 400;
+      max-width: 75%;
+      font-family: 'Trocchi',sans-serif;
+      margin-bottom: 0.25rem;
+
+    }
+
+    .post_list-date {
+      font-size: 8rem;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+
+    }
+
+    .post_list-category {
+      font-size: 1rem;
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background-color: var(--primary_base);
+      color: var(--on_primary);
+      border-radius: 50px;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .post_list-excerpt {
+      margin-bottom: 1.75rem;
+      font-size: 1rem;
+      text-align: left;
     }
 
 
-`
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-const TitleContainer = styled.div`
-    font-size: 2.3rem;
-    font-weight: 700;
 
-    
-`
 
-const DateContainer = styled.div`
-    font-size: 1rem;
+  :last-child {
+    border-bottom: none;
+    margin-bottom: 0;
 
+  }
 `
 
 const PostLink = ({ post }) => (
-  <div>
-    <Link to={post.frontmatter.slug}>
-      <PostParent>
-        <TitleContainer>
-          {post.frontmatter.title} 
-        </TitleContainer>
-        <DateContainer>
-          {post.frontmatter.date}
-        </DateContainer>
-      </PostParent>
+  <PostParent>
+      <Link to={post.frontmatter.slug}>
+          <h2>{post.frontmatter.title}</h2>
+          <p className="post_list-date">{post.frontmatter.date}</p>
+          <p className="post_list-category">{post.frontmatter.category}</p>
+          <p className="post_list-excerpt">{post.excerpt}</p>
+        <a className="button_secondary">Read More</a>
     </Link>
-  </div>
+  </PostParent>
 )
 
 export default PostLink

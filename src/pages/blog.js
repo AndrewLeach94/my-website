@@ -4,15 +4,26 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 
 const BlogParent = styled.div`
-    margin: 120px 60px;
-    background-color: var(--surface_lighter);
-    max-width: max-content;
-    padding: 10px 20px;
-
-    a {
-      text-decoration: none;
+    h1 {
+      margin-top: 5rem;
+      text-align: center;
     }
 
+    p {
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+`
+
+const PostsContainer = styled.div`
+    margin: 7rem 3.75rem;
+    background-color: var(--surface_lighter);
+    max-width: 50vw;
+    padding: 1em 2em;
+    box-shadow: 0px 0px 10px 1px #00000026;
 `
 
 
@@ -26,14 +37,15 @@ const BlogParent = styled.div`
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
 
   return (
-        <div>
+        <BlogParent>
             <Layout >
-                <h1>Blog</h1>
-                <BlogParent>
+                <h1>The Blog</h1>
+                <p>What's the Story, Morning Glory?</p>
+                <PostsContainer>
                     {Posts}
-                </BlogParent>
+                </PostsContainer>
             </Layout>
-        </div>
+        </BlogParent>
     )
 }
 
@@ -45,12 +57,14 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 250)
+          excerpt(pruneLength: 800)
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             slug
             title
+            category
           }
+          excerpt(pruneLength: 800)
         }
       }
     }

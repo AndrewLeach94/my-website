@@ -139,6 +139,15 @@ export const GlobalStyles = createGlobalStyle`
         box-shadow: ${props => props.theme.buttonShadow};
     }
 
+    .button_secondary {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1rem;
+        padding-bottom: 5px;
+        font-weight: 700;
+        border-bottom: 4px solid var(--primary_base);
+    }
+
 
 
     section {
