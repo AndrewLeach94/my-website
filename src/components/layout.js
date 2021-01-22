@@ -101,7 +101,6 @@ export const GlobalStyles = createGlobalStyle`
 
         @media (max-width: 500px) {
           font-size: 3.1rem;
-          text-align: center;
         }
     }
 
@@ -133,10 +132,10 @@ export const GlobalStyles = createGlobalStyle`
         background-color: ${props => props.theme.buttonBackground};
         border: ${props => props.theme.buttonBorder};
         border-radius: 3px;
-    }
 
-    .button_primary:hover {
-        box-shadow: ${props => props.theme.buttonShadow};
+        :hover {
+          box-shadow: ${props => props.theme.buttonShadow};
+        }
     }
 
     .button_secondary {
@@ -145,8 +144,16 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 1rem;
         padding-bottom: 5px;
         font-weight: 700;
-        border-bottom: 4px solid var(--primary_base);
+        color: var(--on_surface);
+        margin-bottom: 4px;
+
+        :hover {
+          border-bottom: 4px solid var(--primary_base);
+          margin-bottom: 0;
+        }
     }
+
+    
 
 
 

@@ -31,8 +31,8 @@ const PostParent = styled.div`
       position: absolute;
       top: 1.25rem;
       right: 1.25rem;
-      background-color: var(--primary_base);
-      color: var(--on_primary);
+      border: solid 1px var(--primary_base);
+      color: var(--on_surface);
       border-radius: 50px;
       padding: 0.5rem 0.75rem;
     }
@@ -56,16 +56,39 @@ const PostParent = styled.div`
     margin-bottom: 0;
 
   }
+
+  @media (max-width: 500px) {
+    position: static;
+    padding: 3rem 1rem;
+
+    h2 {
+      font-size: 1.7rem;
+      max-width: 90%;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+
+    .post_list-category {
+      position: static;
+      width: 50%;
+      margin-bottom: 2.5rem;
+    }
+  }
 `
 
 const PostLink = ({ post }) => (
   <PostParent>
       <Link to={post.frontmatter.slug}>
+          <p className="post_list-category">{post.frontmatter.category}</p>
           <h2>{post.frontmatter.title}</h2>
           <p className="post_list-date">{post.frontmatter.date}</p>
-          <p className="post_list-category">{post.frontmatter.category}</p>
           <p className="post_list-excerpt">{post.excerpt}</p>
-        <a className="button_secondary">Read More</a>
+        <Link to={post.frontmatter.slug} className="button_secondary">Read More</Link>
     </Link>
   </PostParent>
 )
