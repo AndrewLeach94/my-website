@@ -16,7 +16,7 @@ const PostParent = styled.div`
     margin-bottom: 7.5rem;
 
     .button_primary {
-      margin-top: 7rem;
+      margin-top: 4rem;
     }
 
     .blog-header {

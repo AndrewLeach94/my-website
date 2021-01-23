@@ -2,7 +2,7 @@ import * as React from "react"
 import { Hero } from "../components/hero"
 import { Skills } from "../components/section_skills"
 import { Bio } from "../components/section_bio"
-import { CaseStudyPromo, CaseStudyPromoAlt } from "../components/section_case-study-preview"
+import { CaseStudyPromo, CaseStudyPromoReversed } from "../components/section_case-study-preview"
 import { RecordCollection } from "../components/record-collection"
 import { ContactSection } from "../components/section_contact"
 
@@ -36,7 +36,7 @@ import Layout from "../components/layout"
                 poster={designSystemPromoPlaceholder}
                 URL=""
             />
-            <CaseStudyPromoAlt
+            <CaseStudyPromoReversed
                 caseStudyId= "2"
                 title="Resume Builder"
                 ctaMessage="View Project"

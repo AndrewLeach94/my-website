@@ -1,7 +1,7 @@
 import React from "react"
+import { useState, useEffect } from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { Navigation } from "./navBar"
-import { useState } from "react"
 import "fontsource-barlow"
 import "fontsource-trocchi"
 
@@ -43,8 +43,8 @@ export const darkTheme = {
 
     //button styles
     buttonBackground: "#3f00ffb3",
-    buttonBorder: "solid 1px #5215ff",
-    buttonShadow: "0 0 5px 2px #476dff",
+    buttonBorder: "dotted 1px #6e3fff;",
+    buttonShadow: "0 0 10px 1px #476dffa1",
     
     //home page hero background
     heroNightImageOpacity: "100%",
@@ -122,19 +122,24 @@ export const GlobalStyles = createGlobalStyle`
         box-shadow: ${props => props.theme.buttonShadow};
     }
 
+
+
     .button_primary {
         text-decoration: none;
         text-align: center;
-        min-width: 100px;
+        min-width: 5rem;
+        max-width: 10rem;
         font-size: 1rem;
         padding: 15px 20px;
         color: var(--on_primary);
         background-color: ${props => props.theme.buttonBackground};
         border: ${props => props.theme.buttonBorder};
-        border-radius: 3px;
+        border-radius: 5px;
+        transition: 0.2s;
 
         :hover {
           box-shadow: ${props => props.theme.buttonShadow};
+          transition: 0.5s;
         }
     }
 
@@ -163,14 +168,37 @@ export const GlobalStyles = createGlobalStyle`
     }
 
 `
+
+// this component handles all the styled components themeing logic 
 export default function Layout({ children }) {
     
 // this logic sets up the theme swap functionality - the swap function is passed to the navBar component
   const [theme, setTheme] = useState("default");
 
+  
+  //this function automatically set the theme to the user's operating system setting
+  const checkUserTheme = () => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
+      setTheme("dark");
+    }
+  };
+
+
   const swapTheme = () => {
     if (theme === "default" ? setTheme("dark") : setTheme("default"));
   };
+
+  useEffect(() => {
+    checkUserTheme();
+    
+    //watch for user changes
+    window.addEventListener("change", checkUserTheme);
+
+    return function cleanUp() {
+      window.removeEventListener("change", checkUserTheme);
+    }
+    
+  })
 
 
   return (

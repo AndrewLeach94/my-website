@@ -7,11 +7,15 @@ import { BlogBio } from "../components/blog_bio"
 
 const BlogParent = styled.div`
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 9rem;
+      margin-bottom: 2rem;
     }
 
     h1 {
@@ -32,17 +36,23 @@ const BlogParent = styled.div`
         flex-direction: column;
     }
 
+    @media (max-width: 500px) {
+        header {
+          margin-bottom: 0;
+        }
+    }
+
 `
 
 const PostsContainer = styled.div`
     margin: 0rem 3.75rem 7.5rem;
     background-color: var(--surface_lighter);
-    width: 50vw;
+    width: 60vw;
     padding: 1rem 2rem;
-    box-shadow: 0px 0px 10px 1px #00000026;
+    box-shadow: 0px 0px 10px 0px #00000021;
 
     @media (max-width: 1070px) {
-        margin: 0rem 0;
+        margin-bottom: 7.5rem;
         width: 60vw;
     }
 
@@ -75,11 +85,11 @@ const PostsContainer = styled.div`
                 <header>
                   <h1>The Blog</h1>
                   <p>What's the Story, Morning Glory?</p>
-                  <BlogBio />
                 </header>
                   <PostsContainer>
                       {Posts}
                   </PostsContainer>
+                  <BlogBio />
                 </BlogParent>
             </Layout>
         </div>
@@ -94,14 +104,14 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 800)
+          excerpt(pruneLength: 500)
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             slug
             title
             category
           }
-          excerpt(pruneLength: 800)
+          excerpt(pruneLength: 500)
         }
       }
     }

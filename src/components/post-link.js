@@ -75,8 +75,11 @@ const PostParent = styled.div`
 
     .post_list-category {
       position: static;
-      width: 50%;
-      margin-bottom: 2.5rem;
+      border: none;
+      font-weight: 700;
+      align-self: flex-start;
+      margin-bottom: 0.25rem;
+      padding: 0;
     }
   }
 `
@@ -84,8 +87,8 @@ const PostParent = styled.div`
 const PostLink = ({ post }) => (
   <PostParent>
       <Link to={post.frontmatter.slug}>
-          <p className="post_list-category">{post.frontmatter.category}</p>
           <h2>{post.frontmatter.title}</h2>
+          <p className="post_list-category">{post.frontmatter.category}</p>
           <p className="post_list-date">{post.frontmatter.date}</p>
           <p className="post_list-excerpt">{post.excerpt}</p>
         <Link to={post.frontmatter.slug} className="button_secondary">Read More</Link>
