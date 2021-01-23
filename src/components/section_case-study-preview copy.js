@@ -13,6 +13,7 @@ const CaseStudyContainer = styled.section`
     background: ${props => props.theme.caseStudyVideoOverlay}; //video overlay
 
 
+
     video {
         position: absolute;
         object-fit: cover;
@@ -60,6 +61,7 @@ const CaseStudyContainer = styled.section`
         }
 
     }
+
 
 `
 
@@ -143,7 +145,7 @@ export const CaseStudyPromo = (props) => {
             </CaseStudyContainer>
     )
 }
-export const CaseStudyPromoReversed = (props) => {
+export const CaseStudyPromoAlt = (props) => {
     return(
             <CaseStudyContainer id={"case-study-" + props.caseStudyId}>
                 <FeatureColumn>

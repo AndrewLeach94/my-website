@@ -1,7 +1,7 @@
 import React from "react"
+import { useState, useEffect } from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { Navigation } from "./navBar"
-import { useState } from "react"
 import "fontsource-barlow"
 import "fontsource-trocchi"
 
@@ -43,8 +43,8 @@ export const darkTheme = {
 
     //button styles
     buttonBackground: "#3f00ffb3",
-    buttonBorder: "solid 1px #5215ff",
-    buttonShadow: "0 0 5px 2px #476dff",
+    buttonBorder: "dotted 1px #6e3fff;",
+    buttonShadow: "0 0 10px 1px #476dffa1",
     
     //home page hero background
     heroNightImageOpacity: "100%",
@@ -78,7 +78,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         color: var(--on_surface);
-        background-color: var(----surface_base);
+        background-color: var(--surface_base);
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -101,7 +101,6 @@ export const GlobalStyles = createGlobalStyle`
 
         @media (max-width: 500px) {
           font-size: 3.1rem;
-          text-align: center;
         }
     }
 
@@ -123,20 +122,83 @@ export const GlobalStyles = createGlobalStyle`
         box-shadow: ${props => props.theme.buttonShadow};
     }
 
+
+
+    .button_primary {
+        text-decoration: none;
+        text-align: center;
+        min-width: 5rem;
+        max-width: 10rem;
+        font-size: 1rem;
+        padding: 15px 20px;
+        color: var(--on_primary);
+        background-color: ${props => props.theme.buttonBackground};
+        border: ${props => props.theme.buttonBorder};
+        border-radius: 5px;
+        transition: 0.2s;
+
+        :hover {
+          box-shadow: ${props => props.theme.buttonShadow};
+          transition: 0.5s;
+        }
+    }
+
+    .button_secondary {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1rem;
+        padding-bottom: 5px;
+        font-weight: 700;
+        color: var(--on_surface);
+        margin-bottom: 4px;
+
+        :hover {
+          border-bottom: 4px solid var(--primary_base);
+          margin-bottom: 0;
+        }
+    }
+
+    
+
+
+
     section {
       padding: 0 20px;
 
     }
 
 `
+
+// this component handles all the styled components themeing logic 
 export default function Layout({ children }) {
     
 // this logic sets up the theme swap functionality - the swap function is passed to the navBar component
   const [theme, setTheme] = useState("default");
 
+  
+  //this function automatically set the theme to the user's operating system setting
+  const checkUserTheme = () => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
+      setTheme("dark");
+    }
+  };
+
+
   const swapTheme = () => {
     if (theme === "default" ? setTheme("dark") : setTheme("default"));
   };
+
+  useEffect(() => {
+    checkUserTheme();
+    
+    //watch for user changes
+    window.addEventListener("change", checkUserTheme);
+
+    return function cleanUp() {
+      window.removeEventListener("change", checkUserTheme);
+    }
+    
+  })
 
 
   return (

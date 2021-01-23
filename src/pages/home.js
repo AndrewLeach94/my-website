@@ -2,7 +2,7 @@ import * as React from "react"
 import { Hero } from "../components/hero"
 import { Skills } from "../components/section_skills"
 import { Bio } from "../components/section_bio"
-import { CaseStudyPromo, CaseStudyPromoAlt } from "../components/section_case-study-preview"
+import { CaseStudyPromo, CaseStudyPromoReversed } from "../components/section_case-study-preview"
 import { RecordCollection } from "../components/record-collection"
 import { ContactSection } from "../components/section_contact"
 
@@ -12,11 +12,13 @@ import CVPromo from "./../videos/cv-builder.webm"
 import CVPromoPlaceholder from "./../images/placeholders/cv-builder.webp"
 import weatherNowPromo from "./../videos/weather-now.webm"
 import weatherNowPromoPlaceholder from "./../images/placeholders/weather-now.webp"
+import Layout from "../components/layout"
 
 
-export const HomePage = () => {
+ const HomePage = () => {
     return(
         <div id="homePage">
+        <Layout>
             <Hero />
             <Skills />
             <CaseStudyPromo 
@@ -32,8 +34,9 @@ export const HomePage = () => {
 
                 source={designSystemPromo}
                 poster={designSystemPromoPlaceholder}
+                URL=""
             />
-            <CaseStudyPromoAlt
+            <CaseStudyPromoReversed
                 caseStudyId= "2"
                 title="Resume Builder"
                 ctaMessage="View Project"
@@ -46,6 +49,7 @@ export const HomePage = () => {
 
                 source={CVPromo}
                 poster={CVPromoPlaceholder}
+                URL="https://github.com/AndrewLeach94/cv-builder"
             />
             <CaseStudyPromo 
                 caseStudyId= "3"
@@ -60,10 +64,14 @@ export const HomePage = () => {
 
                 source={weatherNowPromo}
                 poster={weatherNowPromoPlaceholder}
+                URL="https://github.com/AndrewLeach94/weather-app"
             />
             <Bio />
             <RecordCollection />
             <ContactSection />
+        </Layout>
         </div>
     )
 };
+
+export default HomePage

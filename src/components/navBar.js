@@ -1,8 +1,88 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
 import styled from "styled-components"
-import {useTransition, animated} from 'react-spring'
-import debounce from 'lodash.debounce';
+import { Link } from "gatsby"
+
+
+const NavParent = styled.div`
+    position: absolute;
+    top: 0;
+
+    input[type=checkbox] {
+        display: none;
+    }
+
+
+    #hamburger-icon {
+        display: none;
+        position: fixed;
+        left: 20px;
+        top: 30px;
+        z-index: 2000;
+
+        width: 30px;
+        height: 4px;
+        background-color: var(--on_surface);
+        border-radius: 2px;
+        transition: 0.2s;
+
+        ::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 4px;
+            background-color: var(--on_surface);
+            top: -10px;
+            position: absolute;
+            border-radius: 2px;
+            transition: 0.2s;
+        }
+        ::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 4px;
+            background-color: var(--on_surface);
+            top: 10px;
+            position: absolute;
+            border-radius: 2px;
+            transition: 0.2s;
+        }
+
+        
+        @media (max-width: 720px) {
+            display: block;
+        }
+
+    }
+
+    // this handles the logic bringing the meny into view
+    input:checked ~ nav {
+            transform: translateY(0);
+
+            opacity: 1;
+            transition: .5s;
+        }
+
+    input:checked + label #hamburger-icon {
+        background: transparent;
+        transition: 0.2s;
+
+        ::before {
+            background-color: var(--on_primary);
+            transform: translate(0px, 10px) rotate(-45deg);
+            transition: 0.2s;
+        }
+
+        ::after {
+            background-color: var(--on_primary);
+            transform: translate(0px, -10px) rotate(45deg);
+            transition: 0.2s;
+        }
+    }
+
+
+`
 
 
 const NavBar = styled.nav`
@@ -37,6 +117,11 @@ const NavBar = styled.nav`
     }
 
     @media (max-width: 720px) {
+        transform: translateY(-150%);
+        opacity: 0;
+        transition: .5s;
+
+
         display: flex;
         justify-content: center;
         font-size: 1rem;
@@ -63,71 +148,6 @@ const NavBar = styled.nav`
 
     `;
 
-    const OpenMenuContainer = styled.div`
-        display: none;
-        position: fixed;
-        left: 20px;
-        top: 30px;
-        z-index: 2000;
-
-        input[type=checkbox] {
-            display: none;
-        }
-
-        div {
-            width: 30px;
-            height: 4px;
-            background-color: var(--on_surface);
-            border-radius: 2px;
-            transition: 0.2s;
-
-            ::before {
-                content: '';
-                display: block;
-                width: 30px;
-                height: 4px;
-                background-color: var(--on_surface);
-                top: -10px;
-                position: absolute;
-                border-radius: 2px;
-                transition: 0.2s;
-            }
-            ::after {
-                content: '';
-                display: block;
-                width: 30px;
-                height: 4px;
-                background-color: var(--on_surface);
-                top: 10px;
-                position: absolute;
-                border-radius: 2px;
-                transition: 0.2s;
-            }
-        }
-
-        input:checked + label div {
-            background: transparent;
-            transition: 0.2s;
-
-            ::before {
-                background-color: var(--on_primary);
-                transform: translate(0px, 10px) rotate(-45deg);
-                transition: 0.2s;
-            }
-
-            ::after {
-                background-color: var(--on_primary);
-                transform: translate(0px, -10px) rotate(45deg);
-                transition: 0.2s;
-            }
-        }
-
-
-        @media (max-width: 720px) {
-            display: block;
-        }
-    
-    `
 
 export const Navigation = (props) => {  
 
@@ -136,22 +156,7 @@ export const Navigation = (props) => {
     const [showMenu, setShowMenu] = useState(false);
     const [checkboxActive, setCheckboxActive] = useState(false);
     
-    const transitions = useTransition(showMenu, null, {
-        from: { opacity: 0, transform: "translateY(-500px)"  },
-        enter: { position: "fixed", zIndex: 1000, opacity: 1, transform: "translateY(0px)"},
-        leave: { opacity: 0, transform: "translateY(-500px)" },
-    })
 
-    // throttles the event listener so it doesn't run on every pixel change hogging memory
-    const handleResize = debounce(() => {
-        if ((window.innerWidth <= 720) ? setShowMenu(false) : setShowMenu(true));
-    }, 500)    
-
-    const checkIfDesktop = () => {
-        if (window.innerWidth >= 720) {
-            setShowMenu(true);
-        }
-    };
 
     //this function disables scrolling if the mobile menu is active
     const handleScroll = () => {
@@ -176,42 +181,25 @@ export const Navigation = (props) => {
     
 
     useEffect(() => {
-        //display the navBar if desktop is detected
-        checkIfDesktop();
         handleScroll();
-
-        window.addEventListener("resize", handleResize);
-         return () => {
-            window.removeEventListener("resize", handleResize);
-         }
      })
     
 
     return(
-        <header>
-            <OpenMenuContainer >
-                <input id="open-menu" type="checkbox" onChange={handleCheckbox} checked={checkboxActive} ></input>
-                <label htmlFor="open-menu"><div></div></label>
-            </OpenMenuContainer>
-
-        {   transitions.map(({ item, key, props }) =>
-                item && <animated.div 
-                key={key} 
-                style={props}
-                >
-                <NavBar >
-                    <ul>
-                        <li><a onClick={() => handleMobileLinkClick()} href="#home">Home</a></li>
-                        <li><a onClick={() => handleMobileLinkClick()} href="#case-study-1">Projects</a></li>
-                        <li><a onClick={() => handleMobileLinkClick()} href="#about">About</a></li>
-                        <li><a onClick={() => handleMobileLinkClick()} href="#contact">Contact</a></li>
-                        <li>Blog</li>
-                    </ul>
-                    <button onClick={() => changeTheme()}>Change Theme</button>
-                </NavBar>
-                    </animated.div>
-            )
-        }
-        </header>
-    )
-}
+        <NavParent>
+            {/* eslint-disable */}
+            <input id={"open-menu"} type="checkbox" onChange={handleCheckbox} checked={checkboxActive} aria-label="Open/Close Navigation"></input>
+            <label htmlFor={"open-menu"}><div id="hamburger-icon"></div></label>
+            {/* eslint-disable */}
+            <NavBar >
+                <ul>
+                    <li><Link to="/#home" onClick={() => handleMobileLinkClick()}>Home</Link></li>
+                    <li><Link to="/#case-study-1" onClick={() => handleMobileLinkClick()}>Projects</Link></li>
+                    <li><Link to ="/#about" onClick={() => handleMobileLinkClick()}>About</Link></li>
+                    <li><Link to="/#contact" onClick={() => handleMobileLinkClick()}>Contact</Link></li>
+                    <li><Link to="/blog">Blog</Link></li>
+                </ul>
+                <button onClick={() => changeTheme()}>Change Theme</button>
+            </NavBar>
+        </NavParent>
+    )}

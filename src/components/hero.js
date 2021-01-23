@@ -70,8 +70,8 @@ const BackgroundNight = styled.img`
             <h1>Hey, I'm Andrew</h1>
             <p>I'm a front-end web developer and multimedia designer</p>
             <ButtonContainer>
-                <button>View Projects</button>
-                <button>Get in Touch</button>
+                <a href="#case-study-1" className="button_primary">View Projects</a>
+                <a href="#contact" className="button_primary">Get in Touch</a>
             </ButtonContainer>
             <BackgroundNight src={require("./../images/placeholders/seattle-night.webp")}></BackgroundNight>
             <BackgroundVideo autoPlay muted loop poster={require("./../images/placeholders/seattle-day.webp")}>
