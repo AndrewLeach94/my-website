@@ -181,7 +181,7 @@ export default function Template({
                 <h1>{frontmatter.title}</h1>
                 <p>{frontmatter.date}</p>
           </header>
-          <div
+          <main
               className="blog-post-content"
               dangerouslySetInnerHTML={{ __html: html }}
             />

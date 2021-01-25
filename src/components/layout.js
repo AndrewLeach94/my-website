@@ -8,8 +8,8 @@ import "fontsource-trocchi"
 
 // Dynamic theme elements are defined here
 
-export const defaultTheme = {
-    themeName: "default",
+export const lightTheme = {
+    themeName: "light",
 
     surfaceLighter: "#FFF",
     surfaceBase: "#F3F3F3",
@@ -158,10 +158,6 @@ export const GlobalStyles = createGlobalStyle`
         }
     }
 
-    
-
-
-
     section {
       padding: 0 20px;
 
@@ -173,39 +169,49 @@ export const GlobalStyles = createGlobalStyle`
 export default function Layout({ children }) {
     
 // this logic sets up the theme swap functionality - the swap function is passed to the navBar component
-  const [theme, setTheme] = useState("default");
+  const savedPreference = localStorage.getItem("themePreference");
+  const [theme, setTheme] = useState(JSON.parse(savedPreference));
 
+
+  const applyLightTheme = () => {
+      localStorage.setItem("systemThemeActive", false);
+      localStorage.setItem("themePreference", JSON.stringify("light"));
+      setTheme("light");
+  }
   
+  const applyDarkTheme = () => {
+      localStorage.setItem("systemThemeActive", false);
+      localStorage.setItem("themePreference", JSON.stringify("dark"));
+      setTheme("dark");
+  }
+
   //this function automatically set the theme to the user's operating system setting
-  const checkUserTheme = () => {
+  const applySystemTheme = () => {
+    localStorage.setItem("systemThemeActive", true);
+
     if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
       setTheme("dark");
+      localStorage.setItem("themePreference", JSON.stringify("dark"));
+    } else {
+      setTheme("light");
+      localStorage.setItem("themePreference", JSON.stringify("light"));
     }
   };
 
 
-  const swapTheme = () => {
-    if (theme === "default" ? setTheme("dark") : setTheme("default"));
-  };
-
+  // this useEffect syncs the user's theme if system preference theme is active and defaults to system theme for new visitors
   useEffect(() => {
-    checkUserTheme();
-    
-    //watch for user changes
-    window.addEventListener("change", checkUserTheme);
-
-    return function cleanUp() {
-      window.removeEventListener("change", checkUserTheme);
+    if ( localStorage.getItem("systemThemeActive") === "true" || localStorage.getItem("themePreference") === null) {
+      applySystemTheme();
     }
-    
-  })
+})
 
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme === "default" ? defaultTheme : darkTheme}>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-        <Navigation changeTheme={swapTheme}/>
+        <Navigation applyLightTheme={applyLightTheme} applyDarkTheme={applyDarkTheme} applySystemTheme={applySystemTheme}/>
         {children}
       </ThemeProvider>
     </React.Fragment>
