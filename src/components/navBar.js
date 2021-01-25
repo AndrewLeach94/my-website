@@ -148,10 +148,45 @@ const NavBar = styled.nav`
 
     `;
 
+    const ThemeSelectContainer = styled.div`
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0 60px 0 30px;
+
+        div {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            top: 100%;
+            left: 0;
+            display: none;
+
+            button {
+                background: var(--surface_base);
+                border: none;
+                box-shadow: none;
+                color: var(--on_surface);
+
+                :hover {
+                    background: var(--surface_lighter);
+                }
+            }
+        }
+
+        :hover {
+            div {
+                display: inherit;
+            }
+        }
+    
+    `
+
 
 export const Navigation = (props) => {  
 
-    const { changeTheme } = props;
+    // these are the theme functions passed in as props
+    const { applyLightTheme, applyDarkTheme, applySystemTheme } = props;
 
     const [showMenu, setShowMenu] = useState(false);
     const [checkboxActive, setCheckboxActive] = useState(false);
@@ -199,7 +234,13 @@ export const Navigation = (props) => {
                     <li><Link to="/#contact" onClick={() => handleMobileLinkClick()}>Contact</Link></li>
                     <li><Link to="/blog">Blog</Link></li>
                 </ul>
-                <button onClick={() => changeTheme()}>Change Theme</button>
+                <ThemeSelectContainer>Select Theme
+                    <div>
+                        <button onClick={() => applyLightTheme()}>Light</button>
+                        <button onClick={() => applyDarkTheme()}>Dark</button>
+                        <button onClick={() => applySystemTheme()}>System Preference</button>
+                    </div>
+                </ThemeSelectContainer>
             </NavBar>
         </NavParent>
     )}
