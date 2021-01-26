@@ -31,6 +31,7 @@
     "gatsby-plugin-sharp": "^2.11.2",
     "gatsby-plugin-sitemap": "^2.9.0",
     "gatsby-plugin-styled-components": "^3.7.0",
+    "gatsby-remark-images": "^3.10.0",
     "gatsby-source-filesystem": "^2.8.1",
     "gatsby-transformer-remark": "^2.15.0",
     "gatsby-transformer-sharp": "^2.9.0",
@@ -41,7 +42,4 @@
     "react-icons": "^4.1.0",
     "styled-components": "^5.2.1"
   }
-
 }
-
-

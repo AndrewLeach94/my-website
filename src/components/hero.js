@@ -25,7 +25,6 @@ const HeroContainer = styled.section`
 `
 
 const ButtonContainer = styled.div`
-    width: 40%;
     display: flex;
     justify-content: space-around;
 
@@ -33,7 +32,7 @@ const ButtonContainer = styled.div`
         flex-flow: column;
     }
 
-    button {
+    .button_primary {
         margin: 0 30px;
 
         @media (max-width: 500px) {
@@ -52,6 +51,12 @@ const BackgroundVideo = styled.video`
     top: 0;
     left: 0;
 
+    @media (max-width: 500px) {
+        object-fit: contain;
+        left: 25%;
+        transform: scale(3.5);
+    }
+
 `
 
 const BackgroundNight = styled.img`
@@ -61,6 +66,13 @@ const BackgroundNight = styled.img`
     width: 100vw;
     height: 100vh;
     z-index: -50;
+
+    @media (max-width: 500px) {
+        object-fit: contain;
+        left: 25%;
+        transform: scale(3.5);
+    }
+
 `
 
  export const Hero = (props) => {
@@ -68,7 +80,7 @@ const BackgroundNight = styled.img`
     return (
         <HeroContainer id="home">
             <h1>Hey, I'm Andrew</h1>
-            <p>I'm a front-end web developer and multimedia designer</p>
+            <p>I'm a UX/UI developer and multimedia designer</p>
             <ButtonContainer>
                 <a href="#case-study-1" className="button_primary">View Projects</a>
                 <a href="#contact" className="button_primary">Get in Touch</a>
