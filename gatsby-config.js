@@ -1,3 +1,5 @@
+const { lazy } = require("react");
+
 module.exports = {
   siteMetadata: {
     title: "my-portfolio",
@@ -24,5 +26,26 @@ module.exports = {
           path: `./src/markdown-pages`,
         },
       }, 
+      {
+        resolve: `gatsby-transformer-remark`,
+        options: {
+          plugins: [
+            {
+              resolve: `gatsby-remark-images`,
+              options: {
+                // It's important to specify the maxWidth (in pixels) of
+                // the content container as this plugin uses this as the
+                // base for generating different widths of each image.
+                maxWidth: 800,
+                linkImagestoOriginal: true,
+                showCaptions: true,
+                withWebp: true,
+                loeading: lazy,
+                wrapperStyle: "margin:7.5rem 1.5rem; text-align:center;",
+              },
+            },
+          ],
+        },
+      },
   ],
 };

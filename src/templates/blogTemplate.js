@@ -65,8 +65,8 @@ const PostParent = styled.div`
       width: 65vw;
       background-color: var(--surface_lighter);
       box-shadow: 0px 3px 10px #0000001c;
-      padding: 5.5rem 0;
-      margin-bottom: 5rem;
+      padding: 0.5rem 0 5.5rem 0;
+      margin-bottom: 7.5rem;
 
 
       p {
@@ -78,7 +78,14 @@ const PostParent = styled.div`
         font-size: 2.3rem;
         font-weight: 400;
         padding: 0 4rem;
+        margin-top: 5rem;
       }
+
+      h3, h4, h5, h6 {
+        padding: 0 4rem;
+        margin-top: 4rem;
+      }
+
     }
 
     @media (max-width: 836px) {
@@ -141,6 +148,7 @@ const PostParent = styled.div`
           width: 100vw;
           background-color: inherit;
           box-shadow: none;
+          margin-bottom: 5rem;
 
           p {
             padding: 0 1.5rem;
@@ -148,6 +156,14 @@ const PostParent = styled.div`
 
           h2 {
             font-size: 1.3rem;
+            padding: 0 1.5rem;
+            text-align: left;
+            margin-top: 2.5rem
+          }
+
+          h3, h4, h5, h6 {
+            margin-top: 2.5rem;
+            font-size: 1rem;
             padding: 0 1.5rem;
             text-align: left;
           }

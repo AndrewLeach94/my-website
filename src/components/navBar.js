@@ -152,9 +152,11 @@ const NavBar = styled.nav`
         position: relative;
         display: flex;
         align-items: center;
+        justify-content: center;
         padding: 0 60px 0 30px;
+        cursor: pointer;
 
-        div {
+        .theme-menu {
             position: absolute;
             display: flex;
             flex-direction: column;
@@ -163,10 +165,11 @@ const NavBar = styled.nav`
             display: none;
 
             button {
-                background: var(--surface_base);
+                background: var(--surface_lighter);
                 border: none;
                 box-shadow: none;
                 color: var(--on_surface);
+                border-radius: 0;
 
                 :hover {
                     background: var(--surface_lighter);
@@ -174,9 +177,12 @@ const NavBar = styled.nav`
             }
         }
 
-        :hover {
-            div {
-                display: inherit;
+        @media (max-width: 720px) {
+            padding: 0 30px;
+            margin: 20px 0;
+
+            button {
+                font-size: 0.8rem;
             }
         }
     
@@ -190,6 +196,12 @@ export const Navigation = (props) => {
 
     const [showMenu, setShowMenu] = useState(false);
     const [checkboxActive, setCheckboxActive] = useState(false);
+    const [themeMenuVisible, setThemeMenuVisible] = useState(false);
+
+    const systemTheme = JSON.parse(localStorage.getItem("systemThemeActive"));
+    const lightTheme = JSON.parse(localStorage.getItem("themePreference")) === "light" && JSON.parse(localStorage.getItem("systemThemeActive")) === false;
+    const darkTheme = JSON.parse(localStorage.getItem("themePreference")) === "dark" && JSON.parse(localStorage.getItem("systemThemeActive")) === false;
+
     
 
 
@@ -213,6 +225,16 @@ export const Navigation = (props) => {
             setCheckboxActive(false);
         }
     }
+
+
+    let themeMenuStyle = {
+        display: "none",
+    }
+
+    // set visibility of menu based on the state 
+    if ((themeMenuVisible) ? themeMenuStyle = {display: "inherit"} : themeMenuStyle = {display: "none"});
+
+    // this function handles the styling of the active theme in the menu
     
 
     useEffect(() => {
@@ -228,17 +250,18 @@ export const Navigation = (props) => {
             {/* eslint-disable */}
             <NavBar >
                 <ul>
-                    <li><Link to="/#home" onClick={() => handleMobileLinkClick()}>Home</Link></li>
+                    <li><Link to="/" onClick={() => handleMobileLinkClick()}>Home</Link></li>
                     <li><Link to="/#case-study-1" onClick={() => handleMobileLinkClick()}>Projects</Link></li>
                     <li><Link to ="/#about" onClick={() => handleMobileLinkClick()}>About</Link></li>
                     <li><Link to="/#contact" onClick={() => handleMobileLinkClick()}>Contact</Link></li>
                     <li><Link to="/blog">Blog</Link></li>
+                    <li><a href="https://vimeo.com/andrewleach" target="_blank">Reel</a></li>
                 </ul>
-                <ThemeSelectContainer>Select Theme
-                    <div>
-                        <button onClick={() => applyLightTheme()}>Light</button>
-                        <button onClick={() => applyDarkTheme()}>Dark</button>
-                        <button onClick={() => applySystemTheme()}>System Preference</button>
+                <ThemeSelectContainer onClick={() => setThemeMenuVisible(!themeMenuVisible)}>Select Theme
+                    <div className="theme-menu" style={themeMenuStyle}>
+                        <button onClick={applyLightTheme} style={{color: lightTheme ? "var(--primary_lighter)" : "var(--on_surface)"}}>Light</button>
+                        <button onClick={applyDarkTheme} style={{color: darkTheme ? "var(--primary_lighter)" : "var(--on_surface)"}}>Dark</button>
+                        <button onClick={applySystemTheme} style={{color: systemTheme ? "var(--primary_lighter)" : "var(--on_surface)"}}>System Preference</button>
                     </div>
                 </ThemeSelectContainer>
             </NavBar>

@@ -16,6 +16,7 @@ export const lightTheme = {
 
     fontColor: "#121212",
 
+    primaryColorLighter: "#D21A1A",
     primaryColor: "#B63232",
     
     // button styles
@@ -39,6 +40,7 @@ export const darkTheme = {
     surfaceBase: "#121212", //recomended by Material Design
     fontColor: "#f3f3f3",
 
+    primaryColorLighter: "#926eff",
     primaryColor: "#3f00ff",
 
     //button styles
@@ -63,6 +65,7 @@ export const GlobalStyles = createGlobalStyle`
         --surface_lighter: ${props => props.theme.surfaceLighter};
         --surface_base: ${props => props.theme.surfaceBase};
         
+        --primary_lighter: ${props => props.theme.primaryColorLighter};
         --primary_base: ${props => props.theme.primaryColor};
         
         --on_primary: #F3F3F3;
@@ -83,6 +86,8 @@ export const GlobalStyles = createGlobalStyle`
 
     h1, h2, h3, h4, h5, h6 {
       margin: 0;
+      font-size: 1.3rem;
+      font-weight: 700;
     }
 
     h1 {
@@ -132,7 +137,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 1rem;
         padding: 15px 20px;
         color: var(--on_primary);
-        background-color: ${props => props.theme.buttonBackground};
+        background-color: var(--primary_base);
         border: ${props => props.theme.buttonBorder};
         border-radius: 5px;
         transition: 0.2s;
@@ -186,7 +191,7 @@ export default function Layout({ children }) {
   }
 
   //this function automatically set the theme to the user's operating system setting
-  const applySystemTheme = () => {
+  const applySystemTheme = (e) => {
     localStorage.setItem("systemThemeActive", true);
 
     if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
