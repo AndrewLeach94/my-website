@@ -8,13 +8,17 @@ featuredImage: colors.png
 
 
 
-## 1. The Problem
+## 1. The Problem:
 
 Back when there was no design library, the design team relied heavily on memory and old Sketch designs to create commonly used components.
 
-Although this wasn't ideal, it was tolerable when there was just one designer. As the design team grew, it became obvious there needed to be a solid library that could scale with the growing design team to avoid inconsistencies that could otherwise be preventable.  
+Although this wasn't ideal, it was tolerable when there was just one designer. As the design team grew, it became obvious there needed to be a solid library that could scale with the growing team to avoid inconsistencies that could otherwise be preventable.  
 
-## 2. The Basics - Typography & Colors
+## 2. Design Teardown
+My first step towards a design system was the initial teardown of the UI. I took screenshots of nearly everything - buttons, menus, tables, icons, you name it. 
+When I had everything organized into a Google Doc, it was easy to see some major inconsistencies. There were at least three different input styles and font-sizes were fairly inconsistent. 
+
+## 3. The Basics - Typography & Colors:
 
 
 
@@ -43,14 +47,14 @@ This is reserved mainly for buttons and banners that have a "call to action" tha
 #### Backdrop & Surface:
 These are the most commonly used backgrounds throughout the app.
 
-## 3. Typography
+## 4. Typography:
 
 I created specific text styles that can be easily applied in any imaginable component. Individual text styles were created as combinations of different alignments, text sizes, and colors.
 
 ![A list of the root typography styles](./typography.jpg)
 
 
-## 4. Moving Up! - Buttons & Dropdowns
+## 5. Moving Up! - Buttons & Dropdowns:
 
 Buttons and dropdown menus were larger "atoms" that often made up complex components. Building on the color and typography styles I had created, I created button and dropdown symbols in different states (on mouse hover for instance).
 
@@ -59,17 +63,17 @@ These symbols were responsive with set paddings and could resize themselves base
 ![The dropdown styles](./dropdowns.jpg)
 ![The different button instances and states](./buttons.jpg)
 
-## 5. Adding Complexity - Components
+## 6. Adding Complexity - Components:
 
 Components are complex elements that could include several different atoms. Imagine the nightmare of having to manually adjust every navigation bar if the decision was made to modify the fonts or colors!
 
 Fortunately, in this case, all components were designed using atoms that I've previous mentioned.
 
-### Navigation Bar
+### Navigation Bar:
 
 All buttons and links have different active and inactive states and are completely resizable and responsive to suit close to any need.
 
-### Table
+### Table:
 
 All cells and columns are completely customizable with editable text and the option to include an icon. There's a special "action" cell in case the designer wants a cell with only an icon in it.
 
@@ -77,7 +81,7 @@ Columns can be removed and the table's width adjusts itself.
 
 ![A responsive example of one of the more complex data table components](./table.jpg)
 
-## 6. Conclusion
+## 7. Conclusion:
 
 This design library was my final project with TORSH. After I finished designing, I saved it as a library and uploaded it to the Sketch Cloud. This meant the other designers could add the library to their Sketch account and freely use all the symbols.
 

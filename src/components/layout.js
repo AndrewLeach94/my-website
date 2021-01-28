@@ -2,6 +2,7 @@ import React from "react"
 import { useState, useEffect } from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { Navigation } from "./navBar"
+import { Footer } from "./footer"
 import "fontsource-barlow"
 import "fontsource-trocchi"
 
@@ -26,7 +27,7 @@ export const lightTheme = {
 
     //homepage hero background
     heroNightImageOpacity: "0%",
-    heroBackgroundColor: "#f5f5f580",
+    heroBackgroundColor: "#f5f5f594",
 
     //homepage case study background overlay
     caseStudyVideoOverlay: "linear-gradient(144deg,rgba(182,50,50,0.84) 0%,rgba(243,243,243,0.85) 50%)",
@@ -217,7 +218,8 @@ export default function Layout({ children }) {
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
         <Navigation applyLightTheme={applyLightTheme} applyDarkTheme={applyDarkTheme} applySystemTheme={applySystemTheme}/>
-        {children}
+          {children}
+        <Footer />
       </ThemeProvider>
     </React.Fragment>
   )
