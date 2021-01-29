@@ -3,6 +3,7 @@ const { lazy } = require("react");
 module.exports = {
   siteMetadata: {
     title: "my-portfolio",
+    siteUrl: "https://andrewleach.design",
   },
   plugins: [
     `gatsby-plugin-styled-components`,

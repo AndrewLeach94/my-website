@@ -198,12 +198,41 @@ export const Navigation = (props) => {
     const [checkboxActive, setCheckboxActive] = useState(false);
     const [themeMenuVisible, setThemeMenuVisible] = useState(false);
 
-    const systemTheme = JSON.parse(localStorage.getItem("systemThemeActive"));
-    const lightTheme = JSON.parse(localStorage.getItem("themePreference")) === "light" && JSON.parse(localStorage.getItem("systemThemeActive")) === false;
-    const darkTheme = JSON.parse(localStorage.getItem("themePreference")) === "dark" && JSON.parse(localStorage.getItem("systemThemeActive")) === false;
-
     
+    const initSystemTheme = () => {
+        let systemThemeState;
+        if (typeof window != "undefined") {
+            systemThemeState = JSON.parse(localStorage.getItem("systemThemeActive"));
+        } else {
+            systemThemeState = true;
+        }
+        return systemThemeState;
+    }
+    
+    const initLightTheme = () => {
+        let lightThemeState;
+        if (typeof window != "undefined") {
+            lightThemeState = JSON.parse(localStorage.getItem("themePreference")) === "light" && JSON.parse(localStorage.getItem("systemThemeActive")) === false;
+        } else {
+            lightThemeState = true;
+        }
+        return lightThemeState;
+    }
+    
+    const initDarkTheme = () => {
+        let darkThemeState;
+        if (typeof window != "undefined") {
+            darkThemeState = JSON.parse(localStorage.getItem("themePreference")) === "dark" && JSON.parse(localStorage.getItem("systemThemeActive")) === false;
+        } else {
+            darkThemeState = true;
+        }
+        return darkThemeState;
+    }
 
+    // theme states must be funneled through a function so gatsby can build without needing local storage
+    const systemTheme = initSystemTheme();
+    const lightTheme = initLightTheme();
+    const darkTheme = initDarkTheme();
 
     //this function disables scrolling if the mobile menu is active
     const handleScroll = () => {

@@ -25,7 +25,7 @@ const BioParent = styled.section`
         position: absolute;
         width: 300px;
         right: 10%;
-        bottom: 120px;
+        bottom: 160px;
         filter: saturate(0%);
         opacity: 70%;
 
@@ -77,13 +77,16 @@ export const Bio = (props) => {
         </h2>
 
         <p>
-            I grew up just outside Seattle , went to college in New Orleans, and lived in Ireland for a couple years. 
+            I grew up just outside Seattle , went to college in New Orleans, and lived and worked in Ireland for a year. 
 
-            I initially began my career in multimedia and marketing before shifting towards UX but always told myself I'd become a developer if my career hit the fan.
-
-            ... and then COVID happened. So here I am today!
-
-            When I'm not developing UI's, you can find me creating music and editing video.
+            I initially began my career in multimedia and marketing before making the push to web design and UX.
+            <br></br>
+            <br></br>
+            As much as I loved designing, I really wanted to make these ideas come to life so 
+            after losing my job during COVID, I knew it was time to study and commit to developing on the front-end. 
+            <br></br>
+            <br></br>
+            Outside of tech, I'm an avid musician and play bass, guitar, and I'd play more drums if my neighbors would let me.
         </p>
         <img src={require("./../images/paris.webp")} alt="me in paris" />
         </BioParent>
