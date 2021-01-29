@@ -14,7 +14,7 @@ Back when there was no design library, the design team relied heavily on memory 
 
 Although this wasn't ideal, it was tolerable when there was just one designer. As the design team grew, it became obvious there needed to be a solid library that could scale with the growing team to avoid inconsistencies that could otherwise be preventable.  
 
-## 2. Design Teardown
+## 2. Initial Design Teardown
 My first step towards a design system was the initial teardown of the UI. I took screenshots of nearly everything - buttons, menus, tables, icons, you name it. 
 When I had everything organized into a Google Doc, it was easy to see some major inconsistencies. There were at least three different input styles and font-sizes were fairly inconsistent. 
 

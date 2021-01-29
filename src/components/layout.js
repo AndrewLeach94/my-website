@@ -174,50 +174,89 @@ export const GlobalStyles = createGlobalStyle`
 // this component handles all the styled components themeing logic 
 export default function Layout({ children }) {
     
-// this logic sets up the theme swap functionality - the swap function is passed to the navBar component
-  const savedPreference = localStorage.getItem("themePreference");
-  const [theme, setTheme] = useState(JSON.parse(savedPreference));
 
+  // this logic sets up the theme swap functionality - the swap function is passed to the navBar component
+  
+  // this ensures gatsby only searches local storage if and only when the window is loaded
+  const getInitState = () => {
+    let themeState;
 
-  const applyLightTheme = () => {
-      localStorage.setItem("systemThemeActive", false);
-      localStorage.setItem("themePreference", JSON.stringify("light"));
-      setTheme("light");
+    if (typeof window != "undefined") {
+      const savedThemePreference = JSON.parse(localStorage.getItem("themePreference"));
+      themeState = savedThemePreference;
+    } else {
+      themeState = "light";
+    }
+
+    return themeState;
   }
   
-  const applyDarkTheme = () => {
+  const [theme, setTheme] = useState(getInitState());
+  const [systemThemeActive, setSystemThemeActive] = useState('');
+
+  useEffect(() => {
+    const savedPreference = JSON.parse(localStorage.getItem("themePreference"));
+
+    if ( localStorage.getItem("systemThemeActive") === "true" && savedPreference === null) {
+      applySystemTheme();
+    }
+});
+  
+  // after a theme is applied, the settings are saved to local storage to be received when component mounts
+  const applyLightTheme = () => {
+    setSystemThemeActive(false);
+      setTheme("light");
+  }
+
+  useEffect(() => {
+    if (theme === "light") {
       localStorage.setItem("systemThemeActive", false);
-      localStorage.setItem("themePreference", JSON.stringify("dark"));
+      localStorage.setItem("themePreference", JSON.stringify("light"));
+    }
+  });
+  
+  const applyDarkTheme = () => {
+    setSystemThemeActive(false);
       setTheme("dark");
   }
+
+  useEffect(() => {
+    if (theme === "dark") {
+      localStorage.setItem("systemThemeActive", false);
+      localStorage.setItem("themePreference", JSON.stringify("dark"));
+    }
+  });
 
   //this function automatically set the theme to the user's operating system setting
   const applySystemTheme = (e) => {
-    localStorage.setItem("systemThemeActive", true);
-
+    setSystemThemeActive(true);
     if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
       setTheme("dark");
-      localStorage.setItem("themePreference", JSON.stringify("dark"));
     } else {
       setTheme("light");
-      localStorage.setItem("themePreference", JSON.stringify("light"));
     }
   };
 
-
-  // this useEffect syncs the user's theme if system preference theme is active and defaults to system theme for new visitors
   useEffect(() => {
-    if ( localStorage.getItem("systemThemeActive") === "true" || localStorage.getItem("themePreference") === null) {
-      applySystemTheme();
+    if (systemThemeActive) {
+      localStorage.setItem("systemThemeActive", true);
+    
+
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
+      localStorage.setItem("themePreference", JSON.stringify("dark"));
+    } else {
+      localStorage.setItem("themePreference", JSON.stringify("light"));
     }
-})
+  }
+
+  });
 
 
   return (
     <React.Fragment>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-        <Navigation applyLightTheme={applyLightTheme} applyDarkTheme={applyDarkTheme} applySystemTheme={applySystemTheme}/>
+      <Navigation applyLightTheme={applyLightTheme} applyDarkTheme={applyDarkTheme} applySystemTheme={applySystemTheme}/>
           {children}
         <Footer />
       </ThemeProvider>
