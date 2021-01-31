@@ -45,7 +45,7 @@ const BlogParent = styled.div`
 `
 
 const PostsContainer = styled.div`
-    margin: 0rem 3.75rem 7.5rem;
+    margin: 0rem 3.75rem 10rem;
     background-color: var(--surface_lighter);
     width: 60vw;
     padding: 1rem 2rem;
@@ -84,7 +84,7 @@ const PostsContainer = styled.div`
               <BlogParent>
                 <header>
                   <h1>The Blog</h1>
-                  <p>What's the Story, Morning Glory?</p>
+                  <p>What's the Story, Morning Glory? ♩</p>
                 </header>
                   <PostsContainer>
                       {Posts}

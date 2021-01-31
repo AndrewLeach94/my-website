@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { Navigation } from "./navBar"
 import { Footer } from "./footer"
+import { FaSun, FaRegMoon } from 'react-icons/fa';
 import "fontsource-barlow"
 import "fontsource-trocchi"
 
@@ -10,7 +11,7 @@ import "fontsource-trocchi"
 // Dynamic theme elements are defined here
 
 export const lightTheme = {
-    themeName: "light",
+    lightThemeName: "light",
 
     surfaceLighter: "#FFF",
     surfaceBase: "#F3F3F3",
@@ -35,7 +36,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-    themeName: "dark",
+    darkThemeName: "dark",
 
     surfaceLighter: "#1c1b1bb8",
     surfaceBase: "#121212", //recomended by Material Design
@@ -83,6 +84,7 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         color: var(--on_surface);
         background-color: var(--surface_base);
+        transition: 0.4s;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -156,11 +158,11 @@ export const GlobalStyles = createGlobalStyle`
         padding-bottom: 5px;
         font-weight: 700;
         color: var(--on_surface);
-        margin-bottom: 4px;
+        padding-bottom: 4px;
 
         :hover {
           border-bottom: 4px solid var(--primary_base);
-          margin-bottom: 0;
+          padding-bottom: 0;
         }
     }
 
@@ -171,92 +173,45 @@ export const GlobalStyles = createGlobalStyle`
 
 `
 
-// this component handles all the styled components themeing logic 
+// this component handles all the styled components prefersDarkModeing logic 
 export default function Layout({ children }) {
     
 
-  // this logic sets up the theme swap functionality - the swap function is passed to the navBar component
-  
-  // this ensures gatsby only searches local storage if and only when the window is loaded
-  const getInitState = () => {
-    let themeState;
-
+  /* It should be noted that I "force" the prefersDarkMode into light mode in the gatsby-ssr file during the 
+  initial render of the page. Currently a bug somewhere between styled-components and gatsby hydration
+  ONLY applies the correct global styles when dark mode is loaded on the server side. Ideally I'd like
+  to come back to this and find a better workaround other than forcing the site in light mode on 
+  initial render and the useEffect alternatives that produce a flicker when serving pages 
+  are a bigger no-no*/
+  const getSavedState = () => {
     if (typeof window != "undefined") {
-      const savedThemePreference = JSON.parse(localStorage.getItem("themePreference"));
-      themeState = savedThemePreference;
+      return JSON.parse(localStorage.getItem("prefersDarkMode"));
+    }
+  }
+
+  const [prefersDarkMode, setPrefersDarkMode] = useState(getSavedState());
+  
+  // after a prefersDarkMode is applied, the settings are saved to local storage to be received when component mounts
+  const swapTheme = () => {
+      setPrefersDarkMode(!prefersDarkMode);
+  }
+
+
+  useEffect(() => {
+    if (prefersDarkMode === true) {
+      localStorage.setItem("prefersDarkMode", true);
     } else {
-      themeState = "light";
-    }
-
-    return themeState;
-  }
-  
-  const [theme, setTheme] = useState(getInitState());
-  const [systemThemeActive, setSystemThemeActive] = useState('');
-
-  useEffect(() => {
-    const savedPreference = JSON.parse(localStorage.getItem("themePreference"));
-
-    if ( localStorage.getItem("systemThemeActive") === "true" && savedPreference === null) {
-      applySystemTheme();
-    }
-});
-  
-  // after a theme is applied, the settings are saved to local storage to be received when component mounts
-  const applyLightTheme = () => {
-    setSystemThemeActive(false);
-      setTheme("light");
-  }
-
-  useEffect(() => {
-    if (theme === "light") {
-      localStorage.setItem("systemThemeActive", false);
-      localStorage.setItem("themePreference", JSON.stringify("light"));
+      localStorage.setItem("prefersDarkMode", false);
     }
   });
   
-  const applyDarkTheme = () => {
-    setSystemThemeActive(false);
-      setTheme("dark");
-  }
-
-  useEffect(() => {
-    if (theme === "dark") {
-      localStorage.setItem("systemThemeActive", false);
-      localStorage.setItem("themePreference", JSON.stringify("dark"));
-    }
-  });
-
-  //this function automatically set the theme to the user's operating system setting
-  const applySystemTheme = (e) => {
-    setSystemThemeActive(true);
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
-
-  useEffect(() => {
-    if (systemThemeActive) {
-      localStorage.setItem("systemThemeActive", true);
-    
-
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
-      localStorage.setItem("themePreference", JSON.stringify("dark"));
-    } else {
-      localStorage.setItem("themePreference", JSON.stringify("light"));
-    }
-  }
-
-  });
-
+  
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <ThemeProvider theme={prefersDarkMode === true ? darkTheme : lightTheme}>
       <GlobalStyles />
-      <Navigation applyLightTheme={applyLightTheme} applyDarkTheme={applyDarkTheme} applySystemTheme={applySystemTheme}/>
+      <Navigation swapTheme={swapTheme} buttonIcon={prefersDarkMode ? <FaRegMoon /> : <FaSun />} />
           {children}
         <Footer />
       </ThemeProvider>

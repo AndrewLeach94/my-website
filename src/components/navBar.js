@@ -97,10 +97,11 @@ const NavBar = styled.nav`
     ul {
         display: flex;
         justify-content: space-evenly;
+        margin-right: 4.5rem;
     }
 
     li {
-        padding: 0 30px;
+        padding: 0 2rem;
         list-style: none;
         color: var(--on_primary);
 
@@ -109,6 +110,18 @@ const NavBar = styled.nav`
     a {
         color: inherit;
         text-decoration: none;
+    }
+
+    button {
+        background: none;
+        border: none;
+        padding: 0 2rem;
+        min-width: auto;
+        outline: none;
+
+        :hover {
+            box-shadow: none;
+        }
     }
 
     @media (max-width: 1000px) {
@@ -140,99 +153,27 @@ const NavBar = styled.nav`
         }
 
         li {
-            margin: 20px 0;
+            padding: 1.5rem 0;
             height: auto;
+        }
+
+        button {
+            padding: 1.5rem 0;
         }
 
         }
 
     `;
 
-    const ThemeSelectContainer = styled.div`
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 60px 0 30px;
-        cursor: pointer;
-
-        .theme-menu {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            top: 100%;
-            left: 0;
-            display: none;
-
-            button {
-                background: var(--surface_lighter);
-                border: none;
-                box-shadow: none;
-                color: var(--on_surface);
-                border-radius: 0;
-
-                :hover {
-                    background: var(--surface_lighter);
-                }
-            }
-        }
-
-        @media (max-width: 720px) {
-            padding: 0 30px;
-            margin: 20px 0;
-
-            button {
-                font-size: 0.8rem;
-            }
-        }
-    
-    `
-
 
 export const Navigation = (props) => {  
 
     // these are the theme functions passed in as props
-    const { applyLightTheme, applyDarkTheme, applySystemTheme } = props;
+    const { swapTheme, buttonIcon } = props;
 
     const [showMenu, setShowMenu] = useState(false);
     const [checkboxActive, setCheckboxActive] = useState(false);
-    const [themeMenuVisible, setThemeMenuVisible] = useState(false);
-
     
-    const initSystemTheme = () => {
-        let systemThemeState;
-        if (typeof window != "undefined") {
-            systemThemeState = JSON.parse(localStorage.getItem("systemThemeActive"));
-        } else {
-            systemThemeState = true;
-        }
-        return systemThemeState;
-    }
-    
-    const initLightTheme = () => {
-        let lightThemeState;
-        if (typeof window != "undefined") {
-            lightThemeState = JSON.parse(localStorage.getItem("themePreference")) === "light" && JSON.parse(localStorage.getItem("systemThemeActive")) === false;
-        } else {
-            lightThemeState = true;
-        }
-        return lightThemeState;
-    }
-    
-    const initDarkTheme = () => {
-        let darkThemeState;
-        if (typeof window != "undefined") {
-            darkThemeState = JSON.parse(localStorage.getItem("themePreference")) === "dark" && JSON.parse(localStorage.getItem("systemThemeActive")) === false;
-        } else {
-            darkThemeState = true;
-        }
-        return darkThemeState;
-    }
-
-    // theme states must be funneled through a function so gatsby can build without needing local storage
-    const systemTheme = initSystemTheme();
-    const lightTheme = initLightTheme();
-    const darkTheme = initDarkTheme();
 
     //this function disables scrolling if the mobile menu is active
     const handleScroll = () => {
@@ -253,18 +194,7 @@ export const Navigation = (props) => {
             setShowMenu(false);
             setCheckboxActive(false);
         }
-    }
-
-
-    let themeMenuStyle = {
-        display: "none",
-    }
-
-    // set visibility of menu based on the state 
-    if ((themeMenuVisible) ? themeMenuStyle = {display: "inherit"} : themeMenuStyle = {display: "none"});
-
-    // this function handles the styling of the active theme in the menu
-    
+    }    
 
     useEffect(() => {
         handleScroll();
@@ -285,14 +215,8 @@ export const Navigation = (props) => {
                     <li><Link to="/#contact" onClick={() => handleMobileLinkClick()}>Contact</Link></li>
                     <li><Link to="/blog">Blog</Link></li>
                     <li><a href="https://vimeo.com/andrewleach" target="_blank">Reel</a></li>
+                    <button onClick={swapTheme}>{buttonIcon}</button>
                 </ul>
-                <ThemeSelectContainer onClick={() => setThemeMenuVisible(!themeMenuVisible)}>Select Theme
-                    <div className="theme-menu" style={themeMenuStyle}>
-                        <button onClick={applyLightTheme} style={{color: lightTheme ? "var(--primary_lighter)" : "var(--on_surface)"}}>Light</button>
-                        <button onClick={applyDarkTheme} style={{color: darkTheme ? "var(--primary_lighter)" : "var(--on_surface)"}}>Dark</button>
-                        <button onClick={applySystemTheme} style={{color: systemTheme ? "var(--primary_lighter)" : "var(--on_surface)"}}>System Preference</button>
-                    </div>
-                </ThemeSelectContainer>
             </NavBar>
         </NavParent>
     )}

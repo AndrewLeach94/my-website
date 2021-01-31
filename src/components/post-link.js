@@ -59,7 +59,7 @@ const PostParent = styled.div`
 
   @media (max-width: 500px) {
     position: static;
-    padding: 3rem 1rem;
+    padding: 3rem 1.5rem;
 
     h2 {
       font-size: 1.7rem;
@@ -91,7 +91,7 @@ const PostLink = ({ post }) => (
           <p className="post_list-category">{post.frontmatter.category}</p>
           <p className="post_list-date">{post.frontmatter.date}</p>
           <p className="post_list-excerpt">{post.excerpt}</p>
-        <Link to={post.frontmatter.slug} className="button_secondary">Read More</Link>
+        <p className="button_secondary">Read More</p>
     </Link>
   </PostParent>
 )
