@@ -80,7 +80,7 @@ export const Skills = () => {
     return(
         <SkillsParent id="section_skills">
             <h2>Skills</h2>
-            <p>Suffice to say I'm a visual person</p>
+            <p>Suffice to say that I'm a visual person</p>
             <SkillGrid>
                 <SkillContainer>
                     <FaHtml5 />

@@ -34,7 +34,7 @@ import Layout from "../components/layout"
 
                 source={designSystemPromo}
                 poster={designSystemPromoPlaceholder}
-                URL=""
+                URL="./blog/torsh-design-system"
             />
             <CaseStudyPromoReversed
                 caseStudyId= "2"

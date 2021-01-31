@@ -16,7 +16,7 @@ Although this wasn't ideal, it was tolerable when there was just one designer. A
 
 ## 2. Initial Design Teardown
 My first step towards a design system was the initial teardown of the UI. I took screenshots of nearly everything - buttons, menus, tables, icons, you name it. 
-When I had everything organized into a Google Doc, it was easy to see some major inconsistencies. There were at least three different input styles and font-sizes were fairly inconsistent. 
+When I had everything organized into a Google Doc, it was easy to see some major inconsistencies in the UI such as three different input styles as well as font-sizes being fairly inconsistent. 
 
 ## 3. The Basics - Typography & Colors:
 
@@ -33,13 +33,13 @@ I took the brand colors and gave them a defined name with a reusable purpose. I 
 ![The one color palette of truth](./colors.png)
 
 #### Primary:
-This is the the most commonly used color in the app.
+This is the most commonly used color in the app.
     
 #### Success:
 The success color is saved for any messaging that screams "confirmation".
 
 #### Danger:
-This is reserved for any messaging that screams "error" or "watch out", for instance, "careful, you're about to delete a video that you'll never be able to see again.
+This is reserved for any messaging that screams "error" or "watch out". An example includes "careful, you're about to delete a video that you'll never be able to see again!" 😱
 
 #### CTA:
 This is reserved mainly for buttons and banners that have a "call to action" that clearly stands out.
@@ -56,9 +56,9 @@ I created specific text styles that can be easily applied in any imaginable comp
 
 ## 5. Moving Up! - Buttons & Dropdowns:
 
-Buttons and dropdown menus were larger "atoms" that often made up complex components. Building on the color and typography styles I had created, I created button and dropdown symbols in different states (on mouse hover for instance).
+Buttons and dropdown menus were larger "atoms" that often made up complex components. Building on the color and typography styles I had created, I added button and dropdown symbols in different states (on mouse hover for instance).
 
-These symbols were responsive with set paddings and could resize themselves based on the content inside.
+These symbols were responsive with set paddings and would automatically resize themselves based on the content inside.
 
 ![The dropdown styles](./dropdowns.jpg)
 ![The different button instances and states](./buttons.jpg)
@@ -67,7 +67,7 @@ These symbols were responsive with set paddings and could resize themselves base
 
 Components are complex elements that could include several different atoms. Imagine the nightmare of having to manually adjust every navigation bar if the decision was made to modify the fonts or colors!
 
-Fortunately, in this case, all components were designed using atoms that I've previous mentioned.
+Fortunately, in this case, all components were designed using the atoms that I've already mentioned.
 
 ### Navigation Bar:
 

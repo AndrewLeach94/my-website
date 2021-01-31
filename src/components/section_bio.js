@@ -82,11 +82,12 @@ export const Bio = (props) => {
             I initially began my career in multimedia and marketing before making the push to web design and UX.
             <br></br>
             <br></br>
-            As much as I loved designing, I really wanted to make these ideas come to life so 
+            As much as I loved designing user interfaces, I really wanted to make these sketches come to life so 
             after losing my job during COVID, I knew it was time to study and commit to developing on the front-end. 
             <br></br>
             <br></br>
-            Outside of tech, I'm an avid musician and play bass, guitar, and I'd play more drums if my neighbors would let me.
+            Outside of tech, I'm an avid bass guitarist. I also play regular guitar and a little bit of drums.
+            (I'd play more if my neighbors would let me.)
         </p>
         <img src={require("./../images/paris.webp")} alt="me in paris" />
         </BioParent>
