@@ -12,6 +12,8 @@ import CVPromo from "./../videos/cv-builder.webm"
 import CVPromoPlaceholder from "./../images/placeholders/cv-builder.webp"
 import weatherNowPromo from "./../videos/weather-now.webm"
 import weatherNowPromoPlaceholder from "./../images/placeholders/weather-now.webp"
+import forgotPasswordPromo from "./../videos/forgot-password.webm"
+import forgotPasswordPromoPlaceholder from "./../markdown-pages/case-studies/torsh-forgot-password/design-4.jpg"
 import Layout from "../components/layout"
 
 
@@ -53,7 +55,7 @@ import Layout from "../components/layout"
             />
             <CaseStudyPromo 
                 caseStudyId= "3"
-                title="Weather Now"
+                title="WeatherNow"
                 ctaMessage="View Project"
                 
                 featureHeader1="Powered by the OpenWeather API"
@@ -65,6 +67,21 @@ import Layout from "../components/layout"
                 source={weatherNowPromo}
                 poster={weatherNowPromoPlaceholder}
                 URL="https://github.com/AndrewLeach94/weather-app"
+            />
+            <CaseStudyPromoReversed 
+                caseStudyId= "4"
+                title="Forgot Password Redesign"
+                ctaMessage="Read Case Study"
+                
+                featureHeader1="Redesigned for Clarity"
+                featureDetails1="I improved the overall password reset UX that eased the pressure on customer support."
+                
+                featureHeader2="Utilized the Entire UX Process"
+                featureDetails2="From early user-flow maps and wireframes to visual design and A/B testing, I covered the whole spectrum with this assignment."
+
+                source={forgotPasswordPromo}
+                poster={forgotPasswordPromoPlaceholder}
+                URL="./blog/forgot-password-redesign"
             />
             <Bio />
             <RecordCollection />

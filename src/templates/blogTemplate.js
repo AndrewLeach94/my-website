@@ -74,6 +74,10 @@ const PostParent = styled.div`
         font-size: 1.3rem;
       }
 
+      strong {
+        color: var(--primary_lighter);
+      }
+
       h2 {
         font-size: 2.3rem;
         font-weight: 400;
@@ -83,7 +87,7 @@ const PostParent = styled.div`
 
       h3, h4, h5, h6 {
         padding: 0 4rem;
-        margin-top: 4rem;
+        margin-top: 3rem;
       }
 
     }
