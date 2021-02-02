@@ -8,7 +8,7 @@ const BioParent = styled.section`
     align-items: center;
     justify-content: center;
     background-color: var(--surface_base);
-    padding: 180px 60px;
+    padding: 11.25rem 3.75rem;
 
     p {
         width: 50%;

@@ -13,6 +13,12 @@ module.exports = {
     "gatsby-transformer-sharp",
     `gatsby-transformer-remark`,
     {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/favicon.png"
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
@@ -42,7 +48,7 @@ module.exports = {
                 showCaptions: true,
                 withWebp: true,
                 loeading: lazy,
-                wrapperStyle: "margin:7.5rem 1.5rem; text-align:center;",
+                wrapperStyle: "margin:7rem 1.5rem; text-align:center;",
               },
             },
           ],

@@ -31,7 +31,7 @@ export const lightTheme = {
     heroBackgroundColor: "#f5f5f594",
 
     //homepage case study background overlay
-    caseStudyVideoOverlay: "linear-gradient(144deg,rgba(182,50,50,0.84) 0%,rgba(243,243,243,0.85) 50%)",
+    caseStudyVideoOverlay: "linear-gradient(144deg,rgba(182,50,50,0.9) 0%,rgba(243,243,243,0.9) 50%)",
 
 };
 

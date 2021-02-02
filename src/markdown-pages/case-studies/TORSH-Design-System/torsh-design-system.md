@@ -16,7 +16,7 @@ Although this wasn't ideal, it was tolerable when there was just one designer. A
 
 ## 2. Initial Design Teardown
 My first step towards a design system was the initial teardown of the UI. I took screenshots of nearly everything - buttons, menus, tables, icons, you name it. 
-When I had everything organized into a Google Doc, it was easy to see some major inconsistencies in the UI such as three different input styles as well as font-sizes being fairly inconsistent. 
+When I had everything organized into a Google Doc, it was easy to see some major inconsistencies in the UI such as three different input styles and font-sizes being fairly inconsistent. 
 
 ## 3. The Basics - Typography & Colors:
 
@@ -24,7 +24,7 @@ When I had everything organized into a Google Doc, it was easy to see some major
 
 What good is it to start building components when the basics haven't even been covered? Following the principles of Atomic Design, I began at the very bottom and worked my way up in complexity.
 
-Let's call these the **"atoms"**.
+Let's call these the **atoms**.
 
 ### Colors:
 
