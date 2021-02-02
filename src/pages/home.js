@@ -13,7 +13,7 @@ import CVPromoPlaceholder from "./../images/placeholders/cv-builder.webp"
 import weatherNowPromo from "./../videos/weather-now.webm"
 import weatherNowPromoPlaceholder from "./../images/placeholders/weather-now.webp"
 import forgotPasswordPromo from "./../videos/forgot-password.webm"
-import forgotPasswordPromoPlaceholder from "./../markdown-pages/case-studies/torsh-forgot-password/design-4.jpg"
+import forgotPasswordPromoPlaceholder from "./../images/placeholders/forgot-password.webp"
 import Layout from "../components/layout"
 
 
