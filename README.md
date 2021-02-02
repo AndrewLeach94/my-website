@@ -15,4 +15,4 @@ Ensure you have the latest version of `gatsby-cli` installed. Pull this reposito
 - [ ] Add blog pagination
 
 ## Interested to see what this site started as?
-![the first wireframe](./images/home-page-wireframe.jpg)
+![the first wireframe](./src/images/home-page-wireframe.jpg)
