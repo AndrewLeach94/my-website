@@ -1,4 +1,5 @@
 import React from "react"
+import useState from "react"
 import PostLink from "../components/post-link"
 import Layout from "../components/layout"
 import styled from "styled-components"
@@ -70,6 +71,7 @@ const PostsContainer = styled.div`
 
 
  const BlogHome = ({
+  //  const [title, setTitle] = useState("my blog");
   data: {
     allMarkdownRemark: { edges },
   },
@@ -85,6 +87,9 @@ const PostsContainer = styled.div`
                 <header>
                   <h1>The Blog</h1>
                   <p>What's the Story, Morning Glory? ♩</p>
+                  {/* <div id="category-container">
+                    <button>Case Studies</button>
+                  </div> */}
                 </header>
                   <PostsContainer>
                       {Posts}

@@ -89,7 +89,7 @@ export const ContactSection = (props) => {
         <Background>
             <ShadowWrapper>
                 <ContactParent id="contact">
-                    <p>I'm available for work.</p>
+                    <p>Want to get in touch?</p>
                     <a href="mailto:andrew_leach@outlook.com">
                         <h2>Let's talk!</h2>
                     </a>

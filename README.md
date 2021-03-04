@@ -2,8 +2,8 @@
 
 Herein lies the code for my portfolio website.
 
-## Temporary Link:
-https://stoic-goldstine-f5636d.netlify.app/ 
+## Live Site:
+https://andrewleach.design/
 
 ## To Run Locally:
 Ensure you have the latest version of `gatsby-cli` installed. Pull this repository and run `gatsby-develop`.
@@ -13,6 +13,3 @@ Ensure you have the latest version of `gatsby-cli` installed. Pull this reposito
 - [ ] Add blog categories
 - [ ] Add blog search
 - [ ] Add blog pagination
-
-## Interested to see what this site started as?
-![the first wireframe](./src/images/home-page-wireframe.jpg)
