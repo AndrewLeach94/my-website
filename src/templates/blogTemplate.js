@@ -12,7 +12,6 @@ const PostParent = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-top: 7.5rem;
     margin-bottom: 7.5rem;
 
     .button_primary {
@@ -21,12 +20,10 @@ const PostParent = styled.div`
 
     .blog-header {
         position: relative;
-        width: 65vw;
+        width: 100%;
         height: 400px;
         overflow: hidden;
         box-shadow: 0px -3px 10px #0000001c;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
         background: ${props => props.theme.caseStudyVideoOverlay};
 
 
@@ -35,14 +32,14 @@ const PostParent = styled.div`
           font-size: 3.1rem;
           max-width: 75%;
           bottom: 3.5rem;
-          left: 4rem;
+          left: calc(100vw - 80%);
           z-index: 1;
         }
 
         p {
           position: absolute;
           font-size: 1.3rem;
-          left: 4rem;
+          left: calc(100vw - 80%);
           z-index: 1;
           bottom: 0;
         }
@@ -62,15 +59,13 @@ const PostParent = styled.div`
     }
 
     .blog-post-content {
-      width: 65vw;
       background-color: var(--surface_lighter);
       box-shadow: 0px 3px 10px #0000001c;
-      padding: 0.5rem 0 5.5rem 0;
+      padding: 0.5rem calc(100vw - 80%) 5.5rem calc(100vw - 80%);
       margin-bottom: 7.5rem;
 
 
       p {
-        padding: 0 4rem;
         font-size: 1.3rem;
       }
 
@@ -81,12 +76,10 @@ const PostParent = styled.div`
       h2 {
         font-size: 2.3rem;
         font-weight: 400;
-        padding: 0 4rem;
         margin-top: 5rem;
       }
 
       h3, h4, h5, h6 {
-        padding: 0 4rem;
         margin-top: 3rem;
       }
 
@@ -100,7 +93,7 @@ const PostParent = styled.div`
 
 
         .blog-header {
-          width: 85vw;
+          width: 100vw;
 
           h1 {
             text-align: left;
@@ -119,21 +112,14 @@ const PostParent = styled.div`
           text-align: left;
           width: 85vw;
 
-
           p {
             font-size: 1rem;
-            padding: 0 4rem;
-          }
-
-          h2 {
-            padding: 0 4rem;
           }
         }
     }
 
     @media (max-width: 600px) {
         .blog-header {
-          width: 100vw;
           background-color: inherit;
           box-shadow: none;
           background-color: var(--surface_lighter);
@@ -149,18 +135,12 @@ const PostParent = styled.div`
         }
 
         .blog-post-content {
-          width: 100vw;
-          background-color: inherit;
           box-shadow: none;
           margin-bottom: 5rem;
-
-          p {
-            padding: 0 1.5rem;
-          }
+          padding: 0.5rem calc(100vw - 90%) 5.5rem calc(100vw - 90%);
 
           h2 {
             font-size: 1.3rem;
-            padding: 0 1.5rem;
             text-align: left;
             margin-top: 2.5rem
           }
@@ -168,18 +148,14 @@ const PostParent = styled.div`
           h3, h4, h5, h6 {
             margin-top: 2.5rem;
             font-size: 1rem;
-            padding: 0 1.5rem;
             text-align: left;
           }
         }
     }
 
-    @media (min-width: 1500px) {
+    @media (min-width: 1400px) {
         .blog-header {
-          width: 60vw;
-        }
-        .blog-post-content {
-          width: 60vw;
+          height: 500px;
         }
     }
 
