@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PostLink from "../components/post-link"
 import Layout from "../components/layout"
 import styled from "styled-components"
@@ -68,30 +68,55 @@ const PostsContainer = styled.div`
     }
 `
 
-
  const BlogHome = ({
+   
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
-  const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+  const [currentFilter, setCurrentFilter] = useState("most-recent");
+
+  const filterPosts = () => {
+    if (currentFilter === "blog") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === "Blog");
+      return filteredPosts
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    }
+    else if (currentFilter === "caseStudy") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === "Case Study");
+      return filteredPosts
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    }
+    else {
+      return edges
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    }
+  }
+
+  const changeFilter = (filter) => {
+    setCurrentFilter(filter);
+    filterPosts();
+  }
 
   return (
         <div>
-            <Layout >
-              <BlogParent>
-                <header>
-                  <h1>The Blog</h1>
-                  <p>What's the Story, Morning Glory? ♩</p>
-                </header>
-                  <PostsContainer>
-                      {Posts}
-                  </PostsContainer>
-                  <BlogBio />
-                </BlogParent>
-            </Layout>
+          <Layout >
+            <BlogParent>
+              <header>
+                <h1>The Blog</h1>
+                <p>What's the Story, Morning Glory? ♩</p>
+                <button onClick={() => changeFilter("blog")}>Blog Posts</button>
+                <button onClick={() => changeFilter("caseStudy")}>Case Studies</button>
+              </header>
+                <PostsContainer>
+                    {filterPosts("most-recent")}
+                </PostsContainer>
+                <BlogBio />
+              </BlogParent>
+          </Layout>
         </div>
     )
 }
@@ -100,7 +125,8 @@ export default BlogHome
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           id
