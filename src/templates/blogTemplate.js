@@ -21,7 +21,7 @@ const PostParent = styled.div`
     .blog-header {
         position: relative;
         width: 100%;
-        height: 400px;
+        height: 75vh;
         overflow: hidden;
         box-shadow: 0px -3px 10px #0000001c;
         background: ${props => props.theme.caseStudyVideoOverlay};
@@ -30,7 +30,7 @@ const PostParent = styled.div`
         h1 {
           position: absolute;
           font-size: 3.1rem;
-          max-width: 75%;
+          max-width: 65%;
           bottom: 3.5rem;
           left: calc(100vw - 80%);
           z-index: 1;
@@ -50,7 +50,7 @@ const PostParent = styled.div`
           right: 0;
           top: 0;
           bottom: 0;
-          width: 100%;
+          height: 100%;
           margin: auto;
           opacity: 0.25;
           filter: saturate(0%);
@@ -61,15 +61,16 @@ const PostParent = styled.div`
     .blog-post-content {
       background-color: var(--surface_lighter);
       box-shadow: 0px 3px 10px #0000001c;
-      padding: 0.5rem calc(100vw - 80%) 5.5rem calc(100vw - 80%);
+      padding: 5rem calc(100vw - 80%) 5.5rem calc(100vw - 80%);
       margin-bottom: 7.5rem;
 
 
       p {
         font-size: 1.3rem;
+        align-self: flex-start;
       }
 
-      strong {
+      a {
         color: var(--primary_lighter);
       }
 
@@ -79,8 +80,23 @@ const PostParent = styled.div`
         margin-top: 5rem;
       }
 
+      h2:nth-child(1) { // removes margin for first hedder
+        margin-top: 0;
+      }
+
       h3, h4, h5, h6 {
         margin-top: 3rem;
+      }
+
+      li {
+        font-size: 1.3rem;
+      }
+
+      .youtube-player {
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
     }
@@ -93,8 +109,8 @@ const PostParent = styled.div`
 
 
         .blog-header {
-          width: 100vw;
-
+          height: 60vh;
+          
           h1 {
             text-align: left;
             font-size: 2.3rem;
@@ -124,6 +140,8 @@ const PostParent = styled.div`
           box-shadow: none;
           background-color: var(--surface_lighter);
           background: none;
+          height: 50vh;
+          padding-top: 2rem;
 
           h1 {
             left: 1.5rem;
@@ -137,25 +155,24 @@ const PostParent = styled.div`
         .blog-post-content {
           box-shadow: none;
           margin-bottom: 5rem;
-          padding: 0.5rem calc(100vw - 90%) 5.5rem calc(100vw - 90%);
+          padding: 2rem calc(100vw - 90%) 5.5rem calc(100vw - 90%);
 
           h2 {
             font-size: 1.3rem;
             text-align: left;
-            margin-top: 2.5rem
+            margin-top: 2rem
           }
 
           h3, h4, h5, h6 {
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             font-size: 1rem;
             text-align: left;
           }
         }
-    }
 
-    @media (min-width: 1400px) {
-        .blog-header {
-          height: 500px;
+        iframe {
+          width: 100%;
+          height: 100%;
         }
     }
 
