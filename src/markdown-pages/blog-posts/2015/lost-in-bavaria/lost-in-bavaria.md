@@ -4,7 +4,7 @@ slug: "/blog/lost-in-bavaria"
 date: "2015-12-15"
 category: "Travel"
 featuredImage: bavaria.jpg
-tag: "Travel"
+featuredPost: false
 ---
 Traveling in itself is one of the greatest experiences a human being can have but as with everything, it can obviously get ugly. Fast. Fortunately (or not so much), I can say I’ve experienced some of the worst of it. After all, now that it’s over with, it could never happen again right? Heh, probably not. Let’s just be honest here.
 

@@ -215,6 +215,7 @@ export const pageQuery = graphql`
         slug
         title
         category
+        featuredPost
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 800) {

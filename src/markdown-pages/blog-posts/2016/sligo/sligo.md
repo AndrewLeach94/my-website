@@ -4,7 +4,7 @@ slug: "/blog/sligo"
 date: "2016-06-15"
 category: "Travel"
 featuredImage: sligo.jpg
-tag: "Travel"
+featuredPost: false
 ---
 If you're looking for that one weekend (or even single day) getaway, look no further than the village in northwest Ireland. Whether it's work, exams, or even just boredom, I can promise making the big trek out of Dublin (or elsewhere&nbsp;in Ireland) is worth it and I'm here to tell you why.
 

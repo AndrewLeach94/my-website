@@ -4,7 +4,7 @@ slug: "/blog/whirly-burger"
 date: "2015-09-17"
 category: "Travel"
 featuredImage: whirly-burger.webp
-tag: "Travel"
+featuredPost: false
 ---
 
 So here we are, standing around Maynooth Village waiting for our train to Dublin when my friend John looks over at me and says

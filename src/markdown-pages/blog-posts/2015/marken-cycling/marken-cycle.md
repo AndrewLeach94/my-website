@@ -4,7 +4,7 @@ slug: "/blog/marken-rental-bike-story"
 date: "2015-09-25"
 category: "Travel"
 featuredImage: netherlands-rural.jpg
-tag: "Travel"
+featuredPost: false
 ---
 
 There’s no question it’s tough to visit Amsterdam and not hop on a bike at some point. Since the number of bicycles outnumber the residents of Amsterdam <a href="http://www.dutchamsterdam.nl/68-amsterdam-city-of-bikes" target="_blank">by a lot</a>, it’s incredibly easy to <a href="http://www.amsterdam.info/transport/bike-rentals/" target="_blank">rent one</a> as a traveler. In fact, you can go an entire day with one for less than 10 euro. You're given the choice of a multi-gear one with handbrakes or a traditional Dutch fixed gear. After renting the bike, you’re set loose to the wilds of Amsterdam filled with locals who are late to work and fellow travelers who just get in their way because after all, <em>we have no idea what we’re doing</em>. At this point you’re given an option: Stay in the city and risk getting yourself killed and/or lost, or take the old beat up rent-a-bike miles outside the city limits. I’ll go ahead and suggest the latter option for these reasons….

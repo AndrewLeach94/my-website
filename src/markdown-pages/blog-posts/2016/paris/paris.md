@@ -4,7 +4,7 @@ slug: "/blog/how-to-louse-yourself-in-paris"
 date: "2016-06-10"
 category: "Travel"
 featuredImage: cul-de-sac.jpg
-tag: "Travel"
+featuredPost: false
 ---
 My first trip to France&nbsp;was certainly&nbsp;a milestone in my personal travel philosophy. Rather than having an already established list of things to do, I figured I'd try basically "winging" it and seeing what happens. As it turns out, my first trip to Paris was incredibly therapeutic to say the least. As corny as that sounds, losing yourself in a new city is the best way to truly experience something new and I can't imagine myself taking another trip without this strategy.
 

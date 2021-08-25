@@ -4,7 +4,7 @@ slug: "/blog/hofbrauhaus"
 date: "2016-04-21"
 category: "Travel"
 featuredImage: hofbrauhaus.jpg
-tag: "Travel"
+featuredPost: false
 ---
 I've had the great privilege of being able to visit Munich twice in the past six months. I've been to Berlin and a couple of other smaller villages as well but there's no doubt in my mind that the capital of Bavaria is my favorite. There's really not a lot to hate here. It's a city deeply rooted in its culture, history, and oh yeah, beer halls.
 

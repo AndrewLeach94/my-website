@@ -4,7 +4,7 @@ slug: "/blog/music-pilgrimage-liverpool"
 date: "2015-11-08"
 category: "Travel"
 featuredImage: liverpool.jpg
-tag: "Travel"
+featuredPost: false
 ---
 People often ask me what my favorite type of music is. For the most part, I just give the majority of people the generic “everything” answer. In all honesty, I do have a deep respect for all music. Deep down though, I’m a rock n’ roll fan…plain and simple. Now, I could easily start boring you with music history and how much I love the drums and bass guitar but since this is a travel blog I’ll keep it simple and save that fun stuff for another blog.
 

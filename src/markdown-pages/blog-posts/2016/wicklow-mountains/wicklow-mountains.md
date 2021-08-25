@@ -4,7 +4,7 @@ slug: "/blog/wicklow-mountains"
 date: "2016-02-10"
 category: "Travel"
 featuredImage: wicklow-cemetary.jpg
-tag: "Travel"
+featuredPost: false
 ---
 Mountains aren't necessarily the first thing that you think of when you visit Ireland. Sure, you've got those green rolling hills and the hoards of sheep that unquestionably <a href="http://davidlansing.com/more-sheep-than-people-in-ireland/" target="_blank">outnumber the people</a> on the island but mountains? Nah.
 

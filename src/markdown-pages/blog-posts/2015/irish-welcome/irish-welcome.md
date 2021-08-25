@@ -4,7 +4,7 @@ slug: "/blog/irish-welcome"
 date: "2015-08-30"
 category: "Travel"
 featuredImage: malahide.jpg
-tag: "Travel"
+featuredPost: false
 ---
 
 For a late August morning in Seattle, it was odd waking up in the morning of my flight to the cool drizzle you'd normally get starting in late September. Obviously the weather somehow knew I was heading to the British Isles for the year and wouldn't let me get one more glimpse of the sun. Ha...great one nature!

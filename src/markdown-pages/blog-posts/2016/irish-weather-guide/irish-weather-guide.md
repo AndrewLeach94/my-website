@@ -4,7 +4,7 @@ slug: "/blog/irish-weather-guide"
 date: "2016-02-22"
 category: "Travel"
 featuredImage: wicklow-stream.jpg
-tag: "Travel"
+featuredPost: false
 ---
 I've been asked several times regarding what's best to wear around Ireland...
 

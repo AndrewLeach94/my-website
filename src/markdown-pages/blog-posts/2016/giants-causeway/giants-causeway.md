@@ -4,7 +4,7 @@ slug: "/blog/making-sense-of-the-giants-causeway"
 date: "2016-06-02"
 category: "Travel"
 featuredImage: coastline.jpg
-tag: "Travel"
+featuredPost: false
 ---
 The Giants Causeway found all the way on the northern coast of Ireland is one of those wonders of the world that&nbsp;I simply&nbsp;accept exists. It's a UNESCO World Heritage Site and it is so for a reason. After spending a full day climbing up centuries-old dried magma prisms, I'd recommend this trek to everyone. It's by far the most unique bit of nature you'll find on the island.
 
