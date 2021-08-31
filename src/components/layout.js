@@ -117,6 +117,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     button {
+        cursor: pointer;
         min-width: 100px;
         font-size: 1rem;
         padding: 15px 20px;
@@ -165,6 +166,21 @@ export const GlobalStyles = createGlobalStyle`
           padding-bottom: 0;
         }
     }
+
+    .button_tertiary {
+      font-size: 1rem;
+      border: solid 1px var(--primary_lighter);
+      color: var(--on_surface);
+      border-radius: 50px;
+      padding: 0.5rem 0.75rem;
+      background: transparent;
+      transition: 0.2s;
+
+      :hover {
+        background: var(--surface_lighter);
+      }
+    }
+
 
     section {
       padding: 0 20px;

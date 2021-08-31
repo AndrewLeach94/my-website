@@ -6,33 +6,29 @@ import { BlogBio } from "../components/blog_bio"
 
 
 const BlogParent = styled.div`
-
+    margin: 0 4.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     header {
       display: flex;
       flex-direction: column;
-      align-items: center;
       margin-bottom: 2rem;
     }
 
     h1 {
       margin-top: 5rem;
-      text-align: center;
+      margin-bottom: 2rem;
     }
 
     p {
       margin-top: 0;
       margin-bottom: 5rem;
       font-size: 1.3rem;
-      text-align: center;
     }
 
     @media (max-width: 1070px) {
         display: flex;
-        align-items: center;
         flex-direction: column;
     }
 
@@ -45,7 +41,6 @@ const BlogParent = styled.div`
 `
 
 const PostsContainer = styled.div`
-    margin: 0rem 3.75rem 10rem;
     background-color: var(--surface_lighter);
     width: 60vw;
     padding: 1rem 2rem;
@@ -68,23 +63,37 @@ const PostsContainer = styled.div`
     }
 `
 
+const CategoryContainer = styled.div`
+    display: flex;
+
+    .button_tertiary {
+      margin-right: 1rem;
+    }
+`
+
  const BlogHome = ({
    
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
-  const [currentFilter, setCurrentFilter] = useState("most-recent");
+  const [currentFilter, setCurrentFilter] = useState("All Posts");
 
   const filterPosts = () => {
-    if (currentFilter === "travel") {
-      const filteredPosts = edges.filter(post => post.node.frontmatter.category === "Travel");
+    if (currentFilter === "Travel") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
       .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
     }
-    else if (currentFilter === "caseStudy") {
-      const filteredPosts = edges.filter(post => post.node.frontmatter.category === "Case Study");
+    else if (currentFilter === "Case Study") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
+      return filteredPosts
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    }
+    else if (currentFilter === "Random") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
       .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
@@ -107,9 +116,13 @@ const PostsContainer = styled.div`
             <BlogParent>
               <header>
                 <h1>The Blog</h1>
-                <p>What's the Story, Morning Glory? ♩</p>
-                <button onClick={() => changeFilter("travel")}>Travel</button>
-                <button onClick={() => changeFilter("caseStudy")}>Case Studies</button>
+                <CategoryContainer>
+                  <button className="button_tertiary" onClick={() => changeFilter("Case Study")}>Case Studies</button>
+                  <button className="button_tertiary" onClick={() => changeFilter("Travel")}>Travel</button>
+                  <button className="button_tertiary" onClick={() => changeFilter("Random")}>Random</button>
+                  <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
+                </CategoryContainer>
+                <p>Showing results for {currentFilter}</p>
               </header>
                 <PostsContainer>
                     {filterPosts("most-recent")}
@@ -136,6 +149,14 @@ export const pageQuery = graphql`
             slug
             title
             category
+            featuredImage {
+              publicURL
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }    
           }
           excerpt(pruneLength: 500)
         }
