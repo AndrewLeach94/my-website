@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: "https://andrewleach.design",
   },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",

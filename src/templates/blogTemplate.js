@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import { BlogBio } from "../components/blog_bio"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components"
 
 
@@ -182,14 +182,14 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
-  let featuredImgFluid = frontmatter.featuredImage.childImageSharp.fluid
+  let featuredImgFluid = frontmatter.featuredImage.childImageSharp.gatsbyImageData
 
   return (
     <div className="blog-post-parent">
     <Layout >
       <PostParent>
           <header className="blog-header">
-                <Img className="featured-image" fluid={featuredImgFluid} />
+                <GatsbyImage image={featuredImgFluid} className="featured-image" />
                 <h1>{frontmatter.title}</h1>
                 <p>{frontmatter.date}</p>
           </header>
@@ -202,27 +202,24 @@ export default function Template({
         </PostParent>
       </Layout>
     </div>
-  )
+  );
 }
 
-export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        slug
-        title
-        category
-        featuredPost
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+export const pageQuery = graphql`query ($slug: String!) {
+  markdownRemark(frontmatter: {slug: {eq: $slug}}) {
+    html
+    frontmatter {
+      date(formatString: "MMMM DD, YYYY")
+      slug
+      title
+      category
+      featuredPost
+      featuredImage {
+        childImageSharp {
+          gatsbyImageData(width: 800, layout: CONSTRAINED)
         }
       }
     }
   }
+}
 `

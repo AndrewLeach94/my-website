@@ -136,31 +136,27 @@ const CategoryContainer = styled.div`
 
 export default BlogHome
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 500)
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            slug
-            title
-            category
-            featuredImage {
-              publicURL
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }    
+export const pageQuery = graphql`{
+  allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+    edges {
+      node {
+        id
+        excerpt(pruneLength: 500)
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          slug
+          title
+          category
+          featuredImage {
+            publicURL
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
+            }
           }
-          excerpt(pruneLength: 500)
         }
+        excerpt(pruneLength: 500)
       }
     }
   }
+}
 `
