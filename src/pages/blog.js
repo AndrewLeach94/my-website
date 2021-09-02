@@ -3,6 +3,7 @@ import PostLink from "../components/post-link"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import { BlogBio } from "../components/blog_bio"
+import { graphql } from 'gatsby'
 
 
 const BlogParent = styled.div`
@@ -38,6 +39,12 @@ const BlogParent = styled.div`
         }
     }
 
+    .blog-thumbnail {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-end;
+      min-height: 150px;
+    }
 `
 
 const PostsContainer = styled.div`
@@ -59,8 +66,19 @@ const PostsContainer = styled.div`
       width: 100vw;
       background-color: inherit;
       box-shadow: none;
-      
     }
+`
+
+const FeaturedGrid = styled.div`
+  display: grid;
+  /* grid-template-rows: 1fr 1fr 1fr; */
+  grid-template-columns: 3fr 1fr;
+  width: 100%;
+  background: gray;
+
+  #featured-post {
+    /* grid-row: 1 / 3; */
+  }
 `
 
 const CategoryContainer = styled.div`
@@ -116,6 +134,15 @@ const CategoryContainer = styled.div`
             <BlogParent>
               <header>
                 <h1>The Blog</h1>
+                <FeaturedGrid>
+                  <div className="blog-thumbnail" id="featured-post">Featured</div>
+                  <div class="featured_most-recent">
+                    <div className="blog-thumbnail">Recent1</div>
+                    <div className="blog-thumbnail">Recent2</div>
+                    <div className="blog-thumbnail">Recent3</div>
+                  </div>
+                </FeaturedGrid>
+              </header>
                 <CategoryContainer>
                   <button className="button_tertiary" onClick={() => changeFilter("Case Study")}>Case Studies</button>
                   <button className="button_tertiary" onClick={() => changeFilter("Travel")}>Travel</button>
@@ -123,7 +150,6 @@ const CategoryContainer = styled.div`
                   <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
                 </CategoryContainer>
                 <p>Showing results for {currentFilter}</p>
-              </header>
                 <PostsContainer>
                     {filterPosts("most-recent")}
                 </PostsContainer>
@@ -148,7 +174,6 @@ export const pageQuery = graphql`{
           title
           category
           featuredImage {
-            publicURL
             childImageSharp {
               gatsbyImageData(width: 800, layout: CONSTRAINED)
             }
