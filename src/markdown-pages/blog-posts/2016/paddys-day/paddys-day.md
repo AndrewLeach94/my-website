@@ -4,7 +4,7 @@ slug: "/blog/paddys-day"
 date: "2016-03-20"
 category: "Travel"
 featuredImage: temple-bar.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 Ahh, St. Patrick's Day. That one day of the year everyone throws on something green, briefly reflects on the impact St. Patrick made (maybe), and begins drinking as soon as they feel they're physically able. For a holiday originating on a tiny island on the edge of Northern Europe, it's mental how much of an impact the day has around the world. Naturally, drinking the day away in the capital of Ireland is a bucket list item for people all over the world. Makes sense right? Well, there's one little piece of information most people will find surprising (including myself).
 

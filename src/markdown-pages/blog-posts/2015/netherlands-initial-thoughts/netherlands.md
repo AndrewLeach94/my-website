@@ -4,7 +4,7 @@ slug: "/blog/netherlands-initial-thoughts"
 date: "2015-09-20"
 category: "Travel"
 featuredImage: amsterdam-plaza.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 
 When the idea was initially brought up to venture to the Netherlands, my initial reaction was just "eh, don't think I need to spend money going there”. I wasn’t disinterested per say… just more of a “Sure, might as well check that off my bucket list.”

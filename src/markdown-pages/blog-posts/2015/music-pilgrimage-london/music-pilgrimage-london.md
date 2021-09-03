@@ -4,7 +4,7 @@ slug: "/blog/music-pilgrimage-london"
 date: "2015-12-30"
 category: "Travel"
 featuredImage: abby-road-sign.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 Two weeks after my <a href="http://theladstravelguide.com/2015/11/08/british-music-pilgrimage-part-one-liverpool/" target="_blank">initial trip to Liverpool</a>, I made another trip down to London to focus in on musical legacy of the city. It may come to no surprise but there's a lot of famous bands from the London area.The Who, The Clash, Blur, Rolling Stones, Sex Pistols, hell, even the Spice Girls are just a few that call London home.
 

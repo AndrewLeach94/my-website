@@ -4,7 +4,7 @@ slug: "/blog/how-to-not-sound-like-a-tourist-in-new-orleans"
 date: "2014-03-16"
 category: "Random"
 featuredImage: bourbon.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 
 Don't get me wrong. New Orleans has an economy based heavily on tourism. According to&nbsp;<a href="http://www.neworleansonline.com" target="_blank">New Orleans Online</a>, tourism is the city's second-largest industry (just behind shipping) and brings millions of tourists into the city each year. In 2012, for example, 9.01 million visitors entered the city according a study conducted by the University of New Orleans. The city and locals are well aware of the city's touristy appeal and are always willing to help out foreigners who have lost there way.

@@ -80,7 +80,7 @@ const PostLink = ({ post }) => (
           <p className="post_list-date">{post.frontmatter.date}</p>
           <p className="post_list-excerpt">{post.excerpt}</p>
           <p className="button_secondary">Read More</p>
-          <GatsbyImage image={post.frontmatter.featuredImage.childImageSharp.gatsbyImageData}></GatsbyImage>
+          <GatsbyImage alt="" image={post.frontmatter.featuredImage.childImageSharp.gatsbyImageData}></GatsbyImage>
     </Link>
   </PostParent>
 )

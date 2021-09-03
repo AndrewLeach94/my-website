@@ -4,7 +4,7 @@ slug: "/blog/budgeting-for-norway-winter"
 date: "2016-01-31"
 category: "Travel"
 featuredImage: oslo-bay.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 My first trip to Norway was definitely an impromptu one.
 

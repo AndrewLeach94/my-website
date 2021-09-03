@@ -4,7 +4,7 @@ slug: "/blog/why-you-shouldnt-visit-switzerland"
 date: "2015-12-22"
 category: "Travel"
 featuredImage: swiss-skiing.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 I couldn't imagine why anyone would ever want to visit such a horrid country. In my three days in Switzerland here's why I thought I just couldn't ever forget it.
 

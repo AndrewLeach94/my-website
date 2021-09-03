@@ -4,6 +4,7 @@ slug: "/blog/vineyards-and-assisi"
 date: "2016-06-30"
 category: "Travel"
 featuredImage: vineyard-and-assisi.jpg
+featuredPost: "false"
 ---
 My first trip to Italy was certainly a major eye opener. After spending the entire bulk of the past year living and traveling around Northern and Central Europe, it was a brilliant&nbsp;change of scenery to make it it to the south. I was fortunate enough to have family living in the ancient city of Perugia, the capital of Umbria which is the region directly in the middle of the country. (Random Fact: Only region to be completely landlocked as well) I'd definitely recommend visiting if you want to get away to a true Italian city away from the tourists. And if you're into history, don't worry, the <a href="https://en.wikipedia.org/wiki/Etruscan_civilization" target="_blank">Etruscans</a> have your back.
 

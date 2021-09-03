@@ -4,7 +4,7 @@ slug: "/blog/twelve-pubs-of-christmas"
 date: "2015-12-25"
 category: "Travel"
 featuredImage: 12-pubs.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 <h2>It was the week before Christmas and all through the day, eight lads were restless, all hyped for the long night. Their jumpers were cleaned, their livers all rested, and the rules were set fourth, knowing none could be bested.</h2>
 

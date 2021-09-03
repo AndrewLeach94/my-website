@@ -4,6 +4,7 @@ slug: "/blog/brighton-bank-holiday"
 date: "2016-06-28"
 category: "Travel"
 featuredImage: brighton-beach.jpg
+featuredPost: "false"
 ---
 It all started when I decided to plan a trip back to visit some of my old friends in both Birmingham and London. I booked my flight via Ryanair so the dates and prices worked out that I would be spending a week in Britain. I’d fly into London, spend a couple days there, and then take a train up to Birmingham where I’d fly back to Dublin as well. This was a great plan and all until I realized I’d be spending a whole six days in Birmingham. I really didn’t need to spend six days back in Birmingham (no hard feelings) so I figured I’d take a couple days to see someplace new instead. So of course, I still needed to see Brighton.
 

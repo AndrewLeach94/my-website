@@ -128,6 +128,15 @@ const CategoryContainer = styled.div`
     filterPosts();
   }
 
+  const generateFeaturedPost = () => {
+    const featuredPost = edges.filter(post => post.node.frontmatter.featuredPost === "true");
+    console.log("hi")
+
+    return featuredPost
+    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+  }
+
   return (
         <div>
           <Layout >
@@ -135,8 +144,10 @@ const CategoryContainer = styled.div`
               <header>
                 <h1>The Blog</h1>
                 <FeaturedGrid>
-                  <div className="blog-thumbnail" id="featured-post">Featured</div>
-                  <div class="featured_most-recent">
+                  <div className="blog-thumbnail" id="featured-post">
+                    {generateFeaturedPost()}
+                  </div>
+                  <div className="featured_most-recent">
                     <div className="blog-thumbnail">Recent1</div>
                     <div className="blog-thumbnail">Recent2</div>
                     <div className="blog-thumbnail">Recent3</div>
@@ -173,6 +184,7 @@ export const pageQuery = graphql`{
           slug
           title
           category
+          featuredPost
           featuredImage {
             childImageSharp {
               gatsbyImageData(width: 800, layout: CONSTRAINED)

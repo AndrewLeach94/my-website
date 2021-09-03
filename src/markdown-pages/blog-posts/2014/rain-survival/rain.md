@@ -4,7 +4,7 @@ slug: "/blog/surviving-the-rain-in-new-orleans"
 date: "2014-04-29"
 category: "Random"
 featuredImage: fq-rain.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 As a native from the Pacific Northwest, I am no stranger to rain. According to <a href="http://www.komonews.com/weather/blogs/scott/Seattle-shows-off-why-it-has-relatively-little-annual-rainfall-189098361.html" target="_blank">KOMO News</a>, Seattle averages only about 58 sunny days a year with. While it may seem at first that Seattle is the rainy capital of the world, it doesn't even come close. Seattle averages 37 inches of rain per year. New Orleans averages 64 inches per year. Seattle is tied with Portland, OR for 134th in the nation in terms of annual rainfall. New Orleans ranks at number 3.
 

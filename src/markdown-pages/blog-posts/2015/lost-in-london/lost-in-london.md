@@ -4,7 +4,7 @@ slug: "/blog/dont-get-lost-in-london"
 date: "2015-10-23"
 category: "Travel"
 featuredImage: london-cab.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 
 Ever heard people tell you London itself is big? You definitely have, and I'll tell you why. It definitely has something to do with being the biggest city in the European Union...by a lot.

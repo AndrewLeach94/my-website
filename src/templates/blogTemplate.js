@@ -79,7 +79,7 @@ const PostParent = styled.div`
         margin-top: 5rem;
       }
 
-      h2:nth-child(1) { // removes margin for first hedder
+      h2:nth-child(1) { 
         margin-top: 0;
       }
 
@@ -205,7 +205,8 @@ export default function Template({
   );
 }
 
-export const pageQuery = graphql`query ($slug: String!) {
+export const pageQuery = graphql`
+query ($slug: String!) {
   markdownRemark(frontmatter: {slug: {eq: $slug}}) {
     html
     frontmatter {

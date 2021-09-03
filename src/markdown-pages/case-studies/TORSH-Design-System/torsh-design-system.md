@@ -4,7 +4,7 @@ slug: "/blog/torsh-design-system"
 date: "2020-09-15"
 category: "Case Study"
 featuredImage: colors.png
-featuredPost: false
+featuredPost: "true"
 ---
 
 

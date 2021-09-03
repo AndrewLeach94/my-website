@@ -4,6 +4,7 @@ slug: "/blog/forgot-password-redesign"
 date: "2020-09-10"
 category: "Case Study"
 featuredImage: password-visible.jpg
+featuredPost: "false"
 ---
 
 ## The Problem:

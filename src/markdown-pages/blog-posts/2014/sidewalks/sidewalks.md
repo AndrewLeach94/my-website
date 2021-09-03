@@ -4,7 +4,7 @@ slug: "/blog/new-orleans-sidewalks-handbook"
 date: "2014-04-29"
 category: "Random"
 featuredImage: sidewalk1.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 
 Assume that it is a gorgeous day out and you are feeling up to taking a 30 minute walk. In any other urban setting, this usually entails grabbing a rain coat, your dog (if applicable), and an iPod to jam out to some new indie music on your way to Starbucks.

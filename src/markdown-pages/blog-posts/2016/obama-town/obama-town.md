@@ -4,6 +4,7 @@ slug: "/blog/brief-stop-in-obama-town"
 date: "2016-09-29"
 category: "Travel"
 featuredImage: obama-cafe.jpg
+featuredPost: "false"
 ---
 In the far&nbsp;reaches of rural central Ireland on the border of County Offaly sits a village unlike anything you've ever seen before. The village itself technically goes by the name Moneygall but I wouldn't expect many visitors to guess that right away. Once off the motorway, the first thing you see when looking for petrol&nbsp;is the Barack Obama Plaza. That's right friends, this isn't your typical&nbsp;rural Irish village. You've driven into...
 

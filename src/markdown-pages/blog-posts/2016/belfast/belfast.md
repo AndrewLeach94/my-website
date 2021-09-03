@@ -4,7 +4,7 @@ slug: "/blog/belfast"
 date: "2016-05-23"
 category: "Travel"
 featuredImage: belfast-fish.jpg
-featuredPost: false
+featuredPost: "false"
 ---
 I'll go ahead and say right off the bat that Belfast was certainly the most culturally interesting city I've had the fortune of walking around in during my travels so far. I'm definitely a history buff and have studied a full course load of Irish history on my exchange programme so it's safe to say I thoroughly enjoyed my time sightseeing in the Northern Irish capital. That said, I'm not here to get political and lecture you on it's recent troubled history so I'll skip ahead to the good stuff. (Although by all means you should at least know &nbsp;a little bit about the history prior to visiting. This is a nice quick history&nbsp;<a href="http://www.inyourpocket.com/belfast/A-Brief-History-of-Belfast_70036f" target="_blank" rel="noopener">article </a>to get you up to speed.)
 
