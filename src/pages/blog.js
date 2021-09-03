@@ -22,12 +22,6 @@ const BlogParent = styled.div`
       margin-bottom: 2rem;
     }
 
-    p {
-      margin-top: 0;
-      margin-bottom: 5rem;
-      font-size: 1.3rem;
-    }
-
     @media (max-width: 1070px) {
         display: flex;
         flex-direction: column;
@@ -40,10 +34,10 @@ const BlogParent = styled.div`
     }
 
     .blog-thumbnail {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: flex-end;
+      position: relative;
       min-height: 150px;
+      border: solid 1px grey;
+      overflow: hidden;
     }
 `
 
@@ -71,13 +65,20 @@ const PostsContainer = styled.div`
 
 const FeaturedGrid = styled.div`
   display: grid;
-  /* grid-template-rows: 1fr 1fr 1fr; */
   grid-template-columns: 3fr 1fr;
   width: 100%;
-  background: gray;
 
   #featured-post {
-    /* grid-row: 1 / 3; */
+    h2 {
+      font-size: 2.3rem;
+      ::before {
+        content: 'Featured:';
+        display: block;
+        font-size: 1.3rem;
+        font-weight: 400;
+        font-family: 'Barlow', sans-serif;
+      }
+    }
   }
 `
 
@@ -130,7 +131,6 @@ const CategoryContainer = styled.div`
 
   const generateFeaturedPost = () => {
     const featuredPost = edges.filter(post => post.node.frontmatter.featuredPost === "true");
-    console.log("hi")
 
     return featuredPost
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
@@ -161,9 +161,9 @@ const CategoryContainer = styled.div`
                   <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
                 </CategoryContainer>
                 <p>Showing results for {currentFilter}</p>
-                <PostsContainer>
+                {/* <PostsContainer>
                     {filterPosts("most-recent")}
-                </PostsContainer>
+                </PostsContainer> */}
                 <BlogBio />
               </BlogParent>
           </Layout>
