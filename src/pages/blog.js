@@ -80,6 +80,12 @@ const FeaturedGrid = styled.div`
       }
     }
   }
+  .featured_most-recent {
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+  }
 `
 
 const CategoryContainer = styled.div`
@@ -137,6 +143,17 @@ const CategoryContainer = styled.div`
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
   }
 
+  const generateMostRecentPosts = () => {
+
+    const posts = edges.filter(edge => !!edge.node.frontmatter.date);
+    const mostRecentPosts = posts.slice(0, 3).map(edge => 
+    <div class="blog-thumbnail">
+      <PostLink key={edge.node.id} post={edge.node} />
+    </div>);
+    
+    return mostRecentPosts;
+  }
+
   return (
         <div>
           <Layout >
@@ -148,9 +165,7 @@ const CategoryContainer = styled.div`
                     {generateFeaturedPost()}
                   </div>
                   <div className="featured_most-recent">
-                    <div className="blog-thumbnail">Recent1</div>
-                    <div className="blog-thumbnail">Recent2</div>
-                    <div className="blog-thumbnail">Recent3</div>
+                    {generateMostRecentPosts()}
                   </div>
                 </FeaturedGrid>
               </header>
