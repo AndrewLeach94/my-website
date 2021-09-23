@@ -34,10 +34,14 @@ const BlogParent = styled.div`
     }
 
     .blog-thumbnail {
+
       position: relative;
       min-height: 150px;
       border: solid 1px grey;
       overflow: hidden;
+      h2 {
+        font-family: 'Barlow', sans-serif;
+      }
     }
 `
 
@@ -76,14 +80,12 @@ const FeaturedGrid = styled.div`
         display: block;
         font-size: 1.3rem;
         font-weight: 400;
-        font-family: 'Barlow', sans-serif;
       }
     }
   }
   .featured_most-recent {
     h2 {
       font-size: 1.3rem;
-      font-weight: 400;
     }
   }
 `
@@ -144,8 +146,9 @@ const CategoryContainer = styled.div`
   }
 
   const generateMostRecentPosts = () => {
-
-    const posts = edges.filter(edge => !!edge.node.frontmatter.date);
+    // filter posts by date and exclude the featured post
+    const posts = edges.filter(edge => !!edge.node.frontmatter.date && edge.node.frontmatter.featuredPost !== "true" )
+    
     const mostRecentPosts = posts.slice(0, 3).map(edge => 
     <div class="blog-thumbnail">
       <PostLink key={edge.node.id} post={edge.node} />
