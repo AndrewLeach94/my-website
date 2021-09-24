@@ -34,10 +34,8 @@ const BlogParent = styled.div`
     }
 
     .blog-thumbnail {
-
       position: relative;
-      min-height: 150px;
-      border: solid 1px grey;
+      min-height: 200px;
       overflow: hidden;
       h2 {
         font-family: 'Barlow', sans-serif;
@@ -46,25 +44,21 @@ const BlogParent = styled.div`
 `
 
 const PostsContainer = styled.div`
-    background-color: var(--surface_lighter);
-    width: 60vw;
-    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
     box-shadow: 0px 0px 10px 0px #00000021;
+    margin: 1.25rem 0 6.5rem 0;
 
-    @media (max-width: 1070px) {
-        margin-bottom: 7.5rem;
-        width: 60vw;
+    @media (min-width: 1367px) {
+      grid-template-columns: repeat(4, minmax(10px, 1fr));
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, minmax(10px, 1fr));
+    }
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(1, minmax(10px, 1fr));
     }
 
-    @media (max-width: 800px) {
-      width: 80vw;
-    }
-
-    @media (max-width: 500px) {
-      width: 100vw;
-      background-color: inherit;
-      box-shadow: none;
-    }
 `
 
 const FeaturedGrid = styled.div`
@@ -111,24 +105,24 @@ const CategoryContainer = styled.div`
       const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+      .map(edge => <div className="blog-thumbnail"><PostLink key={edge.node.id} post={edge.node} /></div>)
     }
     else if (currentFilter === "Case Study") {
       const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+      .map(edge => <div className="blog-thumbnail"><PostLink key={edge.node.id} post={edge.node} /></div>)
     }
     else if (currentFilter === "Random") {
       const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+      .map(edge => <div className="blog-thumbnail"><PostLink key={edge.node.id} post={edge.node} /></div>)
     }
     else {
       return edges
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+      .map(edge => <div className="blog-thumbnail"><PostLink key={edge.node.id} post={edge.node} /></div>)
     }
   }
 
@@ -150,7 +144,7 @@ const CategoryContainer = styled.div`
     const posts = edges.filter(edge => !!edge.node.frontmatter.date && edge.node.frontmatter.featuredPost !== "true" )
     
     const mostRecentPosts = posts.slice(0, 3).map(edge => 
-    <div class="blog-thumbnail">
+    <div className="blog-thumbnail">
       <PostLink key={edge.node.id} post={edge.node} />
     </div>);
     
@@ -179,9 +173,9 @@ const CategoryContainer = styled.div`
                   <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
                 </CategoryContainer>
                 <p>Showing results for {currentFilter}</p>
-                {/* <PostsContainer>
+                <PostsContainer>
                     {filterPosts("most-recent")}
-                </PostsContainer> */}
+                </PostsContainer>
                 <BlogBio />
               </BlogParent>
           </Layout>
