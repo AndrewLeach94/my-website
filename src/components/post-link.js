@@ -7,7 +7,6 @@ const PostParent = styled.div`
     position: absolute;
     inset: 0;
     color: var(--on_surface);
-    border-bottom: solid 1px #0000001a;
 
     h2 {
       font-size: 1.3rem;

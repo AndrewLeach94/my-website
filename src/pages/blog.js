@@ -14,7 +14,7 @@ const BlogParent = styled.div`
     header {
       display: flex;
       flex-direction: column;
-      margin-bottom: 2rem;
+      margin-bottom: 2rem; 
     }
 
     h1 {
@@ -172,7 +172,7 @@ const CategoryContainer = styled.div`
                   <button className="button_tertiary" onClick={() => changeFilter("Random")}>Random</button>
                   <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
                 </CategoryContainer>
-                <p>Showing results for {currentFilter}</p>
+                <p>Showing results for <b>{currentFilter}</b></p>
                 <PostsContainer>
                     {filterPosts("most-recent")}
                 </PostsContainer>
