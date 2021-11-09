@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import PostLink from "../components/post-link"
 import Layout from "../components/layout"
+import { device } from "../components/breakpoints"
 import styled from "styled-components"
 import { BlogBio } from "../components/blog_bio"
 import { graphql } from 'gatsby'
@@ -78,8 +79,12 @@ const FeaturedGrid = styled.div`
     }
   }
   .featured_most-recent {
+    display: none;
     h2 {
       font-size: 1.3rem;
+    }
+    @media ${device.large} {
+      display: block;
     }
   }
 `
