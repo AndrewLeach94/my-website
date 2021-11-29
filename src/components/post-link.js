@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { device } from "../components/breakpoints"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -11,6 +12,9 @@ const PostParent = styled.div`
     h2 {
       font-size: 1.3rem;
       margin-bottom: 0.25rem;
+      @media ${device.small} {
+        font-size: 1.3rem;
+      }
     }
 
     a {
@@ -50,14 +54,9 @@ const PostParent = styled.div`
     }
   }
 
-  @media (max-width: 500px) {
+  @media ${device.small} {
     position: static;
-    padding: 3rem 1.5rem;
-
-    h2 {
-      font-size: 1.7rem;
-      max-width: 90%;
-    }
+    padding: 3rem 0.5rem;
 
     a {
       display: flex;

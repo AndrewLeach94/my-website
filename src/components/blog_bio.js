@@ -11,6 +11,7 @@ const BioParent = styled.div`
     border-radius: 20px;
     box-shadow: 0px 0px 10px #0000001c;
     margin-bottom: 7.5rem;
+    align-self: center;
 
     figcaption {
         padding: 0 1.75rem 0 10rem;

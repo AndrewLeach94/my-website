@@ -21,6 +21,7 @@ const BlogParent = styled.div`
     h1 {
       margin-top: 5rem;
       margin-bottom: 2rem;
+      align-self: center;
     }
 
     @media (max-width: 1070px) {
@@ -28,7 +29,8 @@ const BlogParent = styled.div`
         flex-direction: column;
     }
 
-    @media (max-width: 500px) {
+    @media ${device.small} {
+      margin: 0 2.5rem;
         header {
           margin-bottom: 0;
         }
@@ -50,14 +52,17 @@ const PostsContainer = styled.div`
     box-shadow: 0px 0px 10px 0px #00000021;
     margin: 1.25rem 0 6.5rem 0;
 
-    @media (min-width: 1367px) {
-      grid-template-columns: repeat(4, minmax(10px, 1fr));
+    @media ${device.small} {
+      grid-template-columns: repeat(1, minmax(10px, 1fr));
     }
-    @media (max-width: 768px) {
+    @media ${device.medium} {
       grid-template-columns: repeat(2, minmax(10px, 1fr));
     }
-    @media (max-width: 767px) {
-      grid-template-columns: repeat(1, minmax(10px, 1fr));
+    @media ${device.large} {
+      grid-template-columns: repeat(3, minmax(10px, 1fr));
+    }
+    @media ${device.xlarge} {
+      grid-template-columns: repeat(4, minmax(10px, 1fr));
     }
 
 `
@@ -66,6 +71,10 @@ const FeaturedGrid = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
   width: 100%;
+
+  @media ${device.mediumDown} {
+      display: block;
+    }
 
   #featured-post {
     h2 {
@@ -79,12 +88,11 @@ const FeaturedGrid = styled.div`
     }
   }
   .featured_most-recent {
-    display: none;
     h2 {
       font-size: 1.3rem;
     }
-    @media ${device.large} {
-      display: block;
+    @media ${device.mediumDown} {
+      display: none;
     }
   }
 `
@@ -94,6 +102,13 @@ const CategoryContainer = styled.div`
 
     .button_tertiary {
       margin-right: 1rem;
+    }
+
+    @media ${device.small} {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 `
 
