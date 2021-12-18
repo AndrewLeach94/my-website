@@ -50,10 +50,11 @@ const PostsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, minmax(10px, 1fr));
     box-shadow: 0px 0px 10px 0px #00000021;
-    margin: 1.25rem 0 6.5rem 0;
+    margin: 1.25rem 0 10rem 0;
 
     @media ${device.small} {
       grid-template-columns: repeat(1, minmax(10px, 1fr));
+      margin-bottom: 5rem;
     }
     @media ${device.medium} {
       grid-template-columns: repeat(2, minmax(10px, 1fr));
