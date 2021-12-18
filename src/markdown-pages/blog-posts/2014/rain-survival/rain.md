@@ -26,7 +26,7 @@ New Orleans is a city under sea level and it rains heavily too. The combo result
 
 If you know it's going to rain and you will be spending a great deal of time outdoors, purchasing a designated rain boot may be a good purchase. You can never know what may happen in New Orleans.
 
-<img class=" wp-image-81 alignleft" src="http://northwesternguideneworleans.files.wordpress.com/2014/03/2524503.jpg" alt="2524503" width="237" height="280">
+![Ouch](./meme.webp)
 
 <h2>Wear A Rain Pancho</h2>
 
@@ -43,7 +43,8 @@ There may be some d<span style="line-height:1.5;">ays where it's a constant stea
 </ul>
 
 If you experience these three signals there is a good chance you are about to experience a sudden rain storm. Your lovely stroll through the park with your cat or significant other is likely to be interrupted by a thunderstorm in which you must trug home &nbsp;with a thoroughly upset cat.
-<p style="text-align:center;"><a href="http://northwesternguideneworleans.files.wordpress.com/2014/03/25244971.jpg"><img class="wp-image-83 aligncenter" src="http://northwesternguideneworleans.files.wordpress.com/2014/03/25244971.jpg" alt="2524497" width="259" height="320"></a></p>
+
+![Ouch](./meme2.webp)
 
 <ul>
  	<li>Is the sky a light grey?</li>
