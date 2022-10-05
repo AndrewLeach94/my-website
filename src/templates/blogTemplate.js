@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { BlogBio } from "../components/blog_bio"
 import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components"
+import { graphql } from "gatsby"
 
 
 const PostParent = styled.div`
