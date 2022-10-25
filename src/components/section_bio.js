@@ -1,5 +1,7 @@
+import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import styled from "styled-components"
+import Photo from "./../images/paris.webp"
 
 const BioParent = styled.section`
     position: relative;
@@ -89,7 +91,7 @@ export const Bio = (props) => {
             Outside of tech, I'm an avid bass guitarist. I also play regular guitar and a little bit of drums.
             (I'd play more if my neighbors would let me.)
         </p>
-        <img src={require("./../images/paris.webp")} alt="me in paris" />
+        <img src={Photo} alt="me in paris" />
         </BioParent>
     )
 }

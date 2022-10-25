@@ -1,5 +1,13 @@
 import * as React from "react"
 import styled, { keyframes } from "styled-components"
+import Dookie from "./../images/albums/dookie.webp"
+import IllCommunication from "./../images/albums/ill-communication.webp"
+import LondonCalling from "./../images/albums/london-calling.webp"
+import War from "./../images/albums/war.webp"
+import DefinitelyMaybe from "./../images/albums/definitely-maybe.webp"
+import BlueAlbum from "./../images/albums/blue-album.webp"
+import SgtPepper from "./../images/albums/sgt-pepper.webp"
+import The1975 from "./../images/albums/1975.webp"
 
 const CollectionParent = styled.section`
     position: relative;
@@ -99,51 +107,54 @@ export const RecordCollection = (props) => {
             <CollectionContainer >
                 {/* Remember to adjust the animation equation when adding or removing albums*/}
                 <a href="https://www.youtube.com/watch?v=OR7R9Kuw2fY" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/dookie.webp")} alt="dookie album cover"/>
+                    <img src={Dookie} alt="dookie album cover"/>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=JhqyZeUlE8U" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/ill-communication.webp")} alt="ill-communication album cover"/>
+                    <img src={IllCommunication} alt="ill-communication album cover"/>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=eNot47WRBFk" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/london-calling.webp")} alt="london-calling album cover"/>
+                    <img src={LondonCalling} alt="london-calling album cover"/>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=jeYCyCaK_5k" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/war.webp")} alt="u2 album cover"/>
+                    <img src={War} alt="u2 album cover"/>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=pbIRQR6FkhU" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/definitely-maybe.webp")} alt="oasis album cover"/>
+                    <img src={DefinitelyMaybe} alt="oasis album cover"/>
                 </a>
                 
                 <a href="https://www.youtube.com/watch?v=8RFTB5vgV_4" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/blue-album.webp")} alt="weezer album cover"/>
+                    <img src={BlueAlbum} alt="weezer album cover"/>
                 </a>
                 
                 <a href="https://www.youtube.com/watch?v=HtUH9z_Oey8" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/sgt-pepper.webp")} alt="Sgt. Pepper album cover"/>
+                    <img src={SgtPepper} alt="Sgt. Pepper album cover"/>
                 </a>
                                 
                 <a href="https://www.youtube.com/watch?v=wYYQpTbBSBM" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/1975.webp")} alt="the 1975 album cover"/>
+                    <img src={The1975} alt="the 1975 album cover"/>
                 </a>
 
 
 
                 {/* These are the "loop illusion" elements. Their purpose is only to fill the space between the end of the loop before it resets */}
                 <a href="https://www.youtube.com/watch?v=OR7R9Kuw2fY" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/dookie.webp")} alt="dookie album cover"/>
+                    <img src={Dookie} alt="dookie album cover"/>
                 </a>
+
                 <a href="https://www.youtube.com/watch?v=JhqyZeUlE8U" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/ill-communication.webp")} alt="ill-communication album cover"/>
+                    <img src={IllCommunication} alt="ill-communication album cover"/>
                 </a>
+
                 <a href="https://www.youtube.com/watch?v=eNot47WRBFk" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/london-calling.webp")} alt="london-calling album cover"/>
+                    <img src={LondonCalling} alt="london-calling album cover"/>
                 </a>
+
                 <a href="https://www.youtube.com/watch?v=jeYCyCaK_5k" target="_blank" rel="noreferrer noopener">
-                    <img src={require("./../images/albums/war.webp")} alt="u2 album cover"/>
+                    <img src={War} alt="u2 album cover"/>
                 </a>
 
             </CollectionContainer>
