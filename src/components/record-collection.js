@@ -103,7 +103,7 @@ export const RecordCollection = (props) => {
 
     return(
         <CollectionParent >
-            <h3>A peek at my record collection</h3>
+            <h3>Oh yeah, a peek at my record collection</h3>
             <CollectionContainer >
                 {/* Remember to adjust the animation equation when adding or removing albums*/}
                 <a href="https://www.youtube.com/watch?v=OR7R9Kuw2fY" target="_blank" rel="noreferrer noopener">

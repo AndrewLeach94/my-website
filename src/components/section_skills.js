@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
-import { SiJavascript, SiAdobecreativecloud } from 'react-icons/si';
-import { FaHtml5, FaCss3Alt, FaReact, FaSketch, FaUsers } from 'react-icons/fa';
+import { SiJavascript, SiAdobecreativecloud, SiTailwindcss } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaReact, FaFigma, FaUsers, FaHeart, FaPhoenixFramework } from 'react-icons/fa';
 import { AnimatedLogo } from "./animations/animated-logo";
 
 
@@ -19,6 +19,10 @@ const SkillsParent = styled.section`
         font-size: 1.7rem;
     }
 
+    #skills-heart {
+        color: var(--primary_base);
+    }
+
     @media (max-width: 500px) {
         text-align: center;
             p {
@@ -30,7 +34,7 @@ const SkillsParent = styled.section`
 
 const SkillGrid = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     gap: 60px;
     margin-top: 60px;
@@ -79,8 +83,8 @@ const SkillContainer = styled.div`
 export const Skills = () => {
     return(
         <SkillsParent id="section_skills">
-            <h2>Skills</h2>
-            <p>Suffice to say that I'm a visual person</p>
+            <h2>Programming & Design for Modern Times</h2>
+            <p>Okay, yeah, I'm basically a designer that <FaHeart id="skills-heart" /> 's to code.</p>
             <SkillGrid>
                 <SkillContainer>
                     <FaHtml5 />
@@ -95,16 +99,24 @@ export const Skills = () => {
                     <p>JavaScript</p>
                 </SkillContainer>
                 <SkillContainer>
+                    <FaFigma />
+                    <p>Figma</p>
+                </SkillContainer>
+                <SkillContainer>
                     <FaReact />
                     <p>React</p>
                 </SkillContainer>
                 <SkillContainer>
-                    <SiAdobecreativecloud />
-                    <p>Adobe Creative Cloud</p>
+                    <SiTailwindcss />
+                    <p>TailwindCSS</p>
                 </SkillContainer>
                 <SkillContainer>
-                    <FaSketch />
-                    <p>Sketch</p>
+                    <FaPhoenixFramework />
+                    <p>Phoenix LiveView</p>
+                </SkillContainer>
+                <SkillContainer>
+                    <SiAdobecreativecloud />
+                    <p>Adobe Creative Cloud</p>
                 </SkillContainer>
                 <SkillContainer>
                     <FaUsers />

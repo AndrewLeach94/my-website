@@ -13,5 +13,4 @@ export const size = {
     
     mediumDown: `(max-width: ${size.large})`,
     largeUp: `(min-width: ${size.large})`,
-
    }

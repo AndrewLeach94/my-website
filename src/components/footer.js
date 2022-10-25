@@ -34,7 +34,7 @@ const FooterParent = styled.footer`
 export const Footer = (props) => {
     return(
         <FooterParent>
-            <p>Andrew Leach © 2021 - Built on <a target="_blank" rel="noreferrer" href="https://www.gatsbyjs.com/" >GatsbyJS</a> and <FiCoffee /></p>
+            <p>Andrew Leach © 2023 - Built on <a target="_blank" rel="noreferrer" href="https://www.gatsbyjs.com/" >GatsbyJS</a> and <FiCoffee /></p>
         </FooterParent>
     )
 }

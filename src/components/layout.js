@@ -104,11 +104,11 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     h2 {
-        font-size: 4.21rem;
+        font-size: 3.1rem;
         font-family: 'Trocchi', sans-serif;
 
         @media (max-width: 500px) {
-          font-size: 3.1rem;
+          font-size: 2.3rem;
         }
     }
 
