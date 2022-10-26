@@ -67,7 +67,7 @@ export const BlogBio = (props) => {
     return(
         <BioParent>
             <HeadshotContainer role="img" aria-label="headshot" alt="my headshot"></HeadshotContainer>
-            <figcaption>Andrew Leach is a Front-End Designer bridging that gab between design and web development. 
+            <figcaption>Andrew Leach is a Front-End Designer bridging the gap between design and web development. 
                 Outside of tech, you can find him in the local music and craft beer community.
             </figcaption>
         </BioParent>
