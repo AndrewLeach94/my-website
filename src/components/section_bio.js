@@ -1,5 +1,7 @@
+import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import styled from "styled-components"
+import Photo from "./../images/paris.webp"
 
 const BioParent = styled.section`
     position: relative;
@@ -77,19 +79,19 @@ export const Bio = (props) => {
         </h2>
 
         <p>
-            I grew up just outside Seattle , went to college in New Orleans, and lived and worked in Ireland for a year. 
-
-            I initially began my career in multimedia and marketing before making the push to web design and UX.
+            I'm Andrew - Formerly known as the advertising and video guy.
             <br></br>
             <br></br>
-            As much as I loved designing user interfaces, I really wanted to make these sketches come to life so 
-            after losing my job during COVID, I knew it was time to study and commit to developing on the front-end. 
+            I began my tech career in UX Design and soon realized I loved the code going into designs just as much as the design itself.
+            <br></br>
+            <br></br>
+            <b>Front-End Designer?</b> <b>UX Developer?</b> <b>UI Developer?</b> Ther are a lot of different titles for what I do. Either way, as long as I'm designing and building UI components and the user experience, laying out some clean front-end architecture, (and even cleaning out all that CSS mucking up the code), I'm in my happy place. 
             <br></br>
             <br></br>
             Outside of tech, I'm an avid bass guitarist. I also play regular guitar and a little bit of drums.
             (I'd play more if my neighbors would let me.)
         </p>
-        <img src={require("./../images/paris.webp")} alt="me in paris" />
+        <img src={Photo} alt="me in paris" />
         </BioParent>
     )
 }

@@ -11,6 +11,7 @@ const BioParent = styled.div`
     border-radius: 20px;
     box-shadow: 0px 0px 10px #0000001c;
     margin-bottom: 7.5rem;
+    align-self: center;
 
     figcaption {
         padding: 0 1.75rem 0 10rem;
@@ -66,9 +67,8 @@ export const BlogBio = (props) => {
     return(
         <BioParent>
             <HeadshotContainer role="img" aria-label="headshot" alt="my headshot"></HeadshotContainer>
-            <figcaption>Andrew Leach is a UX/UI developer and multimedia designer from Seattle. He 
-                began his career designing graphics and editing video but now finds himself designing and developing web 
-                applications. Outside of tech, you can find him in the music community.
+            <figcaption>Andrew Leach is a Front-End Designer bridging that gab between design and web development. 
+                Outside of tech, you can find him in the local music and craft beer community.
             </figcaption>
         </BioParent>
 

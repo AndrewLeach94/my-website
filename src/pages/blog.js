@@ -1,124 +1,232 @@
-import React from "react"
-import useState from "react"
+import React, { useState } from "react"
 import PostLink from "../components/post-link"
 import Layout from "../components/layout"
+import { device } from "../components/breakpoints"
 import styled from "styled-components"
 import { BlogBio } from "../components/blog_bio"
+import { graphql } from 'gatsby'
 
 
 const BlogParent = styled.div`
-
+    margin: 0 4.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     header {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2rem; 
     }
 
     h1 {
       margin-top: 5rem;
-      text-align: center;
-    }
-
-    p {
-      margin-top: 0;
-      margin-bottom: 5rem;
-      font-size: 1.3rem;
-      text-align: center;
+      margin-bottom: 2rem;
+      align-self: center;
     }
 
     @media (max-width: 1070px) {
         display: flex;
-        align-items: center;
         flex-direction: column;
     }
 
-    @media (max-width: 500px) {
+    @media ${device.small} {
+      margin: 0 2.5rem;
         header {
           margin-bottom: 0;
         }
     }
 
+    .blog-thumbnail {
+      position: relative;
+      min-height: 200px;
+      overflow: hidden;
+      h2 {
+        font-family: 'Barlow', sans-serif;
+      }
+    }
 `
 
 const PostsContainer = styled.div`
-    margin: 0rem 3.75rem 10rem;
-    background-color: var(--surface_lighter);
-    width: 60vw;
-    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
     box-shadow: 0px 0px 10px 0px #00000021;
+    margin: 1.25rem 0 10rem 0;
 
-    @media (max-width: 1070px) {
-        margin-bottom: 7.5rem;
-        width: 60vw;
+    @media ${device.small} {
+      grid-template-columns: repeat(1, minmax(10px, 1fr));
+      margin-bottom: 5rem;
+    }
+    @media ${device.medium} {
+      grid-template-columns: repeat(2, minmax(10px, 1fr));
+    }
+    @media ${device.large} {
+      grid-template-columns: repeat(3, minmax(10px, 1fr));
+    }
+    @media ${device.xlarge} {
+      grid-template-columns: repeat(4, minmax(10px, 1fr));
     }
 
-    @media (max-width: 800px) {
-      width: 80vw;
+`
+
+const FeaturedGrid = styled.div`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 100%;
+
+  @media ${device.mediumDown} {
+      display: block;
     }
 
-    @media (max-width: 500px) {
-      width: 100vw;
-      background-color: inherit;
-      box-shadow: none;
-      
+  #featured-post {
+    h2 {
+      font-size: 2.3rem;
+      ::before {
+        content: 'Featured:';
+        display: block;
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+    }
+  }
+  .featured_most-recent {
+    h2 {
+      font-size: 1.3rem;
+    }
+    @media ${device.mediumDown} {
+      display: none;
+    }
+  }
+`
+
+const CategoryContainer = styled.div`
+    display: flex;
+
+    .button_tertiary {
+      margin-right: 1rem;
+    }
+
+    @media ${device.small} {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 `
 
-
  const BlogHome = ({
-  //  const [title, setTitle] = useState("my blog");
+   
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
-  const Posts = edges
+  const [currentFilter, setCurrentFilter] = useState("All Posts");
+
+  const filterPosts = () => {
+    if (currentFilter === "Travel") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
+      return filteredPosts
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
+    }
+    else if (currentFilter === "Case Study") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
+      return filteredPosts
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
+    }
+    else if (currentFilter === "Random") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
+      return filteredPosts
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
+    }
+    else {
+      return edges
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
+    }
+  }
+
+  const changeFilter = (filter) => {
+    setCurrentFilter(filter);
+    filterPosts();
+  }
+
+  const generateFeaturedPost = () => {
+    const featuredPost = edges.filter(post => post.node.frontmatter.featuredPost === "true");
+
+    return featuredPost
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+  }
+
+  const generateMostRecentPosts = () => {
+    // filter posts by date and exclude the featured post
+    const posts = edges.filter(edge => !!edge.node.frontmatter.date && edge.node.frontmatter.featuredPost !== "true" )
+    
+    const mostRecentPosts = posts.slice(0, 3).map(edge => 
+    <div className="blog-thumbnail" key={edge.node.id}>
+      <PostLink key={edge.node.id} post={edge.node} />
+    </div>);
+    
+    return mostRecentPosts;
+  }
 
   return (
         <div>
-            <Layout >
-              <BlogParent>
-                <header>
-                  <h1>The Blog</h1>
-                  <p>What's the Story, Morning Glory? ♩</p>
-                  {/* <div id="category-container">
-                    <button>Case Studies</button>
-                  </div> */}
-                </header>
-                  <PostsContainer>
-                      {Posts}
-                  </PostsContainer>
-                  <BlogBio />
-                </BlogParent>
-            </Layout>
+          <Layout >
+            <BlogParent>
+              <header>
+                <h1>The Blog</h1>
+                <FeaturedGrid>
+                  <div className="blog-thumbnail" id="featured-post">
+                    {generateFeaturedPost()}
+                  </div>
+                  <div className="featured_most-recent">
+                    {generateMostRecentPosts()}
+                  </div>
+                </FeaturedGrid>
+              </header>
+                <CategoryContainer>
+                  <button className="button_tertiary" onClick={() => changeFilter("Case Study")}>Case Studies</button>
+                  <button className="button_tertiary" onClick={() => changeFilter("Travel")}>Travel</button>
+                  <button className="button_tertiary" onClick={() => changeFilter("Random")}>Random</button>
+                  <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
+                </CategoryContainer>
+                <p>Showing results for <b>{currentFilter}</b></p>
+                <PostsContainer>
+                    {filterPosts("most-recent")}
+                </PostsContainer>
+                <BlogBio />
+              </BlogParent>
+          </Layout>
         </div>
     )
 }
 
 export default BlogHome
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 500)
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            slug
-            title
-            category
+export const pageQuery = graphql`{
+  allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+    edges {
+      node {
+        id
+        excerpt(pruneLength: 500)
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          slug
+          title
+          category
+          featuredPost
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
+            }
           }
-          excerpt(pruneLength: 500)
         }
+        excerpt(pruneLength: 500)
       }
     }
   }
+}
 `

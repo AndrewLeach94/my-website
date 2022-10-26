@@ -1,10 +1,10 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import { BlogBio } from "../components/blog_bio"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components"
+import { graphql } from "gatsby"
 
 
 const PostParent = styled.div`
@@ -12,7 +12,6 @@ const PostParent = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-top: 7.5rem;
     margin-bottom: 7.5rem;
 
     .button_primary {
@@ -21,28 +20,26 @@ const PostParent = styled.div`
 
     .blog-header {
         position: relative;
-        width: 65vw;
-        height: 400px;
+        width: 100%;
+        height: 75vh;
         overflow: hidden;
         box-shadow: 0px -3px 10px #0000001c;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
         background: ${props => props.theme.caseStudyVideoOverlay};
 
 
         h1 {
           position: absolute;
           font-size: 3.1rem;
-          max-width: 75%;
+          max-width: 65%;
           bottom: 3.5rem;
-          left: 4rem;
+          left: calc(100vw - 80%);
           z-index: 1;
         }
 
         p {
           position: absolute;
           font-size: 1.3rem;
-          left: 4rem;
+          left: calc(100vw - 80%);
           z-index: 1;
           bottom: 0;
         }
@@ -53,7 +50,7 @@ const PostParent = styled.div`
           right: 0;
           top: 0;
           bottom: 0;
-          width: 100%;
+          height: 100%;
           margin: auto;
           opacity: 0.25;
           filter: saturate(0%);
@@ -62,32 +59,44 @@ const PostParent = styled.div`
     }
 
     .blog-post-content {
-      width: 65vw;
       background-color: var(--surface_lighter);
       box-shadow: 0px 3px 10px #0000001c;
-      padding: 0.5rem 0 5.5rem 0;
+      padding: 5rem calc(100vw - 80%) 5.5rem calc(100vw - 80%);
       margin-bottom: 7.5rem;
 
 
       p {
-        padding: 0 4rem;
         font-size: 1.3rem;
+        align-self: flex-start;
       }
 
-      strong {
+      a {
         color: var(--primary_lighter);
       }
 
       h2 {
         font-size: 2.3rem;
         font-weight: 400;
-        padding: 0 4rem;
         margin-top: 5rem;
       }
 
+      h2:nth-child(1) { 
+        margin-top: 0;
+      }
+
       h3, h4, h5, h6 {
-        padding: 0 4rem;
         margin-top: 3rem;
+      }
+
+      li {
+        font-size: 1.3rem;
+      }
+
+      .youtube-player {
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
     }
@@ -100,8 +109,8 @@ const PostParent = styled.div`
 
 
         .blog-header {
-          width: 85vw;
-
+          height: 60vh;
+          
           h1 {
             text-align: left;
             font-size: 2.3rem;
@@ -119,25 +128,20 @@ const PostParent = styled.div`
           text-align: left;
           width: 85vw;
 
-
           p {
             font-size: 1rem;
-            padding: 0 4rem;
-          }
-
-          h2 {
-            padding: 0 4rem;
           }
         }
     }
 
     @media (max-width: 600px) {
         .blog-header {
-          width: 100vw;
           background-color: inherit;
           box-shadow: none;
           background-color: var(--surface_lighter);
           background: none;
+          height: 50vh;
+          padding-top: 2rem;
 
           h1 {
             left: 1.5rem;
@@ -149,37 +153,26 @@ const PostParent = styled.div`
         }
 
         .blog-post-content {
-          width: 100vw;
-          background-color: inherit;
           box-shadow: none;
           margin-bottom: 5rem;
-
-          p {
-            padding: 0 1.5rem;
-          }
+          padding: 2rem calc(100vw - 90%) 5.5rem calc(100vw - 90%);
 
           h2 {
             font-size: 1.3rem;
-            padding: 0 1.5rem;
             text-align: left;
-            margin-top: 2.5rem
+            margin-top: 2rem
           }
 
           h3, h4, h5, h6 {
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             font-size: 1rem;
-            padding: 0 1.5rem;
             text-align: left;
           }
         }
-    }
 
-    @media (min-width: 1500px) {
-        .blog-header {
-          width: 60vw;
-        }
-        .blog-post-content {
-          width: 60vw;
+        iframe {
+          width: 100%;
+          height: 100%;
         }
     }
 
@@ -190,14 +183,14 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
-  let featuredImgFluid = frontmatter.featuredImage.childImageSharp.fluid
+  let featuredImgFluid = frontmatter.featuredImage.childImageSharp.gatsbyImageData
 
   return (
     <div className="blog-post-parent">
     <Layout >
       <PostParent>
           <header className="blog-header">
-                <Img className="featured-image" fluid={featuredImgFluid} />
+                <GatsbyImage image={featuredImgFluid} alt="Featured Image" className="featured-image" />
                 <h1>{frontmatter.title}</h1>
                 <p>{frontmatter.date}</p>
           </header>
@@ -210,26 +203,25 @@ export default function Template({
         </PostParent>
       </Layout>
     </div>
-  )
+  );
 }
 
 export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        slug
-        title
-        category
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+query ($slug: String!) {
+  markdownRemark(frontmatter: {slug: {eq: $slug}}) {
+    html
+    frontmatter {
+      date(formatString: "MMMM DD, YYYY")
+      slug
+      title
+      category
+      featuredPost
+      featuredImage {
+        childImageSharp {
+          gatsbyImageData(width: 800, layout: CONSTRAINED)
         }
       }
     }
   }
+}
 `

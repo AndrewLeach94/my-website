@@ -214,7 +214,7 @@ export const Navigation = (props) => {
                     <li><Link to ="/#about" onClick={() => handleMobileLinkClick()}>About</Link></li>
                     <li><Link to="/#contact" onClick={() => handleMobileLinkClick()}>Contact</Link></li>
                     <li><Link to="/blog">Blog</Link></li>
-                    <li><a href="https://vimeo.com/andrewleach" target="_blank">Reel</a></li>
+                    <li><a href="https://vimeo.com/andrewleach" target="_blank">My Reel</a></li>
                     <button onClick={swapTheme}>{buttonIcon}</button>
                 </ul>
             </NavBar>
