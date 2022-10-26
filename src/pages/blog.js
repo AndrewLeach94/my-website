@@ -126,24 +126,24 @@ const CategoryContainer = styled.div`
       const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <div className="blog-thumbnail"><PostLink key={edge.node.id} post={edge.node} /></div>)
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
     }
     else if (currentFilter === "Case Study") {
       const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <div className="blog-thumbnail"><PostLink key={edge.node.id} post={edge.node} /></div>)
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
     }
     else if (currentFilter === "Random") {
       const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <div className="blog-thumbnail"><PostLink key={edge.node.id} post={edge.node} /></div>)
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
     }
     else {
       return edges
       .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <div className="blog-thumbnail"><PostLink key={edge.node.id} post={edge.node} /></div>)
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
     }
   }
 
@@ -165,7 +165,7 @@ const CategoryContainer = styled.div`
     const posts = edges.filter(edge => !!edge.node.frontmatter.date && edge.node.frontmatter.featuredPost !== "true" )
     
     const mostRecentPosts = posts.slice(0, 3).map(edge => 
-    <div className="blog-thumbnail">
+    <div className="blog-thumbnail" key={edge.node.id}>
       <PostLink key={edge.node.id} post={edge.node} />
     </div>);
     
