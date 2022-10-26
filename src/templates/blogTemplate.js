@@ -190,7 +190,7 @@ export default function Template({
     <Layout >
       <PostParent>
           <header className="blog-header">
-                <GatsbyImage image={featuredImgFluid} className="featured-image" />
+                <GatsbyImage image={featuredImgFluid} alt="Featured Image" className="featured-image" />
                 <h1>{frontmatter.title}</h1>
                 <p>{frontmatter.date}</p>
           </header>
