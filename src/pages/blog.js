@@ -122,6 +122,12 @@ const CategoryContainer = styled.div`
   const [currentFilter, setCurrentFilter] = useState("All Posts");
 
   const filterPosts = () => {
+    if (currentFilter === "Tech & Design") {
+      const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
+      return filteredPosts
+      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+      .map(edge => <div className="blog-thumbnail" key={edge.node.id}><PostLink key={edge.node.id} post={edge.node} /></div>)
+    }
     if (currentFilter === "Travel") {
       const filteredPosts = edges.filter(post => post.node.frontmatter.category === currentFilter);
       return filteredPosts
@@ -188,10 +194,11 @@ const CategoryContainer = styled.div`
                 </FeaturedGrid>
               </header>
                 <CategoryContainer>
+                  <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
+                  <button className="button_tertiary" onClick={() => changeFilter("Tech & Design")}>Tech & Design</button>
                   <button className="button_tertiary" onClick={() => changeFilter("Case Study")}>Case Studies</button>
                   <button className="button_tertiary" onClick={() => changeFilter("Travel")}>Travel</button>
                   <button className="button_tertiary" onClick={() => changeFilter("Random")}>Random</button>
-                  <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
                 </CategoryContainer>
                 <p>Showing results for <b>{currentFilter}</b></p>
                 <PostsContainer>
