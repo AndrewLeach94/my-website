@@ -82,7 +82,7 @@ const BackgroundNight = styled.img`
     return (
         <HeroContainer id="home">
             <h1>Hey! I'm Andrew</h1>
-            <p>I'm a Front-End and Multimedia Designer from Seattle</p>
+            <p>I'm a UI Engineer / Front-End Designer from Seattle</p>
             <ButtonContainer>
                 <a href="#case-study-1" className="button_primary">View Projects</a>
                 <a href="#contact" className="button_primary">Get in Touch</a>
