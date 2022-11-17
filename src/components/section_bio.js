@@ -85,7 +85,7 @@ export const Bio = (props) => {
             I began my tech career in UX Design and soon realized I loved the code going into designs just as much as the design itself.
             <br></br>
             <br></br>
-            <i>Front-End Designer?</i> <i>UX Developer?</i> <i>UI Developer?</i> Ther are a lot of different titles for what I do. Either way, as long as I'm designing and building UI components and the user experience, laying out some clean front-end architecture, (and even cleaning out all that CSS mucking up the code), I'm in my happy place. 
+            <i>Front-End Designer?</i> <i>UX Developer?</i> <i>UI Developer?</i> There are a lot of different titles for what I do. Either way, as long as I'm designing and building UI components and the user experience, laying out some clean front-end architecture, (and even cleaning out all that CSS mucking up the code), I'm in my happy place. 
             <br></br>
             <br></br>
             Outside of tech, I'm an avid bass guitarist. I also play regular guitar and a little bit of drums.
