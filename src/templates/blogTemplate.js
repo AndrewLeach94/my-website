@@ -99,6 +99,10 @@ const PostParent = styled.div`
         align-items: center;
       }
 
+      figcaption {
+        margin-top: 1rem;
+      }
+
     }
 
     @media (max-width: 836px) {
@@ -167,6 +171,10 @@ const PostParent = styled.div`
             margin-top: 2rem;
             font-size: 1rem;
             text-align: left;
+          }
+
+          li {
+            font-size: 1rem;
           }
         }
 

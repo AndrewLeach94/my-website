@@ -26,7 +26,7 @@ import Layout from "../components/layout"
             <CaseStudyPromo 
                 caseStudyId= "1"
                 title="NOLA Live Transit UI Overhaul"
-                ctaMessage="Read Case Study"
+                ctaMessage="View Website"
                 
                 featureHeader1="Designed for New Orleanians on the Move"
                 featureDetails1="Users hunting for a bus need an app they could quickly reference from their phones."
@@ -36,7 +36,7 @@ import Layout from "../components/layout"
                 
                 source={NOLATransitPromo}
                 poster={NOLATransitPlaceholder}
-                URL="./blog/torsh-design-system"
+                URL="https://nolatransit.fly.dev/"
             />
             <CaseStudyPromo 
                 caseStudyId= "2"
