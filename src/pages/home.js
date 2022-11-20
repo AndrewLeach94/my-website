@@ -8,8 +8,8 @@ import { ContactSection } from "../components/section_contact"
 
 import designSystemPromo from "./../videos/TORSH-Design-System-Promo.webm"
 import designSystemPromoPlaceholder from "./../images/placeholders/torsh-design-system.webp"
-import CVPromo from "./../videos/cv-builder.webm"
-import CVPromoPlaceholder from "./../images/placeholders/cv-builder.webp"
+import NOLATransitPromo from "./../videos/nola-transit.webm"
+import NOLATransitPlaceholder from "./../images/placeholders/nola-transit.webp"
 import weatherNowPromo from "./../videos/weather-now.webm"
 import weatherNowPromoPlaceholder from "./../images/placeholders/weather-now.webp"
 import forgotPasswordPromo from "./../videos/forgot-password.webm"
@@ -25,6 +25,21 @@ import Layout from "../components/layout"
             <Skills />
             <CaseStudyPromo 
                 caseStudyId= "1"
+                title="NOLA Live Transit UI Overhaul"
+                ctaMessage="Read Case Study"
+                
+                featureHeader1="Designed for New Orleanians on the Move"
+                featureDetails1="Users hunting for a bus need an app they could quickly reference from their phones."
+                
+                featureHeader2="Single Page Layout"
+                featureDetails2="Designed specifically for every user action to be focused on a single page."
+                
+                source={NOLATransitPromo}
+                poster={NOLATransitPlaceholder}
+                URL="./blog/torsh-design-system"
+            />
+            <CaseStudyPromo 
+                caseStudyId= "2"
                 title="Torsh Design System"
                 ctaMessage="Read Case Study"
                 
@@ -37,21 +52,6 @@ import Layout from "../components/layout"
                 source={designSystemPromo}
                 poster={designSystemPromoPlaceholder}
                 URL="./blog/torsh-design-system"
-            />
-            <CaseStudyPromoReversed
-                caseStudyId= "2"
-                title="Resume Builder"
-                ctaMessage="View Project"
-                
-                featureHeader1="Built in React"
-                featureDetails1="I figured a configurable resume builder would be an excellent opportunity to get up to speed with component states."
-                
-                featureHeader2="Easy to Use"
-                featureDetails2="Sections of the resume can be easily modified with the ability to add, edit, and delete content."
-
-                source={CVPromo}
-                poster={CVPromoPlaceholder}
-                URL="https://github.com/AndrewLeach94/cv-builder"
             />
             <CaseStudyPromo 
                 caseStudyId= "3"
