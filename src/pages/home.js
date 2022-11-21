@@ -2,7 +2,7 @@ import * as React from "react"
 import { Hero } from "../components/hero"
 import { Skills } from "../components/section_skills"
 import { Bio } from "../components/section_bio"
-import { CaseStudyPromo, CaseStudyPromoReversed } from "../components/section_case-study-preview"
+import { CaseStudyPromo } from "../components/section_case-study-preview"
 import { RecordCollection } from "../components/record-collection"
 import { ContactSection } from "../components/section_contact"
 
@@ -29,7 +29,7 @@ import Layout from "../components/layout"
                 ctaMessage="View Website"
                 
                 featureHeader1="Designed for New Orleanians on the Move"
-                featureDetails1="Users hunting for a bus need an app they could quickly reference from their phones."
+                featureDetails1="Users hunting for a bus needed an app they could quickly reference from their phones."
                 
                 featureHeader2="Single Page Layout"
                 featureDetails2="Designed specifically for every user action to be focused on a single page."
@@ -68,7 +68,7 @@ import Layout from "../components/layout"
                 poster={weatherNowPromoPlaceholder}
                 URL="https://github.com/AndrewLeach94/weather-app"
             />
-            <CaseStudyPromoReversed 
+            <CaseStudyPromo 
                 caseStudyId= "4"
                 title="Forgot Password Redesign"
                 ctaMessage="Read Case Study"
