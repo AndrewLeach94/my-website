@@ -143,28 +143,3 @@ export const CaseStudyPromo = (props) => {
             </CaseStudyContainer>
     )
 }
-export const CaseStudyPromoReversed = (props) => {
-    return(
-            <CaseStudyContainer id={"case-study-" + props.caseStudyId}>
-                <FeatureColumn>
-                    <DetailWrapper>
-                        <Bullet></Bullet>
-                        <h3>{props.featureHeader1}</h3>
-                        <p>{props.featureDetails1}</p>
-                    </DetailWrapper>
-                    <DetailWrapper>
-                        <Bullet></Bullet>
-                        <h3>{props.featureHeader2}</h3>
-                        <p>{props.featureDetails2}</p> 
-                    </DetailWrapper>
-                </FeatureColumn>
-                <HeadingColumn>
-                    <h2>{props.title}</h2>
-                    <a href={props.URL} className="button_primary" target="_blank" rel="noreferrer">{props.ctaMessage}</a>
-                </HeadingColumn>
-                <video loop autoPlay muted poster={props.poster}>
-                    <source src={props.source} type="video/webm"></source>
-                </video>
-            </CaseStudyContainer>
-    )
-}

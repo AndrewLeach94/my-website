@@ -2,14 +2,14 @@ import * as React from "react"
 import { Hero } from "../components/hero"
 import { Skills } from "../components/section_skills"
 import { Bio } from "../components/section_bio"
-import { CaseStudyPromo, CaseStudyPromoReversed } from "../components/section_case-study-preview"
+import { CaseStudyPromo } from "../components/section_case-study-preview"
 import { RecordCollection } from "../components/record-collection"
 import { ContactSection } from "../components/section_contact"
 
 import designSystemPromo from "./../videos/TORSH-Design-System-Promo.webm"
 import designSystemPromoPlaceholder from "./../images/placeholders/torsh-design-system.webp"
-import CVPromo from "./../videos/cv-builder.webm"
-import CVPromoPlaceholder from "./../images/placeholders/cv-builder.webp"
+import NOLATransitPromo from "./../videos/nola-transit.webm"
+import NOLATransitPlaceholder from "./../images/placeholders/nola-transit.webp"
 import weatherNowPromo from "./../videos/weather-now.webm"
 import weatherNowPromoPlaceholder from "./../images/placeholders/weather-now.webp"
 import forgotPasswordPromo from "./../videos/forgot-password.webm"
@@ -25,6 +25,21 @@ import Layout from "../components/layout"
             <Skills />
             <CaseStudyPromo 
                 caseStudyId= "1"
+                title="NOLA Live Transit UI Overhaul"
+                ctaMessage="View Website"
+                
+                featureHeader1="Designed for New Orleanians on the Move"
+                featureDetails1="Users hunting for a bus needed an app they could quickly reference from their phones."
+                
+                featureHeader2="Single Page Layout"
+                featureDetails2="Designed specifically for every user action to be focused on a single page."
+                
+                source={NOLATransitPromo}
+                poster={NOLATransitPlaceholder}
+                URL="https://nolatransit.fly.dev/"
+            />
+            <CaseStudyPromo 
+                caseStudyId= "2"
                 title="Torsh Design System"
                 ctaMessage="Read Case Study"
                 
@@ -38,25 +53,10 @@ import Layout from "../components/layout"
                 poster={designSystemPromoPlaceholder}
                 URL="./blog/torsh-design-system"
             />
-            <CaseStudyPromoReversed
-                caseStudyId= "2"
-                title="Resume Builder"
-                ctaMessage="View Project"
-                
-                featureHeader1="Built in React"
-                featureDetails1="I figured a configurable resume builder would be an excellent opportunity to get up to speed with component states."
-                
-                featureHeader2="Easy to Use"
-                featureDetails2="Sections of the resume can be easily modified with the ability to add, edit, and delete content."
-
-                source={CVPromo}
-                poster={CVPromoPlaceholder}
-                URL="https://github.com/AndrewLeach94/cv-builder"
-            />
             <CaseStudyPromo 
                 caseStudyId= "3"
                 title="WeatherNow"
-                ctaMessage="View Project"
+                ctaMessage="View Website"
                 
                 featureHeader1="Powered by the OpenWeather API"
                 featureDetails1="This web app pulls real-time weather conditions from OpenWeather. Metric and imperial units are supported."
@@ -66,9 +66,9 @@ import Layout from "../components/layout"
 
                 source={weatherNowPromo}
                 poster={weatherNowPromoPlaceholder}
-                URL="https://github.com/AndrewLeach94/weather-app"
+                URL="https://andrewleach94.github.io/weather-app/"
             />
-            <CaseStudyPromoReversed 
+            <CaseStudyPromo 
                 caseStudyId= "4"
                 title="Forgot Password Redesign"
                 ctaMessage="Read Case Study"
