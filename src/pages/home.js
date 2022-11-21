@@ -56,7 +56,7 @@ import Layout from "../components/layout"
             <CaseStudyPromo 
                 caseStudyId= "3"
                 title="WeatherNow"
-                ctaMessage="View Project"
+                ctaMessage="View Website"
                 
                 featureHeader1="Powered by the OpenWeather API"
                 featureDetails1="This web app pulls real-time weather conditions from OpenWeather. Metric and imperial units are supported."
@@ -66,7 +66,7 @@ import Layout from "../components/layout"
 
                 source={weatherNowPromo}
                 poster={weatherNowPromoPlaceholder}
-                URL="https://github.com/AndrewLeach94/weather-app"
+                URL="https://andrewleach94.github.io/weather-app/"
             />
             <CaseStudyPromo 
                 caseStudyId= "4"
