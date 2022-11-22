@@ -192,20 +192,57 @@ export const GlobalStyles = createGlobalStyle`
 // this component handles all the styled components prefersDarkModeing logic 
 export default function Layout({ children }) {
     
-
-  /* It should be noted that I "force" the prefersDarkMode into light mode in the gatsby-ssr file during the 
+  /* Appears out of date as of 11/20/2022 (Delete later):
+  It should be noted that I "force" the prefersDarkMode into light mode in the gatsby-ssr file during the 
   initial render of the page. Currently a bug somewhere between styled-components and gatsby hydration
   ONLY applies the correct global styles when dark mode is loaded on the server side. Ideally I'd like
   to come back to this and find a better workaround other than forcing the site in light mode on 
   initial render and the useEffect alternatives that produce a flicker when serving pages 
   are a bigger no-no*/
-  const getSavedState = () => {
-    if (typeof window != "undefined") {
-      return JSON.parse(localStorage.getItem("prefersDarkMode"));
+
+
+  // const getTheme = () => {
+  //   console.log("function runs")
+  //   if (sessionStorage.prefersDarkMode === 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  //     console.log('running')
+  //     sessionStorage.setItem("prefersDarkMode", true);
+  //   }
+  //   else if (sessionStorage.prefersDarkMode) {
+  //     console.log('darktheme')
+  //     return darkTheme;
+  //   }
+  //   else {
+  //     console.log('lighttheme')
+  //     return lightTheme;
+  //   }
+  // }
+
+  const getTheme = () => {
+    if (prefersAutoMode) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return darkTheme;
+      }
+      else {
+        return lightTheme;
+      }  
+    }
+    else if (prefersDarkMode) {
+        return darkTheme;
+    }
+    else {
+      return lightTheme;
     }
   }
 
-  const [prefersDarkMode, setPrefersDarkMode] = useState(getSavedState());
+  const getSavedState = () => {
+    if (typeof window != "undefined") {
+      return JSON.parse(sessionStorage.getItem("prefersDarkMode"));
+    }
+  }
+
+  const [prefersDarkMode, setPrefersDarkMode] = useState(false);
+  const [prefersLightMode, setPrefersLightMode] = useState(false);
+  const [prefersAutoMode, setPrefersAutoMode] = useState(true);
   
   // after a prefersDarkMode is applied, the settings are saved to local storage to be received when component mounts
   const swapTheme = () => {
@@ -213,19 +250,19 @@ export default function Layout({ children }) {
   }
 
 
-  useEffect(() => {
-    if (prefersDarkMode === true) {
-      localStorage.setItem("prefersDarkMode", true);
-    } else {
-      localStorage.setItem("prefersDarkMode", false);
-    }
-  });
+  // useEffect(() => {
+  //   if (prefersDarkMode === true) {
+  //     sessionStorage.setItem("prefersDarkMode", true);
+  //   } else {
+  //     sessionStorage.setItem("prefersDarkMode", false);
+  //   }
+  // });
   
   
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={prefersDarkMode === true ? darkTheme : lightTheme}>
+      <ThemeProvider theme={getTheme}>
       <GlobalStyles />
       <Navigation swapTheme={swapTheme} buttonIcon={prefersDarkMode ? <FaRegMoon /> : <FaSun />} />
           {children}
