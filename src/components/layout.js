@@ -218,7 +218,7 @@ export default function Layout({ children }) {
   // }
 
   const getTheme = () => {
-    if (prefersAutoMode) {
+    if (sessionStorage.prefersDarkMode === undefined) {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return darkTheme;
       }
@@ -226,7 +226,7 @@ export default function Layout({ children }) {
         return lightTheme;
       }  
     }
-    else if (prefersDarkMode) {
+    else if (prefersDarkMode === 'dark') {
         return darkTheme;
     }
     else {
@@ -240,23 +240,68 @@ export default function Layout({ children }) {
     }
   }
 
-  const [prefersDarkMode, setPrefersDarkMode] = useState(false);
-  const [prefersLightMode, setPrefersLightMode] = useState(false);
-  const [prefersAutoMode, setPrefersAutoMode] = useState(true);
-  
-  // after a prefersDarkMode is applied, the settings are saved to local storage to be received when component mounts
-  const swapTheme = () => {
-      setPrefersDarkMode(!prefersDarkMode);
+  const getInitialIcon = () => {
+    console.log(prefersDarkMode);
+    if (prefersDarkMode === undefined) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return <FaRegMoon />
+      }
+      else {
+        return <FaSun />
+      }
+    }
+    else if (prefersDarkMode === 'dark') {
+      return <FaRegMoon />
+  }
+    else {
+      return <FaSun />
+    }
   }
 
+  const [prefersDarkMode, setPrefersDarkMode] = useState(sessionStorage.prefersDarkMode);
+  // const [prefersLightMode, setPrefersLightMode] = useState(false);
+  // const [menuIcon, setMenuIcon] = useState(prefersDarkMode === 'dark' ? <FaRegMoon /> : <FaSun /> );
+  const [menuIcon, setMenuIcon] = useState(getInitialIcon());
+  
+  // after a prefersDarkMode is applied, the settings are saved to local storage to be received when component mounts
+  const toggleDarkTheme = () => {
+  }
+  
+  const toggleLightTheme = () => {
+  }
 
-  // useEffect(() => {
-  //   if (prefersDarkMode === true) {
-  //     sessionStorage.setItem("prefersDarkMode", true);
-  //   } else {
-  //     sessionStorage.setItem("prefersDarkMode", false);
-  //   }
-  // });
+  const toggleTheme = () => {
+    if (prefersDarkMode === 'dark') {
+      setPrefersDarkMode('light');
+      sessionStorage.setItem('prefersDarkMode', 'light');
+      setMenuIcon(<FaSun />);
+    }
+    else {
+      setPrefersDarkMode('dark');
+      sessionStorage.setItem('prefersDarkMode', 'dark');
+      setMenuIcon(<FaRegMoon />);
+    }
+  }
+  
+  // const getThemeIcon = () => {
+  //     if (darkModeMenuIcon) {
+  //       return <FaRegMoon />;
+  //     }
+  //     else {
+  //       return <FaSun />;
+  //     }
+  // }
+// sets the preferred theme state for new users without session storage on initial render
+  useEffect(() => {
+    if (sessionStorage.prefersDarkMode === undefined) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setPrefersDarkMode('dark');
+      }
+      else {
+        setPrefersDarkMode('light');
+      }  
+    }
+  }, []);
   
   
 
@@ -264,7 +309,9 @@ export default function Layout({ children }) {
     <React.Fragment>
       <ThemeProvider theme={getTheme}>
       <GlobalStyles />
-      <Navigation swapTheme={swapTheme} buttonIcon={prefersDarkMode ? <FaRegMoon /> : <FaSun />} />
+        {/* <Navigation swapTheme={toggleDarkTheme} buttonIcon={null} /> */}
+      {/* <Navigation swapTheme={swapTheme} buttonIcon={prefersDarkMode ? <FaRegMoon /> : <FaSun />} /> */}
+      <Navigation swapTheme={toggleTheme} buttonIcon={menuIcon} />
           {children}
         <Footer />
       </ThemeProvider>

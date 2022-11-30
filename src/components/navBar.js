@@ -215,8 +215,8 @@ export const Navigation = (props) => {
                     <li><Link to="/#contact" onClick={() => handleMobileLinkClick()}>Contact</Link></li>
                     <li><Link to="/blog">Blog</Link></li>
                     <li><a href="https://vimeo.com/andrewleach" target="_blank">Video Vault</a></li>
-                    {/* <button onClick={swapTheme}>{buttonIcon}</button> */}
-                    <input type="radio" label="Dark Mode"/>
+                    <button onClick={swapTheme}>{buttonIcon}</button>
+                    {/* <input type="radio" label="Dark Mode"/> */}
                 </ul>
             </NavBar>
         </NavParent>
