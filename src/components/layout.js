@@ -194,26 +194,17 @@ export default function Layout({ children }) {
   theme after render if users have their browser preference set to light. IDEALLY the respective theme should
   be set before the page ever loads but SSR makes this a royal pain in the ass. Maybe I'll return to 
   making that update when a clean solution emerges.*/
-    
-  const getTheme = () => {
-    if (prefersDarkMode === 'dark') {
-        return darkTheme;
-    }
-    else {
-      return lightTheme;
-    }
-  }
   
-  const [prefersDarkMode, setPrefersDarkMode] = useState('dark');
+  const [prefersDarkMode, setPrefersDarkMode] = useState(true);
   const [menuIcon, setMenuIcon] = useState(<FaRegMoon />);
   
   const toggleTheme = () => {
-    if (prefersDarkMode === 'dark') {
-      setPrefersDarkMode('light');
+    if (prefersDarkMode) {
+      setPrefersDarkMode(false);
       setMenuIcon(<FaSun />);
     }
     else {
-      setPrefersDarkMode('dark');
+      setPrefersDarkMode(true);
       setMenuIcon(<FaRegMoon />);
     }
   }
@@ -221,7 +212,7 @@ export default function Layout({ children }) {
 // sets the preferred theme state for new users without session storage on initial render
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      setPrefersDarkMode('light');
+      setPrefersDarkMode(false);
       setMenuIcon(<FaSun />)
     }
   }, []);
@@ -230,7 +221,7 @@ export default function Layout({ children }) {
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={getTheme}>
+      <ThemeProvider theme={prefersDarkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
       <Navigation swapTheme={toggleTheme} buttonIcon={menuIcon} />
           {children}
