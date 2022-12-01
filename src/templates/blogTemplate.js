@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import Layout from "../components/layout"
 import { BlogBio } from "../components/blog_bio"
 import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components"
@@ -195,7 +194,6 @@ export default function Template({
 
   return (
     <div className="blog-post-parent">
-    <Layout >
       <PostParent>
           <header className="blog-header">
                 <GatsbyImage image={featuredImgFluid} alt="Featured Image" className="featured-image" />
@@ -209,7 +207,6 @@ export default function Template({
           <BlogBio />
           <Link to="/blog" className="button_primary">Back to Blog</Link>
         </PostParent>
-      </Layout>
     </div>
   );
 }
