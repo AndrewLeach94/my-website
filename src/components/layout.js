@@ -196,34 +196,19 @@ export default function Layout({ children }) {
   making that update when a clean solution emerges.*/
   
   const [prefersDarkMode, setPrefersDarkMode] = useState(true);
-  const [menuIcon, setMenuIcon] = useState(<FaRegMoon />);
-  
-  const toggleTheme = () => {
-    if (prefersDarkMode) {
-      setPrefersDarkMode(false);
-      setMenuIcon(<FaSun />);
-    }
-    else {
-      setPrefersDarkMode(true);
-      setMenuIcon(<FaRegMoon />);
-    }
-  }
-  
+    
 // sets the preferred theme state for new users without session storage on initial render
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: light)').matches) {
       setPrefersDarkMode(false);
-      setMenuIcon(<FaSun />)
     }
   }, []);
   
-  
-
   return (
     <React.Fragment>
       <ThemeProvider theme={prefersDarkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
-      <Navigation swapTheme={toggleTheme} buttonIcon={menuIcon} />
+      <Navigation swapTheme={() => setPrefersDarkMode(!prefersDarkMode)} buttonIcon={prefersDarkMode ? <FaRegMoon /> : <FaSun />} />
           {children}
         <Footer />
       </ThemeProvider>
