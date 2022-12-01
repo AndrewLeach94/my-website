@@ -190,78 +190,39 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 export default function Layout({ children }) {
-  /* the initial theme will be the user's browser preference. Users can later toggle light/dark 
-  using sessionStorage. This could later be refactored to remove extra logic so that the layout state 
-  persists across different pages instead of resetting*/
+  /* Theme loads in as dark mode by default on initial render. It will automatically update to the light
+  theme after render if users have their browser preference set to light. IDEALLY the respective theme should
+  be set before the page ever loads but SSR makes this a royal pain in the ass. Maybe I'll return to 
+  making that update when a clean solution emerges.*/
     
   const getTheme = () => {
-    if (sessionStorage.prefersDarkMode === undefined) {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return darkTheme;
-      }
-      else {
-        return lightTheme;
-      }  
-    }
-    else if (prefersDarkMode === 'dark') {
+    if (prefersDarkMode === 'dark') {
         return darkTheme;
     }
     else {
       return lightTheme;
     }
   }
-
-  const getInitialThemeState = () => {
-    if (typeof window != undefined) {
-      return sessionStorage.prefersDarkMode;
-    } else {
-      return null;
-    }
-  }
   
-  // logic here exists to allow an icon to render across pages before any theme state exists
-  const getInitialIcon = () => {
-    if (prefersDarkMode === undefined) {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return <FaRegMoon />
-      }
-      else {
-        return <FaSun />
-      }
-    }
-    else if (prefersDarkMode === 'dark') {
-      return <FaRegMoon />
-  }
-    else {
-      return <FaSun />
-    }
-  }
-
-  const [prefersDarkMode, setPrefersDarkMode] = useState(getInitialThemeState());
-  const [menuIcon, setMenuIcon] = useState(getInitialIcon());
+  const [prefersDarkMode, setPrefersDarkMode] = useState('dark');
+  const [menuIcon, setMenuIcon] = useState(<FaRegMoon />);
   
   const toggleTheme = () => {
     if (prefersDarkMode === 'dark') {
       setPrefersDarkMode('light');
-      sessionStorage.setItem('prefersDarkMode', 'light');
       setMenuIcon(<FaSun />);
     }
     else {
       setPrefersDarkMode('dark');
-      sessionStorage.setItem('prefersDarkMode', 'dark');
       setMenuIcon(<FaRegMoon />);
     }
   }
   
 // sets the preferred theme state for new users without session storage on initial render
   useEffect(() => {
-    if (sessionStorage.prefersDarkMode === undefined) {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setPrefersDarkMode('dark');
-      }
-      else {
-        setPrefersDarkMode('light');
-      }  
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      setPrefersDarkMode('light');
+      setMenuIcon(<FaSun />)
     }
   }, []);
   

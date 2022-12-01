@@ -14,13 +14,11 @@ import weatherNowPromo from "./../videos/weather-now.webm"
 import weatherNowPromoPlaceholder from "./../images/placeholders/weather-now.webp"
 import forgotPasswordPromo from "./../videos/forgot-password.webm"
 import forgotPasswordPromoPlaceholder from "./../images/placeholders/forgot-password.webp"
-import Layout from "../components/layout"
 
 
  const HomePage = () => {
     return(
         <div id="homePage">
-        <Layout>
             <Hero />
             <Skills />
             <CaseStudyPromo 
@@ -86,7 +84,6 @@ import Layout from "../components/layout"
             <Bio />
             <RecordCollection />
             <ContactSection />
-        </Layout>
         </div>
     )
 };
