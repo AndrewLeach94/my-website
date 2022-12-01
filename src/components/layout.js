@@ -210,10 +210,17 @@ export default function Layout({ children }) {
       return lightTheme;
     }
   }
+
+  const getInitialThemeState = () => {
+    if (typeof window != undefined) {
+      return sessionStorage.prefersDarkMode;
+    } else {
+      return null;
+    }
+  }
   
   // logic here exists to allow an icon to render across pages before any theme state exists
   const getInitialIcon = () => {
-    console.log(prefersDarkMode);
     if (prefersDarkMode === undefined) {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return <FaRegMoon />
@@ -230,7 +237,7 @@ export default function Layout({ children }) {
     }
   }
 
-  const [prefersDarkMode, setPrefersDarkMode] = useState(sessionStorage.prefersDarkMode);
+  const [prefersDarkMode, setPrefersDarkMode] = useState(getInitialThemeState());
   const [menuIcon, setMenuIcon] = useState(getInitialIcon());
   
   const toggleTheme = () => {
