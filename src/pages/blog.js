@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import PostLink from "../components/post-link"
-import Layout from "../components/layout"
 import { device } from "../components/breakpoints"
 import styled from "styled-components"
 import { BlogBio } from "../components/blog_bio"
@@ -180,33 +179,31 @@ const CategoryContainer = styled.div`
 
   return (
         <div>
-          <Layout >
-            <BlogParent>
-              <header>
-                <h1>The Blog</h1>
-                <FeaturedGrid>
-                  <div className="blog-thumbnail" id="featured-post">
-                    {generateFeaturedPost()}
-                  </div>
-                  <div className="featured_most-recent">
-                    {generateMostRecentPosts()}
-                  </div>
-                </FeaturedGrid>
-              </header>
-                <CategoryContainer>
-                  <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
-                  <button className="button_tertiary" onClick={() => changeFilter("Tech & Design")}>Tech & Design</button>
-                  <button className="button_tertiary" onClick={() => changeFilter("Case Study")}>Case Studies</button>
-                  <button className="button_tertiary" onClick={() => changeFilter("Travel")}>Travel</button>
-                  <button className="button_tertiary" onClick={() => changeFilter("Random")}>Random</button>
-                </CategoryContainer>
-                <p>Showing results for <b>{currentFilter}</b></p>
-                <PostsContainer>
-                    {filterPosts("most-recent")}
-                </PostsContainer>
-                <BlogBio />
-              </BlogParent>
-          </Layout>
+          <BlogParent>
+            <header>
+              <h1>The Blog</h1>
+              <FeaturedGrid>
+                <div className="blog-thumbnail" id="featured-post">
+                  {generateFeaturedPost()}
+                </div>
+                <div className="featured_most-recent">
+                  {generateMostRecentPosts()}
+                </div>
+              </FeaturedGrid>
+            </header>
+              <CategoryContainer>
+                <button className="button_tertiary" onClick={() => changeFilter("All Posts")}>All</button>
+                <button className="button_tertiary" onClick={() => changeFilter("Tech & Design")}>Tech & Design</button>
+                <button className="button_tertiary" onClick={() => changeFilter("Case Study")}>Case Studies</button>
+                <button className="button_tertiary" onClick={() => changeFilter("Travel")}>Travel</button>
+                <button className="button_tertiary" onClick={() => changeFilter("Random")}>Random</button>
+              </CategoryContainer>
+              <p>Showing results for <b>{currentFilter}</b></p>
+              <PostsContainer>
+                  {filterPosts("most-recent")}
+              </PostsContainer>
+              <BlogBio />
+            </BlogParent>
         </div>
     )
 }

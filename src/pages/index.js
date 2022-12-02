@@ -1,6 +1,7 @@
 import * as React from "react"
 import HomePage from "./home"
 import { Helmet } from "react-helmet"
+import Layout from "../components/layout"
 
 
 
@@ -17,4 +18,5 @@ const IndexPage = (props) => {
   )
 }
 
+IndexPage.Layout = Layout
 export default IndexPage

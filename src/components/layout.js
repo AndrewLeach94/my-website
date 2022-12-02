@@ -189,45 +189,26 @@ export const GlobalStyles = createGlobalStyle`
 
 `
 
-// this component handles all the styled components prefersDarkModeing logic 
 export default function Layout({ children }) {
+  /* Theme loads in as dark mode by default on initial render. It will automatically update to the light
+  theme after render if users have their browser preference set to light. IDEALLY the respective theme should
+  be set before the page ever loads but SSR makes this a royal pain in the ass. Maybe I'll return to 
+  making that update when a clean solution emerges.*/
+  
+  const [prefersDarkMode, setPrefersDarkMode] = useState(true);
     
-
-  /* It should be noted that I "force" the prefersDarkMode into light mode in the gatsby-ssr file during the 
-  initial render of the page. Currently a bug somewhere between styled-components and gatsby hydration
-  ONLY applies the correct global styles when dark mode is loaded on the server side. Ideally I'd like
-  to come back to this and find a better workaround other than forcing the site in light mode on 
-  initial render and the useEffect alternatives that produce a flicker when serving pages 
-  are a bigger no-no*/
-  const getSavedState = () => {
-    if (typeof window != "undefined") {
-      return JSON.parse(localStorage.getItem("prefersDarkMode"));
-    }
-  }
-
-  const [prefersDarkMode, setPrefersDarkMode] = useState(getSavedState());
-  
-  // after a prefersDarkMode is applied, the settings are saved to local storage to be received when component mounts
-  const swapTheme = () => {
-      setPrefersDarkMode(!prefersDarkMode);
-  }
-
-
+// sets the preferred theme state for new users without session storage on initial render
   useEffect(() => {
-    if (prefersDarkMode === true) {
-      localStorage.setItem("prefersDarkMode", true);
-    } else {
-      localStorage.setItem("prefersDarkMode", false);
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      setPrefersDarkMode(false);
     }
-  });
+  }, []);
   
-  
-
   return (
     <React.Fragment>
-      <ThemeProvider theme={prefersDarkMode === true ? darkTheme : lightTheme}>
+      <ThemeProvider theme={prefersDarkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
-      <Navigation swapTheme={swapTheme} buttonIcon={prefersDarkMode ? <FaRegMoon /> : <FaSun />} />
+      <Navigation swapTheme={() => setPrefersDarkMode(!prefersDarkMode)} buttonIcon={prefersDarkMode ? <FaRegMoon /> : <FaSun />} />
           {children}
         <Footer />
       </ThemeProvider>
