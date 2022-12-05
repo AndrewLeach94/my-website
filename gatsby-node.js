@@ -4,21 +4,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const blogPostTemplate = require.resolve(`./src/templates/blogTemplate.js`)
   
     const result = await graphql(`
-      {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              frontmatter {
-                slug
-              }
-            }
-          }
+{
+  allMarkdownRemark(sort: {frontmatter: {date: DESC}}, limit: 1000) {
+    edges {
+      node {
+        frontmatter {
+          slug
         }
       }
-    `)
+    }
+  }
+}    `)
   
     // Handle errors
     if (result.errors) {
