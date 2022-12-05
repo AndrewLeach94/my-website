@@ -211,7 +211,7 @@ const CategoryContainer = styled.div`
 export default BlogHome
 
 export const pageQuery = graphql`{
-  allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+  allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
     edges {
       node {
         id
