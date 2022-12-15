@@ -1,8 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 import SeattleVideo from "./../videos/seattle-animated.webm"
-import SeattlePoster from "./../images/placeholders/seattle-day.webp"
-import SeattleDay from "./../images/placeholders/seattle-night.webp"
+import SeattleNight from "./../images/placeholders/seattle-night.webp"
 
 const HeroContainer = styled.section`
     height: 100vh;
@@ -87,8 +86,8 @@ const BackgroundNight = styled.img`
                 <a href="#case-study-1" className="button_primary">View Projects</a>
                 <a href="#contact" className="button_primary">Get in Touch</a>
             </ButtonContainer>
-            <BackgroundNight alt="Seattle" src={SeattleDay} />
-            <BackgroundVideo autoPlay muted loop poster={SeattlePoster}>
+            <BackgroundNight alt="Seattle" src={SeattleNight} />
+            <BackgroundVideo autoPlay muted loop poster={SeattleNight}>
                 <source src={SeattleVideo} type="video/webm"></source>
             </BackgroundVideo>
         </HeroContainer>
