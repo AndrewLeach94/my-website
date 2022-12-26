@@ -9,6 +9,6 @@ https://andrewleach.design/
 Ensure you have the latest version of `gatsby-cli` installed. Pull this repository and run `npm-install` followed by `gatsby-develop`.
 
 ## Wishlist (fancy word for work I still need to do)
-- [ x ] Add blog categories
+- [x] Add blog categories
 - [ ] Add blog search
 - [ ] Add blog pagination
