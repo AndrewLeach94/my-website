@@ -13,7 +13,6 @@ const ContactParent = styled.section`
 
     h2 {
         font-size: 5.61rem;
-        background: linear-gradient(-90deg, #0000 50% , var(--primary_base) 50%);
         background-size: 200%;
         background-position-x: -100%;
         padding: 0 20px;
@@ -22,6 +21,7 @@ const ContactParent = styled.section`
 
 
         :hover {
+            background-image: linear-gradient(-90deg, #0000 50% , var(--primary_base) 50%);
             background-position-x: -200%;
             color: var(--on_primary);
             transition: 0.2s;
