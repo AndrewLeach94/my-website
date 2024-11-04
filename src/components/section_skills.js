@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
-import { SiJavascript, SiAdobecreativecloud, SiTailwindcss, SiTypescript } from 'react-icons/si';
-import { FaHtml5, FaCss3Alt, FaReact, FaFigma, FaUsers, FaHeart, FaPhoenixFramework, FaAngular } from 'react-icons/fa';
+import { SiAdobecreativecloud, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaReact, FaFigma, FaUsers, FaHeart, FaAngular } from 'react-icons/fa';
 import { AnimatedLogo } from "./animations/animated-logo";
 
 
